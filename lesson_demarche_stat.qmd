@@ -113,12 +113,12 @@ La statistique s'intéresse à des jeux de données de taille raisonnable, fréq
 ## Les statistiques sont (utilisées) partout
 
 ::: r-stack
-::: {layout-ncol="3"}
-![](images/co2_rich.PNG){.fragment height="180"}
+::: {layout-nrow="3"}
+![](images/co2_rich.PNG){.fragment width="80%"}
 
-![](images/covid_groupe_sanguin.PNG){.fragment height="180"}
+![](images/covid_groupe_sanguin.PNG){.fragment width="80%"}
 
-![](images/figaro.PNG){.fragment height="180"}
+![](images/figaro.PNG){.fragment width="80%"}
 :::
 :::
 
@@ -160,7 +160,7 @@ Ex. où renforcer l'avion ?
 
 . . .
 
-Ex. **paradoxe de Simpson** ([Vidéo complète sur le sujet] (https://www.youtube.com/watch?v=vs_Zzf_vL2I&ab_channel=ScienceEtonnante){style="color:blue;"} de Science Etonnante)
+Ex. **paradoxe de Simpson** ([Vidéo complète sur le sujet](https://www.youtube.com/watch?v=vs_Zzf_vL2I&ab_channel=ScienceEtonnante){style="color:blue;"} de Science Etonnante)
 
 ```{r, eval = FALSE}
 
@@ -340,7 +340,6 @@ ggsave(plot = plot_population_and_sample_inference, filename = "lesson/images/pl
 ## Décrire les données à l'aide d'indicateurs
 
 ::: {style="font-size: 85%;"}
-
 Soit $x_1, x_2, ..., x_n$ une série de $n$ valeurs d'une variable X. On peut les décrire en utilisant des indicateurs de [position]{style="color:blue;"} et de [dispersion]{style="color:red;"} (que vous connaissez probablement)
 
 -   [moyenne:]{style="color:blue;"} $\color{blue}{\bar{x} = \frac{1}{n} \sum x_i = \frac{x_1 + x_2 + ... + x_n}{n}}$
@@ -350,7 +349,6 @@ Soit $x_1, x_2, ..., x_n$ une série de $n$ valeurs d'une variable X. On peut le
 -   [quantile $\alpha$:]{style="color:blue;"} $\color{blue}{q_\alpha(x) = }$ valeur telle que $100 \times \alpha$ % des $x_i$ ont une valeur inférieure et $100 - 100 \times \alpha$% une valeur supérieure
 -   [variance:]{style="color:red;"} $\color{red}{s^2(x) = \hat{\sigma}^2(x) = \frac{1}{n-1}  \sum (x_i - \bar{x})^2}$
 -   [écart-type:]{style="color:red;"} $\color{red}{s(x) = \sqrt{s^2(x)}}$
-
 :::
 
 ```{r, eval = FALSE}
@@ -436,8 +434,8 @@ head(ozone)
     -   nature des données (nature des variables, nb d'individus)
 
     -   probématique: qu'est-ce que je veux montrer ?
-
-    -   ![](images/data-to-viz.com)
+    
+    -  [le site data-to-viz.com](data-to-viz.com){style="color:blue;"} permet de trouver de bonnes idées
 
 . . .
 
@@ -1337,8 +1335,6 @@ On minimise le **critère des moindres carrés ordinaires**
 $$   SCER  =  \sum_{i=1}^{I}\sum_{j=1}^{n_i}\left( Y_{ij} - \hat Y_{ij} \right)^{2}=\sum_{i=1}^{I}\sum_{j=1}^{n_i} \left( Y_{ij} - (\hat\mu +\hat\alpha_i) \right)^{2} $$
 
 $$\mbox{SCER minimal quand }\forall~i,~\hat\mu +\hat\alpha_i=\frac{1}{n_i}\sum_{j=1}^{n_i}Y_{ij}=Y_{i\bullet}$$
-
-
 ```
 . . .
 
@@ -1583,7 +1579,6 @@ Totale & $\displaystyle{\sum_{i,j}(Y_{ij}-Y_{\bullet \bullet})^2}$ & $n-1$&& \\
   \hline
 \end{tabular}
 \end{center}
-
 ```
 . . .
 
@@ -1867,7 +1862,7 @@ Oui, mais... la présence d'une corrélation suppose généralement un lien
 Ex. pour rigoler:
 :::
 
-![](images/spurious_cor.svg){width="60%" fig-align="center" height="250"} 
+![](images/spurious_cor.svg){width="60%" fig-align="center" height="250"}
 
 . . .
 
@@ -1880,7 +1875,6 @@ Ok, mais cette affirmation ne doit pas servir à réfuter toute association cons
 ![](images/illu_corr.jpg){width="80%" fig-align="center" height="550"}
 
 ## (Re)Mettons les mains dans le cambouis
-
 
 Le modèle de régression linéaire simple s'écrit ainsi:
 
@@ -1986,7 +1980,6 @@ Total & SCT & n-1 &  & \\
 \hline
 \end{tabular}
 \end{center}
-
 ```
 :::
 
@@ -2453,7 +2446,6 @@ Y_n \\
 \vdots \\
 \varepsilon_n \\
 \end{array} \right)$$
-
 ```
 . . .
 
@@ -2541,7 +2533,7 @@ L'ensemble de variables ${\mathcal V}$ apporte-t-il des informations complément
 
 \vfill
 
-\bf Hypothéses : $H_0$:"tous les coefficients associés aux variables de ${\mathcal V}$ sont égaux à 0" contre $H_1$ : "au moins un coefficient des variables ${\mathcal V} \neq$ 0
+\bf Hypothéses : \\\\\\\$H_0\\\\\\\$:"tous les coefficients associés aux variables de \\\\\\\${\\\\\\\\mathcal V}\\\\\\\$ sont égaux à 0" contre \\\\\\\$H_1\\\\\\\$ : "au moins un coefficient des variables \\\\\\\${\\\\\\\\mathcal V} \\\\\\\\neq\\\\\\\$ 0
 
 ```{=tex}
 \bf Statistique de test : $\displaystyle{F_{obs}=\frac{SC_{\mathcal V}/ddl_{\mathcal V}}{SC_R/ddl_R}=\frac{CM_{\mathcal V}}{CM_R} }$
@@ -2551,7 +2543,7 @@ L'ensemble de variables ${\mathcal V}$ apporte-t-il des informations complément
 \bf Loi de la statistique de test : Sous $H_0$, ${\mathcal L}(F_{obs}) = {\mathcal F}_{ddl_R}^{ddl_{\mathcal V}}$
 \vfill
 ```
-\bf Décision : $\mathbb{P}({\mathcal F}_{ddl_{\mathcal V}}^{ddl_R}>F_{obs}) < 0.05~~\Longrightarrow$ Rejet de $H_0$
+\bf Décision : \\\\\\\$\\\\\\\\mathbb{P}({\\\\\\\\mathcal F}\\\\\\\_{ddl\\\\\\\_{\\\\\\\\mathcal V}}\\\\\\\^{ddl_R}\\\\\\\>F\\\\\\\_{obs}) \\\\\\\< 0.05\\\\\\\~\\\\\\\~\\\\\\\\Longrightarrow\\\\\\\$ Rejet de \\\\\\\$H_0\\\\\\\$
 
 . . .
 
@@ -2641,7 +2633,7 @@ La matrice de design $X$ (dans $Y = X\beta + E$) a autant de lignes que d'indivi
 
 ::: {style="font-size: 70%;"}
 | a                        | Constante ($\mu$ ou $\beta_0$) | Variable quanti       | Variable Quali                                                                   | Interaction quali -quali                                                                                                                  |
-|---------------|---------------|---------------|---------------|---------------|
+|------------|------------|------------|-------------|-------------------------|
 | Représentation dans X    | Une colonne de 1               | Valeur de la variable | (I-1) colonnes par modalités de chaque variable à I modalités                    | (I-1)\*(J-1) colonnes                                                                                                                     |
 | Degrés de libertés (ddl) | 1                              | 1                     | I-1                                                                              | (I-1)\*(J-1)                                                                                                                              |
 | Commentaires             |                                |                       | Contrainte à poser sur les paramètres (le mieux est $\sum_{i=1}^n \alpha_i = 0$) | Contrainte à poser sur les paramètres (le mieux est $\forall i, \sum_j \alpha \beta_{ij} =0$ et $\forall j, \sum_i \alpha \beta_{ij} =0$) |
@@ -2737,7 +2729,6 @@ $$\begin{array}{c}
 \forall j,~\hat\beta_j=y_{\bullet j \bullet}-y_{\bullet \bullet \bullet}~~~~~~~~~~~~
 \forall i,j~\widehat{\alpha\beta}_{ij}=y_{ij \bullet}-y_{i\bullet \bullet}-y_{\bullet j\bullet}+y_{\bullet \bullet \bullet}
 \end{array}$$
-
 ```
 . . .
 
