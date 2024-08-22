@@ -1,0 +1,4 @@
+- source: lesson_demarche_stat.qmd
+  netlify:
+    - id: 1f3fb2db-96df-4e45-9e64-924282c30e80
+      url: 'https://imaginative-mochi-c44d26.netlify.app'
