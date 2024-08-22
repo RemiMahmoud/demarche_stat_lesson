@@ -456,7 +456,7 @@ Sur ![](images/R_logo.svg.png){fig-align="center" width="5%"}, le package `ggplo
 
 . . .
 
-Idée générale:
+Idée générale:globa
 
 ![](images/building_blocks_ggplot.png)
 
@@ -622,7 +622,7 @@ ggplot(ozone, aes(x = T9, y= maxO3, color = vent)) + # ajout d'une couleur
 ```{r, echo = TRUE, cache=TRUE}
 #| output-location: column-fragment
 #| fig-width: 5
-#| fig-height: 3
+#| fig-height: 2
 
 
 
