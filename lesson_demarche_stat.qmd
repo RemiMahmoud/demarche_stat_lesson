@@ -17,6 +17,7 @@ filters:
   - collapse-callout
 execute:
   freeze: auto
+  error: true
 
 collapse-callout:
   tip: true
@@ -25,6 +26,11 @@ collapse-callout:
   caution: true
   important: false
 ---
+
+# Introduction
+
+::: {style="font-size: 140%;"}
+## Objectifs
 
 ```{css, echo=FALSE}
 .my_class1 {
@@ -45,6 +51,14 @@ width: 200px;
   
 }
 
+
+/* size of code font, specify in the beginning of the chunks if needed */
+
+.my_class_code_small {
+  font-size: 0.45em !important;
+  
+}
+
 /* size of code output, applied to everything */
 
 .reveal pre {
@@ -53,10 +67,8 @@ width: 200px;
 
 ```
 
-# Introduction
 
-::: {style="font-size: 140%;"}
-## Objectifs
+
 
 -   Aborder problèmes courants en analyse de données
 -   Argumenter le choix de procédures d'analyses
@@ -194,8 +206,8 @@ Ex. **paradoxe de Simpson** ([Vidéo complète sur le sujet](https://www.youtube
 # # 
 # # plot_all | plot_by_age
 # # 
-# ggsave(plot =plot_all, filename = "lesson/images/death_rate_all.png", dpi = "retina", width = 15, height = 8, unit = 'cm')
-# ggsave(plot = plot_by_age, filename = "lesson/images/death_rate_by_age.png", dpi = "retina", width = 15, height = 8, unit = 'cm')
+# ggsave(plot =plot_all, filename = "images/death_rate_all.png", dpi = "retina", width = 15, height = 8, unit = 'cm')
+# ggsave(plot = plot_by_age, filename = "images/death_rate_by_age.png", dpi = "retina", width = 15, height = 8, unit = 'cm')
 
 # plot_size_sample <- simpsons_paradox_covid  %>%
 #   ggplot(aes(x = vaccine_status, fill = age_group)) +
@@ -204,7 +216,7 @@ Ex. **paradoxe de Simpson** ([Vidéo complète sur le sujet](https://www.youtube
 #   theme_bw() + theme(legend.position = "bottom")
 # 
 # 
-# ggsave(plot = plot_size_sample, filename = "lesson/images/size_sample.png", dpi = "retina", width = 15, height = 10, unit = 'cm')
+# ggsave(plot = plot_size_sample, filename = "images/size_sample.png", dpi = "retina", width = 15, height = 10, unit = 'cm')
 
 ```
 
@@ -305,9 +317,9 @@ plot_population_and_sample_inference <-ggplot() +
   geom_label(aes(x =  2.45, y= 1.8, label = "Population"))  +
   geom_label(aes(x =  2.3, y= 1.35, label = "Inférence"))  
 
-ggsave(plot = plot_population, filename = "lesson/images/plot_population.png", dpi = "retina", width = 8, height = 4, unit = 'cm', scale = 3.5)
-ggsave(plot = plot_population_and_sample, filename = "lesson/images/plot_population_and_sample.png", dpi = "retina", width = 8, height = 4, unit = 'cm', scale = 3.5)
-ggsave(plot = plot_population_and_sample_inference, filename = "lesson/images/plot_population_and_sample_inference.png", dpi = "retina", width = 8, height = 4, unit = 'cm', scale = 3.5)
+ggsave(plot = plot_population, filename = "images/plot_population.png", dpi = "retina", width = 8, height = 4, unit = 'cm', scale = 3.5)
+ggsave(plot = plot_population_and_sample, filename = "images/plot_population_and_sample.png", dpi = "retina", width = 8, height = 4, unit = 'cm', scale = 3.5)
+ggsave(plot = plot_population_and_sample_inference, filename = "images/plot_population_and_sample_inference.png", dpi = "retina", width = 8, height = 4, unit = 'cm', scale = 3.5)
 
 ```
 
@@ -382,14 +394,14 @@ plot_summary <- data_plot_summary_stat %>%
   geom_label(fill = "grey90",data= data_summary, aes(x = 0.1, y = min), inherit.aes = FALSE, label  = "min", size = 5.5)  +
   geom_label(fill = "grey90",data= data_summary, aes(x = -0.7, y = median), inherit.aes = FALSE, label  = "étendue (range)", angle = 90, size = 5.5)  +
   geom_label(fill = "grey90",data= data_summary, aes(x = 0.8, y = median), inherit.aes = FALSE, label  = "Ecart inter-quartiles\n(IQR)", angle = - 90, size = 5.5)  +
-  geom_label(fill = "grey90",data= data_summary, aes(x = 0.7, y = quant_25), inherit.aes = FALSE, label  = latex2exp::TeX("$q_{0.25}(x)$ (premier quartile)"), size = 5.5)  +
+  geom_label(fill = "grey90",data= data_summary, aes(x = 0.7, y = quant_25 - 0.5), inherit.aes = FALSE, label  = latex2exp::TeX("$q_{0.25}(x)$ (premier quartile)"), size = 5.5)  +
   geom_label(fill = "grey90",data= data_summary, aes(x = 0.7, y = quant_75 + 0.5), inherit.aes = FALSE, label  = latex2exp::TeX("$q_{0.75}(x)$ (troisième quartile)"), size = 5.5)  +
   geom_label(fill = "grey90",data= data_summary, aes(x = 0.58, y = mean), inherit.aes = FALSE, label  = "Moyenne", angle = -90, size = 5.5)  +
   geom_label(fill = "grey90",data= data_summary, aes(x =  - 0.58, y = median), inherit.aes = FALSE, label  = "Médiane", angle = 90, size = 5.5)  
   
   
 
-ggsave(plot = plot_summary, filename = "lesson/images/plot_descriptors.png", dpi = "retina", width = 10, height = 5.5, unit = 'cm', scale = 3.5)
+ggsave(plot = plot_summary, filename = "images/plot_descriptors.png", dpi = "retina", width = 10, height = 5.5, unit = 'cm', scale = 3.5)
 
 ```
 
@@ -654,13 +666,10 @@ Quid d'une interaction potentielle vent pluie ?
 #| class-source: my_class_code
 
 x <- 1:3
-
 max(x)
 
 library(dplyr) # permet d'utiliser %>% 
-
 x %>% max # equivaut à max(x)
-
 ```
 :::
 
@@ -777,13 +786,22 @@ $$\bar X \sim {\cal N} (\mu, \sigma^2/n) \quad   \mbox{et donc} \quad \frac{\bar
 
 . . .
 
+
+::: {style="font-size: 90%;"}
+
 -   En pratique, $\sigma^2$ rarement connu, et donc doit être estimé à partir de l'échantillon
 
+:::
 . . .
+
+::: {style="font-size: 90%;"}
 
 -   $\Longrightarrow$ augmente un peu l'incertitude $\Longrightarrow$ utilisation d'une loi de Student $(n-1)$ degrés de liberté (plutôt qu'une loi normale) : $\frac{\bar X - \mu}{\sqrt{S^2/n}} \sim \mathcal{T}(n-1)$
 
+:::
 . . .
+
+::: {style="font-size: 90%;"}
 
 D'où l'intervalle de confiance de $\mu$ au niveau de confiance 95%:
 
@@ -798,6 +816,8 @@ mean(x) - qt(0.975,df = 111)*sd(x)/sqrt(length(x))
 mean(x) + qt(0.975,df = 111)*sd(x)/sqrt(length(x))
 
 ```
+
+:::
 
 ## Le TCL, c'est PUISSANT {.scrollable}
 
@@ -903,11 +923,11 @@ Si p \< 0.05, on rejette l'hypothèse $H_0$ au seuil de 5%
 
 Dans notre cas, n = 112, donc $T$ est censée suivre une loi de Student à 111 ddl, sous $H_0$:
 
-. . .
+<!-- . . . -->
 
 ```{r, cache=  TRUE}
 #| code-fold: true
-#| fig-height: 6
+#| fig-height: 4
 
 
 dstudent_limit <- function(x) {
@@ -953,12 +973,14 @@ Tobs <- sqrt(112)*(mean(ozone$maxO3 )- 100)/(sd(ozone$maxO3))
 ```
 :::
 
-. . .
+<!-- . . . -->
 
 ::: {.column width="50%"}
 Pour une loi de Student à n-1 ddl, -3.64 est une valeur *peu probable* donc on rejette $H_0$, au seuil de 5%.
 :::
 :::
+
+. . .
 
 > Ici, on a testé $H_0$ vs H1 : $\mu \neq 100$ (alternative = "two.sided") mais on aurait pu testeer H1: $\mu < 100$ (alternative = "less") ou H1: $\mu > 100$ (alternative = "greater")
 
@@ -984,6 +1006,8 @@ ozone %>%
 
 
 ```
+
+. . .
 
 Passer de l'échantillon à n'importe quel jour induit de l'incertitude. Mais, il est plus facile de conclure qu'il y a une différence entre les deux moyennes *dans la population* si:
 
@@ -1083,11 +1107,14 @@ t.test(maxO3 ~pluie, data = ozone, alternative = "two.sided", var.equal = FALSE)
 
 ## Erreur et puissance d'un test
 
+. . .
+
+
 Décision d'un test prise pour la population ("il y a plus d'ozone les jours sec") alors qu'on n'observe qu'un échantillon
 
 $\Rightarrow$ Décision incertaine, et deux erreur possibles
 
--   **Erreur de première espèce**: rejeter $H_0$ alors que celle-ci est vraie: test positif
+-   **Erreur de première espèce**: rejeter $H_0$ alors que celle-ci est vraie: faux positif
 -   **Erreur de deuxième espèce** : ne pas rejeter $H_0$ alors que celle-ci est fausse: faux négatif
 
 En image:
@@ -1191,7 +1218,7 @@ ozone %>%
 
 . . .
 
-Question de base modifiée en : la moyenne du maximum d'ozone est-elle la même pour chaque direction du vent ?
+__Question de base modifiée en : la moyenne du maximum d'ozone est-elle la même pour chaque direction du vent ?__
 
 ## Problématique qui revient souvent
 
@@ -1326,7 +1353,7 @@ On doit avoir $\forall~i,~~\mu+\alpha_i=\mu_i$ \Rightarrow besoin de **contraint
 
 On minimise les écarts entre observations ($Y_{ij}$) et prédictions par le modèle $\hat{Y}_{ij}$.
 
-On minimise le **critère des moindres carrés ordinaires**
+On minimise le **critère des moindres carrés ordinaires** ({{< fa question size=1xl >}}: pourquoi carré $^2$)
 
 . . .
 
@@ -1336,9 +1363,8 @@ $$   SCER  =  \sum_{i=1}^{I}\sum_{j=1}^{n_i}\left( Y_{ij} - \hat Y_{ij} \right)^
 
 $$\mbox{SCER minimal quand }\forall~i,~\hat\mu +\hat\alpha_i=\frac{1}{n_i}\sum_{j=1}^{n_i}Y_{ij}=Y_{i\bullet}$$
 ```
-. . .
 
-{{< fa question size=1xl >}}: pourquoi carré $^2$ ?
+
 
 . . .
 
@@ -1729,7 +1755,7 @@ $$ \left\{
 
 . . .
 
-::: {style="font-size: 100%;"}
+::: {style="font-size: 90%;"}
 On peut ensuite vérifier les hypothèses du modèle
 :::
 
@@ -1738,7 +1764,7 @@ On peut ensuite vérifier les hypothèses du modèle
 ```{r, echo = TRUE, cache=TRUE}
 #| output-location: column-fragment
 #| fig-width: 4
-#| fig-height: 2.5
+#| fig-height: 2.2
 
 
 residus <- data.frame(residus=res$lmResult$residuals, vent = ozone$vent)
@@ -1754,7 +1780,7 @@ residus %>%
 ```{r, echo = TRUE, cache=TRUE}
 #| output-location: column-fragment
 #| fig-width: 4
-#| fig-height: 2.5
+#| fig-height: 2.2
 
 
 residus %>% 
@@ -1848,7 +1874,7 @@ Oui, mais... la présence d'une corrélation suppose généralement un lien
 
 -   B $\Rightarrow$ A (idem)
 
--   A $\Rightarrow$ B et *ET* B $\Rightarrow$ A (ex. {{< fa temperature-high size=1xl >}} et CO2 )
+-   A $\Rightarrow$ B et *ET* B $\Rightarrow$ A (ex. {{< fa temperature-high size=1xl >}} et $CO_2$ )
 
 -   Une variable C a été omise, et influence A et B. (ex. {{< fa sun size=1xl >}} (C) $\Rightarrow$ {{< bi sunglasses >}} (A),{{< fa sun size=1xl >}} (C) $\Rightarrow$ {{< fa ice-cream size=1xl >}} (B), {{< fa ice-cream size=1xl >}} $\Leftrightarrow$ {{< bi sunglasses >}})
 
@@ -1862,13 +1888,16 @@ Oui, mais... la présence d'une corrélation suppose généralement un lien
 Ex. pour rigoler:
 :::
 
-![](images/spurious_cor.svg){width="60%" fig-align="center" height="250"}
+![](images/spurious_cor.svg){width="60%" fig-align="center" height="220"}
 
 . . .
 
+::: {style="font-size: 70%;"}
 > "Corrélation n'implique pas causalité"
 
 Ok, mais cette affirmation ne doit pas servir à réfuter toute association constatée dans des données.
+
+:::
 
 ## Quelques valeurs de corrélations
 
@@ -2320,8 +2349,7 @@ ozone %>%
 :::
 
 ::: {layout-ncol="2"}
-<div>
-
+::: {#first-column}
 ```{r, echo = TRUE, cache = TRUE}
 #| output-location: "fragment"
 #| code-fold: true
@@ -2339,10 +2367,10 @@ ozone %>%
 
 ```
 
-</div>
+:::
 
-<div>
 
+::: {#second-column}
 ```{r, echo = TRUE, cache = TRUE}
 #| output-location: "fragment"
 #| code-fold: true
@@ -2358,8 +2386,7 @@ ozone %>%
   labs("Interaction pluie:vent sur maxO3", x = "Direction du vent", y = "Maximum d'ozone") +
   theme_bw()
 ```
-
-</div>
+:::
 :::
 :::
 :::
@@ -2451,10 +2478,41 @@ Y_n \\
 
 Rq: ANOVA et ANCOVA peuvent aussi s'écrire sous cette forme.
 
-::: {.callout-note collapse="true"}
-## Détails
+::: {style="font-size: 95%;"}
 
-This is an example of a 'folded' caution callout that can be expanded by the user. You can use `collapse="true"` to collapse it by default or `collapse="false"` to make a collapsible callout that is expanded by default.
+::: {.columns}
+
+:::{.column width="50%"}
+### ANOVA
+
+```{=latex}
+$$\left\{
+\begin{array}{l}
+\forall i,j,k~~~~Y_{ijk}=\color{red}{\mu}+\color{red}{\alpha_i}+\color{red}{\beta_j} +\color{red}{\alpha\beta_{ij}} +\varepsilon_{ijk}\\
+\forall i,j,k~~~~\varepsilon_{ijk} ~~\mbox{i.i.d.}~~,~~\mathbb{E}(\varepsilon_{ijk})=0,~~\mathbb{V}(\varepsilon_{ijk})=\sigma^2\\
+\forall i,j,k~~~~cov(\varepsilon_{ijk},\varepsilon_{i'j'k'})=0\\
+\end{array}\right.$$
+```
+
+
+:::
+:::{.column width="50%"}
+
+### ANCOVA
+
+
+```{=latex}
+$$\left\{
+\begin{array}{l}
+\forall i,j~~~~Y_{ij}=\color{red}{\mu}+\color{red}{\alpha_i}+(\color{red}{\beta}+\color{red}{\gamma_i})\times x_{ij} + \varepsilon_{ij}\\
+\forall i,j~~~~\varepsilon_{ij} ~~\mbox{i.i.d.}~~,~~\mathbb{E}(\varepsilon_{ij})=0,~~\mathbb{V}(\varepsilon_{ij})=\sigma^2\\
+\forall i,j~~~~cov(\varepsilon_{ij},\varepsilon_{i'j'})=0\\
+\end{array}\right.$$
+```
+:::
+
+:::
+
 :::
 
 ## Estimation des paramètres du modèle
@@ -2533,7 +2591,7 @@ L'ensemble de variables ${\mathcal V}$ apporte-t-il des informations complément
 
 \vfill
 
-\bf Hypothéses : \\\\\\\$H_0\\\\\\\$:"tous les coefficients associés aux variables de \\\\\\\${\\\\\\\\mathcal V}\\\\\\\$ sont égaux à 0" contre \\\\\\\$H_1\\\\\\\$ : "au moins un coefficient des variables \\\\\\\${\\\\\\\\mathcal V} \\\\\\\\neq\\\\\\\$ 0
+__Hypothèses__ : $H_0$:"tous les coefficients associés aux variables de ${\mathcal V}$ sont égaux à 0" contre $H_1$ : "au moins un coefficient des variables ${\mathcal V} \neq$ 0
 
 ```{=tex}
 \bf Statistique de test : $\displaystyle{F_{obs}=\frac{SC_{\mathcal V}/ddl_{\mathcal V}}{SC_R/ddl_R}=\frac{CM_{\mathcal V}}{CM_R} }$
@@ -2543,7 +2601,7 @@ L'ensemble de variables ${\mathcal V}$ apporte-t-il des informations complément
 \bf Loi de la statistique de test : Sous $H_0$, ${\mathcal L}(F_{obs}) = {\mathcal F}_{ddl_R}^{ddl_{\mathcal V}}$
 \vfill
 ```
-\bf Décision : \\\\\\\$\\\\\\\\mathbb{P}({\\\\\\\\mathcal F}\\\\\\\_{ddl\\\\\\\_{\\\\\\\\mathcal V}}\\\\\\\^{ddl_R}\\\\\\\>F\\\\\\\_{obs}) \\\\\\\< 0.05\\\\\\\~\\\\\\\~\\\\\\\\Longrightarrow\\\\\\\$ Rejet de \\\\\\\$H_0\\\\\\\$
+\bf Décision : $\mathbb{P}({\mathcal F}_{ddl_{\mathcal V}}^{ddl_R}>F_{obs}) < 0.05~~\Longrightarrow$ Rejet de $H_0$
 
 . . .
 
@@ -2585,7 +2643,7 @@ $BIC = pln(n) - 2ln(\hat{L})$
 
 . . .
 
-{{< fa question size=1xl >}} A votre avis, quelle est la différence entre les 2 critères
+{{< fa question size=1xl >}} A votre avis, quelle est la différence entre les 2 critères ({{< bi pencil  size=1.5em >}} {{< bi journal-text  size=1.5em >}} !)
 
 . . .
 
@@ -2668,23 +2726,50 @@ La matrice de design $X$ (dans $Y = X\beta + E$) a autant de lignes que d'indivi
 Comparez les sorties de ces différentes lignes de code...
 :::
 
-```{r, cache= TRUE, echo = TRUE}
 
 
 
+:::: {.columns}
+
+::: {.column width="20%" .incremental}
+```{r, cache=TRUE, echo=TRUE}
+#| classes: my_class_code_small
+#| class-source: my_class_code_small
+#| 
 #lm par défaut
-coef( lm(maxO3 ~ pluie, data= ozone) )
+coef( lm(maxO3 ~ pluie,
+         data= ozone) )
+```
 
+:::
 
+::: {.column width="40%" .incremental}
+
+```{r, cache=TRUE, echo=TRUE}
+#| classes: my_class_code_small
+#| class-source: my_class_code_small
 #lm en spécifiant le contraste
-coef(lm(maxO3 ~ pluie, data = ozone, contrasts = list(pluie=  "contr.sum")))
+coef(lm(maxO3 ~ pluie,
+        data = ozone,
+        contrasts = list(pluie= "contr.sum")))
+```
 
+:::
+
+::: {.column width="40%" .incremental}
+
+```{r, cache= TRUE, echo = TRUE}
+#| classes: my_class_code_small
+#| class-source: my_class_code_small
 # LinearModel prémâche le travaille
-LinearModel(maxO3 ~ pluie, data= ozone)$Ttest
-
-
+LinearModel(maxO3 ~ pluie,
+            data= ozone)$Ttest
 
 ```
+:::
+
+::::
+
 
 ## Inteprétation des résultats
 
@@ -2782,4 +2867,100 @@ predict(model,xnew,interval="confidence")
 ## Callout expansion
 
 Content of expansion
+:::
+
+
+
+## Liste de message d'erreurs communs
+
+```{css}
+/* size of code output, applied to everything */
+
+.reveal pre {
+  font-size: 0.7rem !important;
+}
+```
+
+
+::: {style="font-size: 60%;"}
+
+
+
+::: {.columns}
+
+::: {.column width="50%"}
+
+```{r}
+detach("package:FactoMineR", character.only=TRUE, unload=TRUE)
+```
+
+
+* *Erreur dans file(file, "rt") : impossible d'ouvrir la connexion*:
+  +  **Nom du fichier mal spécifié**
+  +  **Chemin mal spécifié (vérifiez le projet dans lequel vous êtes en haut à droite)**
+
+```{r, echo = TRUE, eval = FALSE}
+#| classes: my_class_code_small
+#| class-source: my_class_code_small
+
+read.table("https://r-stat-sc-donnees.github.io/ozone.tx",
+           header=TRUE, stringsAsFactors = TRUE)
+
+```
+
+[*Erreur dans file(file, "rt") : impossible d'ouvrir la connexion vers 'https://r-stat-sc-donnees.github.io/ozone.tx'*]{style="color:gray;"} 
+
+* *objet xxx introuvable* $\Rightarrow$ __objet non chargé (vérifiez votre environnement)__
+
+```{r, echo = TRUE, eval = FALSE}
+#| classes: my_class_code_small
+#| class-source: my_class_code_small
+
+head(ozone, n= 1)
+ozone <- read.table("https://r-stat-sc-donnees.github.io/ozone.txt",header=TRUE, stringsAsFactors = TRUE)
+head(ozone, n= 1)
+```
+
+* *impossible de trouver la fonction xxx* $\Rightarrow$ __Package non chargé / fonction mal orthographiée (R esT SeNSiBle A La CAsSe !)__
+
+```{r, echo = TRUE}
+#| classes: my_class_code_small
+#| class-source: my_class_code_small
+
+
+LinearModel(maxO3 ~Pluie, data = ozone) # package pas chargé
+library(FactoMineR)
+Linearmodel(maxO3 ~Pluie, data = ozone) # oubli majuscule à model
+LinearModel(maxO3 ~Pluie, data = ozone)
+
+```
+
+:::
+
+
+::: {.column width="50%"}
+
+* Pas de message mais un `+` qui apparaît dans la console  $\Rightarrow$ Vous n'avez pas fermé chaque parenthèse ouverte
+  + Appuyer sur Echap après s'être mis dans la console
+  + Corriger code
+
+```{r, echo = TRUE}
+#| classes: my_class_code_small
+#| class-source: my_class_code_small
+# (mean(c(1:3))
+
+# Ceci s'affiche dans la console
+# > (mean(c(1:3))
+#+ 
+
+# marche
+mean(c(1:3))
+
+```
+
+
+:::
+
+:::
+
 :::
