@@ -1,0 +1,47 @@
+/* Conteneur des titres */
+.title-container {
+  display: flex;
+  justify-content: space-around; /* Espacement entre les titres */
+  margin-top: 5px; /* Espacement pour ajuster la position */
+}
+
+/* Titres des sections */
+.section-title {
+  font-size: 12px;
+  font-weight: bold;
+  opacity: 0.5; /* Départ en gris et semi-transparent */
+  transition: color 0.3s ease, opacity 0.3s ease; /* Transition en douceur */
+  white-space: nowrap; /* Empêche la coupure des titres */
+}
+
+.my_class1 {
+height: 200px;
+width: 100px;
+}
+
+.my_class2 {
+height: 100px;
+width: 200px;
+}
+
+
+/* size of code font, specify in the beginning of the chunks if needed */
+
+.my_class_code {
+  font-size: 0.85em !important;
+  
+}
+
+
+/* size of code font, specify in the beginning of the chunks if needed */
+
+.my_class_code_small {
+  font-size: 0.45em !important;
+  
+}
+
+/* size of code output, applied to everything */
+
+.reveal pre {
+  font-size: 0.9rem !important;
+}

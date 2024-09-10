@@ -1,16 +1,19 @@
 ---
 title: "Démarche statistique"
+author: "Rémi Mahmoud"
+date: today
+date-format: "[remi.mahmoud@agrocampus-ouest.fr] <br> [https://demarche-stat-lesson.netlify.app]"
 format:
    revealjs:
     transition: slide
     theme: serif
     slide-number: c/t
     fontsize: 120%
-    toc: true
+    toc: false
     toc-depth: 1
-    progress: true
     page-layout: full
-    embed-resources: true
+    embed-resources: false
+    css: styles.css
 editor: visual
 filters:
   - parse-latex
@@ -24,7 +27,8 @@ collapse-callout:
   note: true
   warning: false
   caution: true
-  important: false
+  important: false  
+
 ---
 
 # Introduction
@@ -33,44 +37,10 @@ collapse-callout:
 ## Objectifs
 
 ```{css, echo=FALSE}
-.my_class1 {
-height: 200px;
-width: 100px;
-}
-
-.my_class2 {
-height: 100px;
-width: 200px;
-}
-
-
-/* size of code font, specify in the beginning of the chunks if needed */
-
-.my_class_code {
-  font-size: 0.85em !important;
-  
-}
-
-
-/* size of code font, specify in the beginning of the chunks if needed */
-
-.my_class_code_small {
-  font-size: 0.45em !important;
-  
-}
-
-/* size of code output, applied to everything */
-
-.reveal pre {
-  font-size: 0.9rem !important;
-}
 
 ```
 
-
-
-
--   Aborder problèmes courants en analyse de données
+-   Aborder les problèmes courants en analyse de données
 -   Argumenter le choix de procédures d'analyses
 -   Mettre en oeuvre une démarche d'analyse de données avec ![](images/R_logo.svg.png){fig-align="center" width="5%"}
 -   Interpréter & restituer les résultats d'une analyse
@@ -108,11 +78,11 @@ On attend:
 
 ## Quelques définitions (Wiki)
 
--   ***LA*** **statistique**: discipline qui étudie les phénomènes à travers la collecte de **données**, leur traitement, leur analyse, l'interprétation et la présentation des résultats \[...\]. **Domaine des mathématiques + boîte à outils** Fait partie de la **science des données**
+-   ***LA*** **statistique**: discipline qui étudie les phénomènes à travers la collecte de **données**, leur traitement, leur analyse, l'interprétation et la présentation des résultats \[...\]. **Domaine des mathématiques + boîte à outils**. Fait partie de la **science des données**
 
 -   ***LES*** **statistiques**: type d'information obtenu en soumettant les valeurs à des opérations mathématiques.
 
--   **L'analyse des données**: Famille de méthodes staistiques dont les principales caractéristiques sont d'être multimensionnelles et descriptives.
+-   **L'analyse des données**: Famille de méthodes statistiques dont les principales caractéristiques sont d'être multidimensionnelles et descriptives.
 
 {{< fa triangle-exclamation >}}: en anglais, *data analysis* $\Leftrightarrow$ Statistique
 
@@ -163,7 +133,7 @@ Ex. où renforcer l'avion ?
 -   Se poser des questions:
 
     -   Ex. pollution aux algues vertes: quelle variable utiliser ? Surface ? Masse ? Où/Quand/Comment faire des recueils ?
-    -   Cause / Conséquence (variété de blé / Rendement ; utilisation de phyto / diversité entomologique ; complexité du paysage / )
+    -   Cause / Conséquence (variété de blé / Rendement ; utilisation de phyto / diversité entomologique ; complexité du paysage)
     -   Variables **explicatives** vs variable(s) **réponse(s)**
 
 ------------------------------------------------------------------------
@@ -232,7 +202,7 @@ Ex. **paradoxe de Simpson** ([Vidéo complète sur le sujet](https://www.youtube
 
 ![](images/size_sample.png){width="40%" fig-align="center"}
 
-## Outil: R (moteur) / Rstudio (carrosserie)
+## Outil: R (moteur) / Rstudio (carrosserie) {.scrollable}
 
 -   Gratuit/libre/multi-plateforme
 -   Nombreux (+++) domaines d'applications (ex. ce cours a été réalisé sous R)
@@ -242,8 +212,33 @@ Ex. **paradoxe de Simpson** ([Vidéo complète sur le sujet](https://www.youtube
 
 **Installation:**
 
-1.  Télécharger et installer le moteur ![](images/R_logo.svg.png){width="10%"} $\rightarrow$ <https://cran.r-project.org/>
-2.  Télécharger et installer la carrosserie ![](images/rstudio_logo.png){width="20%"}
+::: {layout-ncol=2}
+
+::: {.fragment}
+1.  Télécharger et installer le **moteur** ![](images/R_logo.svg.png){width="10%"} $\rightarrow$ <https://cran.r-project.org/>
+
+:::
+
+::: {.fragment}
+2.  Télécharger et installer la **carrosserie** ![](images/rstudio_logo.png){width="20%"}
+
+:::
+
+:::
+
+. . .
+
+On peut aussi dessiner avec R (mais c'est une autre histoire)
+
+
+::: {#fig-casa layout-ncol=2}
+
+![Ridge](images/casa_1.png){#fig-ridge height="150"}
+
+![Collatz](images/casa_2.png){#fig-collatz height="150"}
+
+[Pierre Casadebaig](https://art.casadebaig.net/)
+:::
 
 ## Quelques définitions (1/2)
 
@@ -422,6 +417,7 @@ head(ozone)
 
 ```
 
+
 . . .
 
 **Une question:**
@@ -442,16 +438,16 @@ head(ozone)
 
 ## Visualisation: quels choix ?
 
--   La visualisation dépend:
-    -   nature des données (nature des variables, nb d'individus)
+-   La visualisation dépend de:
+    -   La nature des données (nature des variables, nb d'individus)
 
-    -   probématique: qu'est-ce que je veux montrer ?
-    
-    -  [le site data-to-viz.com](data-to-viz.com){style="color:blue;"} permet de trouver de bonnes idées
+    -   La problématique: qu'est-ce que je veux montrer ?
+
+    -   [le site data-to-viz.com](https://www.data-to-viz.com/){style="color:blue;"} permet de trouver de bonnes idées
 
 . . .
 
--   La visualisation permet:
+-   La visualisation permet de:
     -   comprendre / explorer / vérifier les données
     -   suggérer des analyses
     -   *faire passer des idées*
@@ -462,13 +458,12 @@ head(ozone)
 
 . . .
 
-Sur ![](images/R_logo.svg.png){fig-align="center" width="5%"}, le package `ggplot2` permet de faire des visualisation allant du plus simple au plus compliqué.
+Sur ![](images/R_logo.svg.png){fig-align="center" width="5%"}, le package `ggplot2` permet de faire des visualisations allant du plus simple au plus compliqué.
 
 ## GGplot - Quick tuto
 
 . . .
 
-Idée générale:globa
 
 ![](images/building_blocks_ggplot.png)
 
@@ -489,6 +484,7 @@ ggplot(ozone) # création de l'objet ggplot
 ```{r,  echo = TRUE, cache=TRUE}
 ggplot(ozone, aes(x = maxO3)) + # création de l'objet ggplot, en spécifiant ce qu'on veut en x
   geom_histogram() # ajout d'une couche HISTOGRAMME 
+
 ```
 
 ## GGplot - Exemple: distribution d'une variable quantitative {transition="none"}
@@ -513,6 +509,7 @@ ggplot(ozone, aes(x = maxO3)) + # création de l'objet ggplot, en spécifiant ce
 ggplot(ozone, aes(y = maxO3)) + # création de l'objet ggplot, en spécifiant ce qu'on veut en y
   geom_boxplot() + # ajout d'une couche boxplot
   labs(title = "Boxplot du maximum d'ozone", x=  "un joli titre pour l'axe x", y = "Maximum d'ozone")
+
 ```
 
 ## GGplot - Exemple: distribution d'une variable quantitative {transition="none"}
@@ -525,49 +522,54 @@ ggplot(ozone, aes(y = maxO3)) + # création de l'objet ggplot, en spécifiant ce
   geom_boxplot() + # ajout d'une couche boxplot, classes plus grossières
   labs(title = "Boxplot du maximum d'ozone", y = "Maximum d'ozone") +
   theme_bw()
+
 ```
 
-## Distribution d'une variable qualitative {.scrollable}
+## Distribution d'une variable qualitative (1/2) {.scrollable}
 
-::: {style="font-size: 80%;"}
+::: {style="font-size: 100%;"}
 Le camembert c'est bon, mais *seulement en fromage*. SINON CA PUE TROP.
 :::
 
 . . .
 
-::: {style="font-size: 80%;"}
+::: {style="font-size: 100%;"}
 Quelle classe est la plus représentée ?
 
-::: columns
-::: {.column width="50%"}
-![](images/pie_bad_idea.png){width="100%" fig-align="center" height="140"}
 :::
 
-::: {.column width="50%"}
-![](images/barplot_good_idea.png){.fragment width="100%" fig-align="center" height="140"}
-:::
-:::
-:::
+
+
+![](images/pie_bad_idea.png){width="100%" fig-align="center" height="240"}
+
+
+
+
+![](images/barplot_good_idea.png){.fragment width="100%" fig-align="center" height="240"}
+
+
+## Distribution d'une variable qualitative (2/2) {.scrollable}
+
+*Alternative: graphiques en barre*
 
 . . .
 
-::: columns
-Alternative: graphiques en barre
-
-::: {.column width="50%"}
-```{r,  echo = TRUE, fig.height=4}
+```{r,  echo = TRUE}
 #| code-fold: true
-#| 
+#| fig-height: 2
+#| fig-width: 3.5
+#| fig-align: "center"
 ggplot(ozone, aes(x = vent)) + # création de l'objet ggplot, en spécifiant ce qu'on veut en x
   geom_bar() + # ajout d'une couche barplot
   theme_bw() + 
   labs(y = "Nb de jours", title = "Nombre de jours par direction de vent")
 ```
-:::
 
-::: {.column width="50%"}
-```{r,  echo = TRUE, fig.height=4}
+```{r,  echo = TRUE}
 #| code-fold: true
+#| fig-height: 2
+#| fig-width: 3.5
+#| fig-align: "center"
 #| 
 library(dplyr)
 
@@ -582,8 +584,6 @@ geom_text(aes(label=scales::percent(prop_vent)), vjust = -1.5)+
   theme_bw()
 
 ```
-:::
-:::
 
 ## Effet d'une / deux variable(s) sur une variable quanti
 
@@ -603,6 +603,8 @@ ggplot(ozone, aes(x = T9, y= maxO3)) +
   geom_smooth(method = "lm", se = FALSE) + # Ajout ajustement linéaire
   theme_bw()
   
+
+
 ```
 
 <!-- #| class-source: my_class2 -->
@@ -623,7 +625,7 @@ ggplot(ozone, aes(x = T9, y= maxO3, color = vent)) + # ajout d'une couleur
   
 ```
 
-## Effet d'une / deux variable(s) quali sur une variable quanti {.scrollable}
+## Effet d'une / deux variable(s) quali sur une variable quanti (1/2) {.scrollable}
 
 . . .
 
@@ -650,15 +652,16 @@ ggplot(ozone, aes(x = vent,
   
 ```
 
-. . .
+## Effet de deux variable(s) quali sur une variable quanti (2/2)
 
-::: {style="font-size: 80%;"}
+
+::: {style="font-size: 100%;"}
 Quid d'une interaction potentielle vent pluie ?
 :::
 
 . . .
 
-::: {style="font-size: 80%;"}
+::: {style="font-size: 100%;"}
 *Point code* : La fonction `%>%` de `dplyr` permet de passer des arguments en chaîne dans des fonctions. Par ex.:
 
 ```{r, echo = TRUE}
@@ -677,8 +680,8 @@ x %>% max # equivaut à max(x)
 
 ```{r, echo = TRUE, cache=TRUE}
 #| output-location: column-fragment
-#| fig-width: 5
-#| fig-height: 3
+#| fig-width: 7
+#| fig-height: 4
 #| code-fold: true
 #| classes: my_class_code
 #| class-source: my_class_code
@@ -743,13 +746,13 @@ ggplot(ozone, aes(x = vent,
 
 Peut-on les généraliser ? Rappel:
 
-![](images/plot_population_and_sample_inference.png){.fragment width="60%" height="300" fig-align="center"}
+![](images/plot_population_and_sample_inference.png){.fragment width="60%" height="280" fig-align="center"}
 
 . . .
 
 C'est toute la question des *tests statistiques*.
 
-# Principes et application des tests statistiques
+# Principes et applications des tests statistiques
 
 ## De la question aux tests
 
@@ -786,23 +789,19 @@ $$\bar X \sim {\cal N} (\mu, \sigma^2/n) \quad   \mbox{et donc} \quad \frac{\bar
 
 . . .
 
-
 ::: {style="font-size: 90%;"}
-
 -   En pratique, $\sigma^2$ rarement connu, et donc doit être estimé à partir de l'échantillon
-
 :::
+
 . . .
 
 ::: {style="font-size: 90%;"}
-
 -   $\Longrightarrow$ augmente un peu l'incertitude $\Longrightarrow$ utilisation d'une loi de Student $(n-1)$ degrés de liberté (plutôt qu'une loi normale) : $\frac{\bar X - \mu}{\sqrt{S^2/n}} \sim \mathcal{T}(n-1)$
-
 :::
+
 . . .
 
 ::: {style="font-size: 90%;"}
-
 D'où l'intervalle de confiance de $\mu$ au niveau de confiance 95%:
 
 $\left[~\bar x - \frac{s}{\sqrt{n}}t_{1-\alpha/2}(n-1)~;~ \bar x + \frac{s}{\sqrt{n}}t_{1-\alpha/2}(n-1)~\right]$
@@ -816,26 +815,39 @@ mean(x) - qt(0.975,df = 111)*sd(x)/sqrt(length(x))
 mean(x) + qt(0.975,df = 111)*sd(x)/sqrt(length(x))
 
 ```
-
 :::
 
 ## Le TCL, c'est PUISSANT {.scrollable}
 
--   Ce que dit le TCL, c'est que peu importe la distribution de base, les moyennes empiriques d'échantillons issues cette distribution auront une distribution normale !
+
+::: {style="font-size: 80%;"}
+
+-   Ce que dit le TCL, c'est que peu importe la distribution de base, les moyennes empiriques d'échantillons issues cette distribution auront une distribution normale centrée sur l'espérance de la distribution !
+
+
+:::
 
 . . .
 
+
+::: {style="font-size: 80%;"}
 **Une simulation rapide pour visualiser les choses**
 
 -   Ex distribution $\chi_2(3)$
 -   On connaît la vraie moyenne de cette loi: 3
 
+:::
+
 . . .
 
-Mais dans la *vraie vie*, on aurait accès qu'à un échantillon de cette loi, par ex. de taille $n = 50$
+
+::: {style="font-size: 80%;"}
+
+Mais dans la *vraie vie*, on aurait accès qu'à un échantillon de cette loi, par ex. de taille $n = 50$. Regardons comment évolue la distribution des moyennes empiriques en fonction de la taille de l'échantillon.
+
+:::
 
 ```{r, eval = FALSE}
-#| code-fold: true
 #| fig-height: 4
 
 library(dplyr)
@@ -867,12 +879,13 @@ for(i in 1:length(vec_n)){
 }
 
 
-# write.csv(x = data_mean_samples_all, file = "lesson/data/data_mean_samples_all.csv")
+# write.csv(x = data_mean_samples_all, file = "data/data_mean_samples_all.csv")
 
 ```
 
 ```{r, cache= TRUE}
 #| code-fold: true
+#| fig-height: 4
 
 library(ggplot2)
 library(dplyr)
@@ -942,18 +955,23 @@ dstudent_limit_out <- function(x) {
     return(y)
 }
 
-echantillon_student <-tibble(x= seq(-4,4, by = 0.1), y = dt(x = x,df = 111))
+echantillon_student <-tibble(x= seq(-4,4, by = 0.01), y = dt(x = x,df = 111))
+
 
 echantillon_student %>% 
-  ggplot(aes(x = x, y=  y)) + 
-  geom_line() + 
-  theme_bw() + 
-  stat_function(fun = dstudent_limit, geom = "area", fill = "lightblue4", alpha = 0.2) + 
-  stat_function(fun = dstudent_limit_out, geom = "area", fill = "red", alpha = 0.2) + 
-  geom_label(label = "Zone de non-rejet",x = 0, y=  0.2) +
+  ggplot(aes(x = x, y= y)) + 
+  geom_line()+
+  theme_bw()+ 
+  scale_x_continuous(breaks = c(-4:4)) +
+  geom_area(data = subset(echantillon_student, x >= qt(0.975, 111)), aes(x = x, y = y), fill = "red", alpha = 0.5) +
+  geom_area(data = subset(echantillon_student, x <= -qt(0.975, 111)), aes(x = x, y = y), fill = "red", alpha = 0.5) +
+  geom_area(data = subset(echantillon_student,x >= -qt(0.975, 111) & x <= qt(0.975, 111)), aes(x = x, y = y), fill = "lightblue", alpha = 0.5) +
+  geom_segment(x = qt(0.975, 111), y =-Inf , yend = 0.056, linetype = "dashed") +
+  geom_segment(x = - qt(0.975, 111), y =-Inf , yend = 0.05, linetype = "dashed") +
   geom_label(label = "Zone de rejet",x = -2.5, y=  0.02) +
   geom_label(label = "Zone de rejet",x = 2.5, y=  0.02) +
-  labs(y = "Densité", x = NULL,  y= "Loi de student à 111 ddl")
+  geom_label(label = "Zone de non-rejet",x = 0, y=  0.2) +
+  labs(x = NULL, y = NULL)
 
 
 ```
@@ -1011,9 +1029,9 @@ ozone %>%
 
 Passer de l'échantillon à n'importe quel jour induit de l'incertitude. Mais, il est plus facile de conclure qu'il y a une différence entre les deux moyennes *dans la population* si:
 
-1.  les moyennes sont très différentes ({{< fa smoking size=1xl >}} vs {{< fa ban-smoking size=1xl >}})
-2.  variabilité du maximum d'ozone est faible au sein des jours pluvieux et au sein des jours secs
-3.  s'il y a beaucoup de données
+1.  Les moyennes sont très différentes ({{< fa smoking size=1xl >}} vs {{< fa ban-smoking size=1xl >}})
+2.  La variabilité du maximum d'ozone est faible au sein des jours pluvieux et au sein des jours secs
+3.  Il y a beaucoup de données
 
 ## Comparaison de 2 moyennes (2/2)
 
@@ -1092,7 +1110,7 @@ var.test(maxO3 ~pluie, data = ozone, alternative = "two.sided")
 
 . . .
 
-> Ici on rejet $H_0$ au seuil de 5%, les vairances sont différentes
+> Ici on rejet $H_0$ au seuil de 5%, les variances sont différentes
 
 ```{r, echo = TRUE}
 #| class-source: my_class_code
@@ -1109,7 +1127,6 @@ t.test(maxO3 ~pluie, data = ozone, alternative = "two.sided", var.equal = FALSE)
 
 . . .
 
-
 Décision d'un test prise pour la population ("il y a plus d'ozone les jours sec") alors qu'on n'observe qu'un échantillon
 
 $\Rightarrow$ Décision incertaine, et deux erreur possibles
@@ -1117,7 +1134,7 @@ $\Rightarrow$ Décision incertaine, et deux erreur possibles
 -   **Erreur de première espèce**: rejeter $H_0$ alors que celle-ci est vraie: faux positif
 -   **Erreur de deuxième espèce** : ne pas rejeter $H_0$ alors que celle-ci est fausse: faux négatif
 
-En image:
+En image ({{< fa question size=1xl >}} **qu'est-ce que H0 ici ?**):
 
 . . .
 
@@ -1172,15 +1189,17 @@ power.t.test(delta=  0.2, sd = 0.4, power = .80)
 
 ```
 
-# Analyse de variance à un facteur {.scrollable}
+# Analyse de variance à un facteur
 
 ## Test de l'effet d'un facteur
 
 ::: columns
 ::: {.column width="65%"}
-Par ex. \*la direction du vent a-t-elle un effet sur le maximum d'ozone ?
+Par ex. *la direction du vent a-t-elle un effet sur le maximum d'ozone* ?
 
-**Variable réponse quantitative**, notée Y: maxO3 **Variable explicative qualitative à I modalités (groupes)**: direction du vent
+**Variable réponse quantitative**, notée Y: maxO3
+
+**Variable explicative qualitative à I modalités (groupes)**: direction du vent
 
 C'est le cadre de l'ANOVA (**AN**alysis **O**f **VA**riance)
 :::
@@ -1218,7 +1237,7 @@ ozone %>%
 
 . . .
 
-__Question de base modifiée en : la moyenne du maximum d'ozone est-elle la même pour chaque direction du vent ?__
+**Question de base modifiée en : la moyenne du maximum d'ozone est-elle la même pour chaque direction du vent ?**
 
 ## Problématique qui revient souvent
 
@@ -1285,7 +1304,7 @@ Moyenne générale : $y_{\bullet\bullet}=\frac{1}{n}\sum_{i=1}^I\sum_{j=1}^{n_i}
 
 -   Dans chaque groupe, on considère que les données suivent une loi $\mathcal{N}(\mu_i, \sigma^2)$
 
-ON CONSIDERE LE **même** $\sigma^2$.
+On considère le **MEME** $\sigma^2$.
 
 . . .
 
@@ -1311,7 +1330,7 @@ $$ \left\{
 \forall (i,j)\neq (i',j')~~cov(\varepsilon_{ij},\varepsilon_{i'j'})=0\\
 \end{array}\right. $$
 ```
-## Deux définitions du modèles
+## Deux définitions du modèle
 
 Si $Y_{ij}$ est la valeur de la réponse du j$^{eme}$ individu ($j = 1, . . . , n_i$) du i$^{eme}$ groupe ($i = 1, . . . , I$):
 
@@ -1363,9 +1382,6 @@ $$   SCER  =  \sum_{i=1}^{I}\sum_{j=1}^{n_i}\left( Y_{ij} - \hat Y_{ij} \right)^
 
 $$\mbox{SCER minimal quand }\forall~i,~\hat\mu +\hat\alpha_i=\frac{1}{n_i}\sum_{j=1}^{n_i}Y_{ij}=Y_{i\bullet}$$
 ```
-
-
-
 . . .
 
 Contraintes classiques:
@@ -1378,31 +1394,12 @@ Contraintes classiques:
 
 ```{=latex}
 
-%\begin{array}
-%\hline
-%groupe 1&groupe 2&groupe3& \\
-%\hline
-%y_{11}=6&y_{21}=2&y_{31}=3&\\
-%y_{12}=9&y_{22}=4&y_{32}=1&\\
-%y_{13}=6&y_{23}=3& &\\
-%y_{1\bullet}=7&y_{2\bullet}=3&y_{3\bullet}=2&y_{\bullet\bullet}=4.25\\
-%\end{array}
-
-
-%\begin{tabular}{cccc}
-%\hline
-%groupe 1&groupe 2&groupe3& \\
-%
-%\end{tabular}
-
-
-
 \begin{center}
-\begin{tabular}{|c|c|c|c|} \hline
+\begin{tabular}{|c|c|c|c|} 
+\hline
 groupe 1&groupe 2&groupe3& \\
 \hline
 $y_{11}=6$ & $y_{21}=2$ & $y_{31}=3$ &\\
-\hline
 $y_{12}=9$ & $y_{22}=4$ & $y_{32}=1$ &\\
 \hline
 $y_{1\bullet}=7$ & $y_{2\bullet}=3$ & $y_{3\bullet}=2$ & $y_{\bullet\bullet}=4.25$\\
@@ -1412,9 +1409,9 @@ $y_{1\bullet}=7$ & $y_{2\bullet}=3$ & $y_{3\bullet}=2$ & $y_{\bullet\bullet}=4.2
 ```
 . . .
 
--   Avec traitement 1 comme référence : $\hat\mu= 7~$;$~\hat\alpha_1=0~$;$~\hat\alpha_2=-4$ et $\hat\alpha_3=-5$
+-   Avec traitement 1 comme référence : $\hat\mu= 7 \ $;$~\hat\alpha_1=0 \ $;$~\hat\alpha_2=-4$ et $\hat\alpha_3=-5$
 
--   $\displaystyle\sum_{i=1}^I\alpha_i=0$ : $\hat\mu= \frac{1}{3}(7+3+2)=4$~;~$\hat\alpha_1=3$~;~$\hat\alpha_2=-1$ et $\hat\alpha_3=-2$
+-   $\displaystyle\sum_{i=1}^I\alpha_i=0 \ $ : $\hat\mu= \frac{1}{3}(7+3+2)=4  \ $;$\hat\alpha_1=3 \ $;$\hat\alpha_2=-1$ et $\hat\alpha_3 = -2$
 
 . . .
 
@@ -1554,8 +1551,8 @@ $\rightarrow$ La variabilité de Y est-elle expliquée par le facteur groupe ? O
 
 ::: {.column width="36%"}
 ```{=latex}
-$$H_0 :~\mbox{"}\forall i,\ \mu_i=\mu\mbox{"}$$
-$$H_1 :~\mbox{"}\exists i\ /\ \mu_i\ne \mu\mbox{"}$$
+$$H_0 :~\forall i,\ \mu_i=\mu$$
+$$H_1 :~\exists i\ /\ \mu_i\ne \mu$$
 ```
 :::
 
@@ -1571,7 +1568,7 @@ $$H_1 :~\exists i\ /\ \alpha_i\ne 0$$
 :::
 :::
 
-<!-- $$\mbox{On a :~~}\mathbb{E}\left(\frac{SC_{mod}}{I-1}\right)=\sigma^2+\frac{1}{I-1}\displaystyle{\sum_{i=1}^I n_i\alpha_i^2}~~~~~~~~\mathbb{E}\left(\frac{SC_{R}}{n-I}\right)=\sigma^2$$ -->
+$$\mbox{On a : }\mathbb{E}\left(\frac{SC_{mod}}{I-1}\right)=\sigma^2+\frac{1}{I-1}\displaystyle{\sum_{i=1}^I n_i\alpha_i^2} \ \ \  \mathbb{E}\left(\frac{SC_{R}}{n-I}\right)=\sigma^2$$
 
 . . .
 
@@ -1718,7 +1715,7 @@ library(FactoMineR)
 
 res <- LinearModel(maxO3 ~vent, data = ozone)
 
-meansComp(res, ~vent, adjust ="Bonerroni", graph = FALSE)
+meansComp(res, ~vent, adjust ="Bonferroni", graph = FALSE)
 
 ```
 :::
@@ -1736,7 +1733,7 @@ res_mean_comp <- meansComp(res, ~vent, adjust ="Bonferroni", graph = TRUE)
 
 ## Analyse des résidus du modèle {.scrollable}
 
-::: {style="font-size: 80%;"}
+::: {style="font-size: 70%;"}
 **Rappel du modèle:**
 
 ```{=latex}
@@ -1755,7 +1752,7 @@ $$ \left\{
 
 . . .
 
-::: {style="font-size: 90%;"}
+::: {style="font-size: 80%;"}
 On peut ensuite vérifier les hypothèses du modèle
 :::
 
@@ -1764,7 +1761,7 @@ On peut ensuite vérifier les hypothèses du modèle
 ```{r, echo = TRUE, cache=TRUE}
 #| output-location: column-fragment
 #| fig-width: 4
-#| fig-height: 2.2
+#| fig-height: 2
 
 
 residus <- data.frame(residus=res$lmResult$residuals, vent = ozone$vent)
@@ -1780,7 +1777,7 @@ residus %>%
 ```{r, echo = TRUE, cache=TRUE}
 #| output-location: column-fragment
 #| fig-width: 4
-#| fig-height: 2.2
+#| fig-height: 2
 
 
 residus %>% 
@@ -1831,7 +1828,7 @@ ozone %>%
 
 ## Un autre indice de liaison: le coefficient de corrélation linéaire
 
-$$r_{xy}=\frac{\sum_{i=1}^n(x_i-\bar x)(Y_i-\bar Y)}{\sqrt{\sum_{i=1}^n\left(x_i-\bar x\right)^2}\sqrt{\sum_{i=1}^n(Y_i-\bar Y)^2}}$$
+$$r_{xy}=\frac{\sum_{i=1}^n(x_i-\bar x)(y_i-\bar y)}{\sqrt{\sum_{i=1}^n\left(x_i-\bar x\right)^2}\sqrt{\sum_{i=1}^n(y_i-\bar y)^2}}$$
 
 ::: incremental
 -   $-1\leq r_{xy}\leq 1$
@@ -1850,7 +1847,7 @@ cor.test(ozone$maxO3, ozone$T9)
 
 -   $r_{xy}= 0.70 \ \Rightarrow$ corrélation assez forte (et significativement différente de 0, mais on verra ça plus tard)
 
-## Corrélation, causalité etc. {.scrollable}
+## Corrélation, causalité etc. (1/2) {.scrollable}
 
 ::: {style="font-size: 80%;"}
 -   Une corrélation est un indicateur utile, mais à utiliser avec précaution
@@ -1882,21 +1879,31 @@ Oui, mais... la présence d'une corrélation suppose généralement un lien
 :::
 :::
 
-. . .
+## Corrélation, causalité etc. (2/2)
 
-::: {style="font-size: 60%;"}
+::: {style="font-size: 80%;"}
 Ex. pour rigoler:
 :::
 
-![](images/spurious_cor.svg){width="60%" fig-align="center" height="220"}
+::: {.columns}
+
+::: {.column width="45%"}
+![](images/spurious_cor.svg){fig-align="center" width="100%"}
+:::
+
+::: {.column width="45%"}
+![](images/spurious_cor2.svg){fig-align="center" width="100%"}
+:::
+
+:::
 
 . . .
 
-::: {style="font-size: 70%;"}
+
+::: {style="font-size: 90%;"}
 > "Corrélation n'implique pas causalité"
 
 Ok, mais cette affirmation ne doit pas servir à réfuter toute association constatée dans des données.
-
 :::
 
 ## Quelques valeurs de corrélations
@@ -1955,10 +1962,10 @@ $$ \hat{\sigma}^2 = \frac{1}{n-2} \sum_{i=1}^n (Y_i-\hat{Y}_i)^2 ~~~~~~ddl_{\mbo
 
 ## Test de conformité
 
-$${\mathcal L}\left(\hat{\beta}_1\right)  = {\mathcal N}\left( \beta_1,\sigma_{\beta_1}^2\right) \mbox{~~~~avec~} \sigma_{\beta_1}^2= \frac{\sigma^2}{\sum_{i=1}^{n} ( x_{i} - \bar{x} )^{2}} $$
+$${\mathcal L}\left(\hat{\beta}_1\right)  = {\mathcal N}\left( \beta_1,\sigma_{\beta_1}^2\right) \mbox{  avec  } \sigma_{\beta_1}^2= \frac{\sigma^2}{\sum_{i=1}^{n} ( x_{i} - \bar{x} )^{2}} $$
 
-$$\Longrightarrow~~{\mathcal L}\left(\frac{\hat\beta_1-\beta_1}{\sigma_{\hat\beta_1}}\right)={\mathcal N}(0,1)
-~~~~\Longrightarrow~~{\mathcal L}\left(\frac{\hat\beta_1-\beta_1}{\hat\sigma_{\hat\beta_1}}\right)={\mathcal T}_{n-2}$$
+$$\Longrightarrow \ {\mathcal L}\left(\frac{\hat\beta_1-\beta_1}{\sigma_{\hat\beta_1}}\right)={\mathcal N}(0,1)
+\ \Longrightarrow~~{\mathcal L}\left(\frac{\hat\beta_1-\beta_1}{\hat\sigma_{\hat\beta_1}}\right)={\mathcal T}_{n-2}$$
 
 . . .
 
@@ -1966,9 +1973,12 @@ On peut donc construire le test de nullité de $\beta_1$:
 
 . . .
 
-**Hypothèses** :$~~~H_0 : \mbox{"} \beta_1=0\mbox{"}$ contre $H_1 : \mbox{"} \beta_1 \ne 0\mbox{"}$ **Statistique de test :** $\displaystyle\frac{\hat\beta_1}{\hat\sigma_{\hat\beta_1}}$ **Loi de la statistique de test sous** $H_0$: ${\mathcal L}\left(T_{obs}=\frac{\hat\beta_1}{\hat\sigma_{\hat\beta_1}}\right)={\mathcal T}_{\nu=n-2}$
+**Hypothèses** :$\ H_0 : \mbox{"} \beta_1=0\mbox{"}$ contre $H_1 : \mbox{"} \beta_1 \ne 0\mbox{"}$
 
-Rq 1. : comme dans l'ANOVA, connaissant la loi de $\hat\beta_1$, on peut construire un intervalle de confiance: $$\beta_1 \in \left[\hat\beta_1-\hat\sigma_{\hat\beta_1}\times t_{0.975}(n-2)~;~\hat\beta_1+\hat\sigma_{\hat\beta_1}\times t_{0.975}(n-2) \right]$$
+**Statistique de test :** $\displaystyle\frac{\hat\beta_1}{\hat\sigma_{\hat\beta_1}}$ 
+**Loi de la statistique de test sous** $H_0$: ${\mathcal L}\left(T_{obs}=\frac{\hat\beta_1}{\hat\sigma_{\hat\beta_1}}\right)={\mathcal T}_{\nu=n-2}$
+
+Rq 1. : comme dans l'ANOVA, connaissant la loi de $\hat\beta_1$, on peut construire un intervalle de confiance: $$\beta_1 \in \left[\hat\beta_1-\hat\sigma_{\hat\beta_1}\times t_{0.975}(n-2) \ ; \ \hat\beta_1+\hat\sigma_{\hat\beta_1}\times t_{0.975}(n-2) \right]$$
 
 Rq 2. : on peut aussi tester $\beta_0$ mais cela a moins d'importance en pratique
 
@@ -2052,15 +2062,6 @@ $F = \frac{SCM/1}{SCR/(n-2)}$
 
 **Loi de F sous** $H_0: \mathcal{L}(F) = \mathcal{F}^1_{n-2}$
 
-## Prédiction et intervalle de confiance
-
-## Validité du modèle
-
-**Vérification des hypothèses de départ:**
-
--   Normalité des résidus, stabilité de la variance, indépendance des résidus
-
-{{< pdf images/aber.pdf width=100% height=500 >}}
 
 ## Prédiction et intervalle de confiance
 
@@ -2072,7 +2073,7 @@ $$\hat{Y}_0  = \hat{\beta}_0 + \hat{\beta}_1 x_0$$
 ::: {.column width="50%"}
 Prédiction de la valeur moyenne de Y pour un $x_0$ particulier
 
-$\mathbb{E}(\hat{Y}_0) \sim \mathcal{N}(Y_0, \sigma \sqrt{\frac{1}{n} + \frac{(x_0 - \bar{x})^2}{\sum_{i=1}^n (x_i - \bar{x})^2)}})$
+$\mathbb{E}(\hat{Y}_0|x_0) \sim \mathcal{N}(Y_0, \sigma \sqrt{\frac{1}{n} + \frac{(x_0 - \bar{x})^2}{\sum_{i=1}^n (x_i - \bar{x})^2)}})$
 
 ```{r, echo = TRUE}
 #| code-fold: true
@@ -2093,7 +2094,10 @@ ozone %>%
 ::: fragment
 Différent de:
 
-Prédiction d'une nouvelle valeur de Y pour un $x_0$ donné.
+Prédiction d'une nouvelle valeur de Y pour un $x_0$ donné (*notez le 1 supplémentaire dans la variance*).
+
+$\hat{Y}_0 \sim \mathcal{N}(Y_0, \sigma \sqrt{1+\frac{1}{n} + \frac{(x_0 - \bar{x})^2}{\sum_{i=1}^n (x_i - \bar{x})^2)}})$
+
 
 ```{r, echo = TRUE, cache=TRUE}
 #| code-fold: true
@@ -2109,10 +2113,20 @@ ozone %>%
   labs(title = "Intervalle de confiance du comportement moyen") +
   theme(text = element_text(size = 15))
 
+
 ```
 :::
 :::
 :::
+
+
+## Validité du modèle
+
+**Vérification des hypothèses de départ:**
+
+-   Normalité des résidus, stabilité de la variance, indépendance des résidus
+
+![](images/aber.jpg){width=100% height=400}
 
 # Construction et sélection de modèle
 
@@ -2188,7 +2202,6 @@ $$\mbox{Réponse} = f(var1, \color{red}{var_2, ..., var_p}) =\underbrace{var1 + 
 
 $$ \left\{
 \begin{array}{l}
-\forall i = 1,...,n ~~~~Y_{ij}=\beta_0+\beta_1x_{i}+\color{red}{\beta_2x_{i2}+\beta_3x_{i3}+...+\beta_px_{ip}} + \varepsilon_{i}\\
 \forall i=1,...,n~~~~\varepsilon_i ~~\mbox{i.i.d.}~~,~~\mathbb{E}(\varepsilon_i)=0,~~\mathbb{V}(\varepsilon_i)=\sigma^2\\
 \forall i\neq k~~~~cov(\varepsilon_i,\varepsilon_{k})=0\\
 \end{array}\right. $$
@@ -2309,16 +2322,23 @@ $$MaxO3_{ijk} \sim \mu+\left\{ \begin{array}{l}
 ```
 :::
 
-## Quatres types d'effet possibles {.scrollable}
+---
+
+
+__Quatres types d'effet possibles__
 
 ::: {style="font-size: 75%;"}
+
 ::: {layout-nrow="2"}
+
+
 ::: {layout-ncol="2"}
+
 ::: {#first-column}
+
 ```{r, echo = TRUE, cache = TRUE}
 #| output-location: "fragment"
 #| code-fold: true
-#| fig-cap: "Quanti sur quanti"
 #| fig-align: "center"
 
 theme_set(theme_bw())
@@ -2327,7 +2347,8 @@ ozone %>%
   ggplot(aes(x = T9, y = maxO3)) +
   geom_point() +
   geom_smooth(method ="lm", se= FALSE) +
-  labs(title = "Effet de T9 sur le max d'ozone")
+  labs(title = "Quanti sur quanti")
+
 ```
 :::
 
@@ -2335,46 +2356,46 @@ ozone %>%
 ```{r, echo = TRUE, cache = TRUE}
 #| output-location: "fragment"
 #| code-fold: true
-#| fig-cap: "Quali sur quanti"
 #| fig-align: "center"
 
 ozone %>%
   ggplot(aes(x = vent, y = maxO3, color = vent)) +
   geom_point(position= position_jitter(width =.05, height= 0)) +
   geom_boxplot(alpha= .3, outlier.shape = NA) +
-  labs(title = "Effet du vent sur le max d'ozone")
+  labs(title = "Quali sur quanti") +
+  theme_bw()
 
 ```
 :::
 :::
 
 ::: {layout-ncol="2"}
-::: {#first-column}
+<div>
+
 ```{r, echo = TRUE, cache = TRUE}
 #| output-location: "fragment"
 #| code-fold: true
-#| fig-cap: "Quali / quali sur quanti"
 #| fig-align: "center"
+#| fig-cap-location: top
 
 
 ozone %>%
   ggplot(aes(x = T9, y = maxO3, color = vent))+
   geom_point() +
   geom_smooth(method = "lm", se = FALSE) +
-  labs(title = "Effet de T9 sur l'ozone selon les directions du vent") +
+  labs(title = "Quali / quali sur quanti") +
   theme_bw()
 
 
 ```
 
-:::
+</div>
 
+<div>
 
-::: {#second-column}
 ```{r, echo = TRUE, cache = TRUE}
 #| output-location: "fragment"
 #| code-fold: true
-#| fig-cap: "Quanti / quali sur quanti"
 #| fig-align: "center"
 
 ozone %>%
@@ -2383,10 +2404,11 @@ ozone %>%
   ggplot(aes(x=vent, y=MOY, col=pluie, group=pluie)) +
   geom_line() +
   geom_point() +
-  labs("Interaction pluie:vent sur maxO3", x = "Direction du vent", y = "Maximum d'ozone") +
+  labs(title = "Quanti / quali sur quanti") +
   theme_bw()
 ```
-:::
+
+</div>
 :::
 :::
 :::
@@ -2479,10 +2501,8 @@ Y_n \\
 Rq: ANOVA et ANCOVA peuvent aussi s'écrire sous cette forme.
 
 ::: {style="font-size: 95%;"}
-
-::: {.columns}
-
-:::{.column width="50%"}
+::: columns
+::: {.column width="50%"}
 ### ANOVA
 
 ```{=latex}
@@ -2493,13 +2513,10 @@ $$\left\{
 \forall i,j,k~~~~cov(\varepsilon_{ijk},\varepsilon_{i'j'k'})=0\\
 \end{array}\right.$$
 ```
-
-
 :::
-:::{.column width="50%"}
 
+::: {.column width="50%"}
 ### ANCOVA
-
 
 ```{=latex}
 $$\left\{
@@ -2510,9 +2527,7 @@ $$\left\{
 \end{array}\right.$$
 ```
 :::
-
 :::
-
 :::
 
 ## Estimation des paramètres du modèle
@@ -2549,7 +2564,7 @@ $$\left\{
 
 $$Y\approx X\beta$$ $$X'Y\approx X'X\beta$$ \normalsize $$\color{red}{\hat\beta = (X^{\prime}X)^{-1}X^{\prime}Y} ~~\mbox{si }X^{\prime}X\mbox{ est inversible}$$
 
-**Propriétés** $\mathbb{E}(\hat\beta)=\beta$;\~\~$\mathbb{V}(\hat\beta)=(X^{\prime}X)^{-1}\sigma^2$
+**Propriétés** $\mathbb{E}(\hat\beta)=\beta; \ \mathbb{V}(\hat\beta)=(X^{\prime}X)^{-1}\sigma^2$
 
 . . .
 
@@ -2574,7 +2589,19 @@ Variabilité &totale&modèle&résiduelle\\
 
 Propriétés: $R^2 \in [0,1]$.
 
-$\color{red}{\mbox{AJOUTER DECOMPO VARIABILITE}}$
+
+. . .
+
+La variabilité du modèle peut être décomposée par variable de 2 façons:
+
+* en calculant la variabilité expliquée par chaque variable les unes aprés les autres (pb : la variabilité d'une variable dépend de l'ordre d'introduction des variables)
+
+* en calculant la variabilité expliquée exclusivement par une variable (pb : la somme des variabilités de toutes les variables n'est pas égale à la variabilité du modèle)
+
+. . .
+
+Dans certains cas (données équilibrées), la variabilité du modéle se décompose parfaitement et ces 2 calculs donnent les mêmes résultats.
+
 
 ## Exemple sur ozone
 
@@ -2591,26 +2618,24 @@ L'ensemble de variables ${\mathcal V}$ apporte-t-il des informations complément
 
 \vfill
 
-__Hypothèses__ : $H_0$:"tous les coefficients associés aux variables de ${\mathcal V}$ sont égaux à 0" contre $H_1$ : "au moins un coefficient des variables ${\mathcal V} \neq$ 0
+**Hypothèses** : $H_0$:"tous les coefficients associés aux variables de ${\mathcal V}$ sont égaux à 0" contre $H_1$ : "au moins un coefficient des variables ${\mathcal V} \neq$ 0
 
-```{=tex}
-\bf Statistique de test : $\displaystyle{F_{obs}=\frac{SC_{\mathcal V}/ddl_{\mathcal V}}{SC_R/ddl_R}=\frac{CM_{\mathcal V}}{CM_R} }$
-\vfill
-```
-```{=tex}
-\bf Loi de la statistique de test : Sous $H_0$, ${\mathcal L}(F_{obs}) = {\mathcal F}_{ddl_R}^{ddl_{\mathcal V}}$
-\vfill
-```
-\bf Décision : $\mathbb{P}({\mathcal F}_{ddl_{\mathcal V}}^{ddl_R}>F_{obs}) < 0.05~~\Longrightarrow$ Rejet de $H_0$
+
+__Statistique de test:__ $\displaystyle{F_{obs}=\frac{SC_{\mathcal V}/ddl_{\mathcal V}}{SC_R/ddl_R}=\frac{CM_{\mathcal V}}{CM_R} }$
+
+__Loi de la statistique de test:__ Sous $H_0$, ${\mathcal L}(F_{obs}) = {\mathcal F}_{ddl_R}^{ddl_{\mathcal V}}$
+
+
+**Décision** : $\mathbb{P}({\mathcal F}_{ddl_{\mathcal V}}^{ddl_R}>F_{obs}) < 0.05\ \ \Longrightarrow$ Rejet de $H_0$
 
 . . .
 
 ::: incremental
--   Revient à choisir entre le sous-modéle sans les variables ${\mathcal V}$ ou le modéle complet
+-   Revient à choisir entre le sous-modèle sans les variables ${\mathcal V}$ ou le modèle complet
 
--   Si ${\mathcal V}$ contient tous les effets : revient é tester si $R^2$ est significativement différent de 0, i.e. si toutes les variables sont inutiles (versus au moins une utile)
+-   Si ${\mathcal V}$ contient tous les effets : revient à tester si $R^2$ est significativement différent de 0, i.e. si toutes les variables sont inutiles (versus au moins une utile)
 
--   On somme les degrés de liberté associés é l'ensemble ${\mathcal V}$ sachant qu'1 variable quanti é 1 ddl, 1 variable quali é $I-1$ ddl et une interaction a comme ddl le produit des ddl de chaque facteur
+-   On somme les degrés de liberté associés é l'ensemble ${\mathcal V}$ sachant qu'1 variable quanti à 1 ddl, 1 variable quali à $I-1$ ddl et une interaction a comme ddl le produit des ddl de chaque facteur
 :::
 
 <!-- \tiny $\Longrightarrow$ Pour la séance de TD écrire le test pour 1 variable quali, celui pour 1 interaction, celui pour le test de toutes les variables -->
@@ -2643,7 +2668,7 @@ $BIC = pln(n) - 2ln(\hat{L})$
 
 . . .
 
-{{< fa question size=1xl >}} A votre avis, quelle est la différence entre les 2 critères ({{< bi pencil  size=1.5em >}} {{< bi journal-text  size=1.5em >}} !)
+{{< fa question size=1xl >}} A votre avis, quelle est la différence entre les 2 critères ({{< bi pencil size=1.5em >}} {{< bi journal-text size=1.5em >}} !)
 
 . . .
 
@@ -2665,7 +2690,9 @@ LinearModel(maxO3 ~  ., data = ozone, selection = "bic")
 
 ```
 
+
 ## Démarche en modélisation
+
 
 ::: incremental
 1.  Lister les variables potentiellement explicatives / prédictives
@@ -2681,6 +2708,8 @@ LinearModel(maxO3 ~  ., data = ozone, selection = "bic")
 6.  [(Prédire pour de nouvelles valeurs)]{style="color:DarkGray;"}
 :::
 
+
+
 ## Codage et contraintes pour variables quali {.scrollable}
 
 . . .
@@ -2690,8 +2719,8 @@ La matrice de design $X$ (dans $Y = X\beta + E$) a autant de lignes que d'indivi
 . . .
 
 ::: {style="font-size: 70%;"}
-| a                        | Constante ($\mu$ ou $\beta_0$) | Variable quanti       | Variable Quali                                                                   | Interaction quali -quali                                                                                                                  |
-|------------|------------|------------|-------------|-------------------------|
+|                          | Constante ($\mu$ ou $\beta_0$) | Variable quanti       | Variable Quali                                                                   | Interaction quali -quali                                                                                                                  |
+|------------|------------|------------|-------------|--------------------------|
 | Représentation dans X    | Une colonne de 1               | Valeur de la variable | (I-1) colonnes par modalités de chaque variable à I modalités                    | (I-1)\*(J-1) colonnes                                                                                                                     |
 | Degrés de libertés (ddl) | 1                              | 1                     | I-1                                                                              | (I-1)\*(J-1)                                                                                                                              |
 | Commentaires             |                                |                       | Contrainte à poser sur les paramètres (le mieux est $\sum_{i=1}^n \alpha_i = 0$) | Contrainte à poser sur les paramètres (le mieux est $\forall i, \sum_j \alpha \beta_{ij} =0$ et $\forall j, \sum_i \alpha \beta_{ij} =0$) |
@@ -2726,12 +2755,8 @@ La matrice de design $X$ (dans $Y = X\beta + E$) a autant de lignes que d'indivi
 Comparez les sorties de ces différentes lignes de code...
 :::
 
-
-
-
-:::: {.columns}
-
-::: {.column width="20%" .incremental}
+::: columns
+::: {.column .incremental width="20%"}
 ```{r, cache=TRUE, echo=TRUE}
 #| classes: my_class_code_small
 #| class-source: my_class_code_small
@@ -2740,11 +2765,9 @@ Comparez les sorties de ces différentes lignes de code...
 coef( lm(maxO3 ~ pluie,
          data= ozone) )
 ```
-
 :::
 
-::: {.column width="40%" .incremental}
-
+::: {.column .incremental width="40%"}
 ```{r, cache=TRUE, echo=TRUE}
 #| classes: my_class_code_small
 #| class-source: my_class_code_small
@@ -2753,11 +2776,9 @@ coef(lm(maxO3 ~ pluie,
         data = ozone,
         contrasts = list(pluie= "contr.sum")))
 ```
-
 :::
 
-::: {.column width="40%" .incremental}
-
+::: {.column .incremental width="40%"}
 ```{r, cache= TRUE, echo = TRUE}
 #| classes: my_class_code_small
 #| class-source: my_class_code_small
@@ -2767,13 +2788,11 @@ LinearModel(maxO3 ~ pluie,
 
 ```
 :::
-
-::::
-
+:::
 
 ## Inteprétation des résultats
 
--   **Modèle sélectionné** $\Rightarrow$ Interprétaiton des résultats
+-   **Modèle sélectionné** $\Rightarrow$ Interprétation des résultats
 
 . . .
 
@@ -2819,6 +2838,42 @@ $$\begin{array}{c}
 
 $\Longrightarrow$ On quantifie parfaitement ce qui est expliqué par chaque variable ou interaction
 
+<!-- ## Décomposition de la variabilité : variables quali, données déséquilibrées -->
+
+<!-- Retour sur un exemple montré plus haut, mais légèrement modifié... -->
+
+<!-- . . . -->
+
+```{=latex}
+
+%\begin{center}
+%\begin{tabular}{|c|c|c|c|} \hline
+%groupe 1&groupe 2&groupe3& \\
+%\hline
+%$y_{11}=6$ & $y_{21}=2$ & $y_{31}=3$ &\\
+%$y_{12}=9$ & $y_{22}=4$ & $y_{32}=1$ &\\
+%\hline
+%$y_{1\bullet}=7$ & $y_{2\bullet}=3$ & $y_{3\bullet}=2$ & $y_{\bullet\bullet}=4.25$\\
+%  \hline
+%\end{tabular}
+%\end{center}
+```
+
+<!-- . . . -->
+
+<!-- Question: comment estimer $y_{2\bullet}$ ? Deux possibilités ... -->
+
+
+<!-- . . . -->
+
+<!-- Le déséquilibre induit une une confusion (alias en anglais) -->
+
+<!-- Variables explicatives sont très corrélées $\longrightarrow$ l’interprétation est très difficile -->
+
+
+
+
+
 ## Comparaison de moyennes ajustées
 
 Moyennes ajustées = $\hat{\mu} + \hat{\alpha}_i$: Permet de s'affranchir de l'effet des autres variables
@@ -2828,15 +2883,11 @@ Moyennes ajustées = $\hat{\mu} + \hat{\alpha}_i$: Permet de s'affranchir de l'e
 Comparaisons possibles 2 à 2, moyennant une correction de Bonferroni par ex.
 
 ```{r, echo = TRUE}
-
 #| output-location: column-fragment
 
 data_choco <-read.csv("data/chocolat_2022.csv", sep = ";")
-
 mod <- LinearModel(Sucree~Produit+Juge+Produit:Juge, data=data_choco)
-
 meansComp(mod,~Produit, adjust="bonferonni")
-
 ```
 
 ## Prédictions
@@ -2861,17 +2912,244 @@ predict(model,xnew,interval="confidence")
 
 ```
 
-::: panel-tabset
-## Callout title
 
-## Callout expansion
+## Analyse des résidus
 
-Content of expansion
+* Les résidus sont la part du phénomène non-expliquée par le modèle
+
+* On peut vérifier les hypothèses initiales du modèle
+
+
+::: {layout-ncol="2"}
+::: fragment
+
+```{r}
+#| output-location: fragment
+
+model <- lm(maxO3~.,data=ozone)
+res <- residuals(model)
+boxplot(res~vent,data=ozone)
+car::leveneTest(res~vent,data=ozone)
+
+```
+
+
+:::
+
+::: fragment
+
+* Test de Shapiro-Wilk de normalité des Résidus
+(Rq : la non-normalité n’est pas un pb tant que
+la distribution est symétrique)
+
+
+
+
+```{r}
+#| output-location: fragment
+
+
+model <- lm(maxO3~.,data=ozone)
+
+res <- residuals(model)
+hist(res,main="Histogramme résidus",xlab="Résidus")
+shapiro.test(res)
+
+```
+
+
+
+:::
 :::
 
 
 
-## Liste de message d'erreurs communs
+## Retour sur l'exemple ozone
+
+
+::: {.fragment}
+
+* Maximum d'ozone : variable réponse
+* Les variables de températures, nébulosité, vitesse de vent (quanti), et la direction et la pluie (quali) sont prises en compte
+* On ne sait pas si les interactions entre variables quali et entre les variables quali et quanti sont négligeables $\Longrightarrow$ on les met dans le modèle
+
+
+
+:::
+
+. . .
+
+`LinearModel(maxO3 ~ (T9 + T12 + T15 + Ne9 + Ne12 + Ne15 + Vx9 + Vx12 + Vx15 +
+maxO3v + pluie + vent) * (pluie + vent), data=ozone, selection="bic")`
+
+Ce qui revient à écrire :
+
+`maxO3 ~ T9 + T12 + T15 + Ne9 + Ne12 + Ne15 + Vx9 + Vx12 + Vx15 + maxO3v + pluie + vent +
+T9:pluie + T12:pluie + T15:pluie + Ne9:pluie + Ne12:pluie + Ne15:pluie +
+Vx9:pluie + Vx12:pluie + Vx15:pluie + maxO3v:pluie + vent:pluie +
+T9:vent + T12:vent + T15:vent + Ne9:vent + Ne12:vent + Ne15:vent +
+Vx9:vent + Vx12:vent + Vx15:vent + maxO3v:vent`
+
+
+
+## Résultat et sortie
+
+```{r, echo = FALSE, eval = FALSE}
+
+mod <- LinearModel(maxO3 ~ (T9 + T12 + T15 + Ne9 + Ne12 + Ne15 + Vx9 + Vx12 + Vx15 +
+maxO3v + pluie + vent) * (pluie + vent), data=ozone, selection="bic")
+
+
+```
+
+
+
+`Results for the complete model:`
+
+`Call: LinearModel(formula = maxO3 ~ (T9 + T12 + T15 + Ne9 + Ne12 + Ne15 + Vx9 + Vx12 + Vx15 + maxO3v + pluie + vent) * (pluie + vent), data = ozone, selection = "bic")`
+
+`Residual standard error: 14.54 on 56 degrees of freedom`
+`Multiple R-squared:  0.8658`
+`F-statistic: 6.569 on 55 and 56 DF,  p-value: 2.585e-11`
+`AIC =   634    BIC = 786.2`
+
+`Results for the model selected by BIC criterion:`
+
+`Call:`
+`LinearModel(formula = maxO3 ~ T9 + T15 + Ne12 + Vx9 + maxO3v + vent + T9:vent + T15:vent, data = ozone, selection = "bic")`
+
+`Residual standard error: 13.8 on 97 degrees of freedom`
+`Multiple R-squared:  0.7906`
+`F-statistic: 26.16 on 14 and 97 DF,  p-value: 8.082e-27`
+`AIC = 601.8    BIC = 642.6`
+
+
+## Interprétation des résultats
+
+
+::: {.columns}
+
+::: {.column width="60%}
+
+
+```{css}
+/* size of code output, applied to everything */
+
+.reveal pre {
+  font-size: 1.5rem !important;
+}
+```
+
+```{r}
+
+mod <- LinearModel(maxO3 ~ (T9 + T12 + T15 + Ne9 + Ne12 + Ne15 + Vx9 + Vx12 + Vx15 +
+maxO3v + pluie + vent) * (pluie + vent), data=ozone, selection="bic")
+
+mod$Ftest
+
+
+
+```
+
+:::
+
+::: {.column width="40%}
+
+On peut dire (à partir des effets significatifs) qu'il y a, sur le max d'O3:
+
+* des effets de nébulosité de vitesse de vent, du maximum d'O3 de la veille
+* des effets de la direction du vent et des températures mais à travers les interactions : la direction du vent modifie l'effet de la T$^o$ (i.e. amplifie l'effet de la T$^o$ ou la diminue selon la direction du vent) sur max O3
+
+
+
+
+:::
+
+
+:::
+
+. . .
+
+On peut aussi dire (à partir des absences d'effets significatifs):
+
+* la pluviométrie n'est pas un facteur déterminant qui influe sur le max d'03
+* une seule nébulosité (Ne12) est conservée dans le modèle : cela ne veut pas dire que les autres nébulosités n'ont pas d'effet (elles peuvent avoir un effet similaire). Idem pour la vitesse de vent.
+* pour la T$^o$, on a besoin des T$^o$ à 9h et à 15h pour mieux prévoir le maximum d'ozone. L'effet de la T$^o$ n'est pas exactement le même entre 9h et 15h (mais 12h n'est pas utile comme info)
+* l'effet de la nébulosité est le même quelle que soit la direction du vent. Idem pour la vitesse du vent.
+
+
+## Interprétation des résultats (2/2)
+
+
+
+::: {.columns}
+
+::: {.column width="60%}
+
+
+```{css}
+/* size of code output, applied to everything */
+
+.reveal pre {
+  font-size: 1.5rem !important;
+}
+```
+
+```{r}
+
+mod <- LinearModel(maxO3 ~ (T9 + T12 + T15 + Ne9 + Ne12 + Ne15 + Vx9 + Vx12 + Vx15 +
+maxO3v + pluie + vent) * (pluie + vent), data=ozone, selection="bic")
+
+mod$Ttest
+
+
+
+```
+
+:::
+
+::: {.column width="40%}
+
+
+
+* pour T9 et T15, $\beta \ \neq$  0
+* {{< fa plus size=1xl >}} nébulosité, {{< fa minus size=1xl >}} max d'O3 ({{< fa triangle-exclamation size=1xl >}} \red{signe est le même que celui de la corrélation})
+* {{< fa plus size=1xl >}} maximum d'O3 de la veille est grand, {{< fa plus size=1xl >}} maximum d'O3 du jour
+* les jours de vents d'est et surtout du nord ont des max d'O3 supérieur aux jours de vents d'ouest et du sud
+* les jours de vent du nord, l'effet de la T$^o$ à 9h est plus important (coef $= 6.14$); au contraire quand le vent vient de l'est. C'est l'inverse pour la T$^o$ à 15h
+* Ainsi, quand le vent du nord, l'effet de la T$^o$ à 9h est particulièrement fort (donc s'il fait chaud à 9h quand le vent vient du nord, le max d'O3 risque d'être important)
+* etc.
+
+
+
+
+:::
+
+
+:::
+
+
+## Démarche en modélisation (bis)
+
+::: incremental
+1.  Lister les variables potentiellement explicatives / prédictives
+
+2.  Visualiser
+
+3.  Selectionner le sous-modèle (minimisation de l'AIC ou du BIC)
+
+4.  Interpréter les résultats (quelles variables ressortent ? Est-ce surprenant ? Est-ce en accord avec les connaissances sur le sujet ? Des confusions possibles ?
+
+5.  Interpréter les coefficients (signe, valeur etc.)
+
+6.  Prédire pour de nouvelles valeurs
+
+:::
+
+
+# Travaux dirigés
+
+## Liste de messages d'erreurs communs
 
 ```{css}
 /* size of code output, applied to everything */
@@ -2881,23 +3159,19 @@ Content of expansion
 }
 ```
 
-
-::: {style="font-size: 60%;"}
-
-
+::: {style="font-size: 70%;"}
 
 ::: {.columns}
 
-::: {.column width="50%"}
+::: {.column width="60%"}
 
 ```{r}
 detach("package:FactoMineR", character.only=TRUE, unload=TRUE)
 ```
 
-
-* *Erreur dans file(file, "rt") : impossible d'ouvrir la connexion*:
-  +  **Nom du fichier mal spécifié**
-  +  **Chemin mal spécifié (vérifiez le projet dans lequel vous êtes en haut à droite)**
+-   *Erreur dans file(file, "rt") : impossible d'ouvrir la connexion*:
+    -   **Nom du fichier mal spécifié**
+    -   **Chemin mal spécifié (vérifiez le projet dans lequel vous êtes en haut à droite)**
 
 ```{r, echo = TRUE, eval = FALSE}
 #| classes: my_class_code_small
@@ -2908,41 +3182,41 @@ read.table("https://r-stat-sc-donnees.github.io/ozone.tx",
 
 ```
 
-[*Erreur dans file(file, "rt") : impossible d'ouvrir la connexion vers 'https://r-stat-sc-donnees.github.io/ozone.tx'*]{style="color:gray;"} 
+[*Erreur dans file(file, "rt") : impossible d'ouvrir la connexion vers 'https://r-stat-sc-donnees.github.io/ozone.tx'*]{style="color:gray;"}
 
-* *objet xxx introuvable* $\Rightarrow$ __objet non chargé (vérifiez votre environnement)__
+-   *objet xxx introuvable* $\Rightarrow$ **objet non chargé (vérifiez votre environnement)**
 
 ```{r, echo = TRUE, eval = FALSE}
 #| classes: my_class_code_small
 #| class-source: my_class_code_small
 
 head(ozone, n= 1)
-ozone <- read.table("https://r-stat-sc-donnees.github.io/ozone.txt",header=TRUE, stringsAsFactors = TRUE)
+ozone <- read.table("https://r-stat-sc-donnees.github.io/ozone.txt",
+                    header=TRUE, stringsAsFactors = TRUE)
 head(ozone, n= 1)
 ```
 
-* *impossible de trouver la fonction xxx* $\Rightarrow$ __Package non chargé / fonction mal orthographiée (R esT SeNSiBle A La CAsSe !)__
+-   *impossible de trouver la fonction xxx* $\Rightarrow$ **Package non chargé / fonction mal orthographiée (R esT SeNSiBle A La CAsSe !)**
 
 ```{r, echo = TRUE}
 #| classes: my_class_code_small
 #| class-source: my_class_code_small
 
 
-LinearModel(maxO3 ~Pluie, data = ozone) # package pas chargé
+LinearModel(maxO3 ~pluie, data = ozone) # package pas chargé
 library(FactoMineR)
-Linearmodel(maxO3 ~Pluie, data = ozone) # oubli majuscule à model
-LinearModel(maxO3 ~Pluie, data = ozone)
+Linearmodel(maxO3 ~pluie, data = ozone) # oubli majuscule à model
+
+#LinearModel(maxO3 ~pluie, data = ozone) # marche
 
 ```
-
 :::
 
+::: {.column width="40%"}
 
-::: {.column width="50%"}
-
-* Pas de message mais un `+` qui apparaît dans la console  $\Rightarrow$ Vous n'avez pas fermé chaque parenthèse ouverte
-  + Appuyer sur Echap après s'être mis dans la console
-  + Corriger code
+-   Pas de message mais un `+` qui apparaît dans la console $\Rightarrow$ Vous n'avez pas fermé chaque parenthèse ouverte
+    -   Appuyer sur Echap après s'être mis dans la console
+    -   Corriger code
 
 ```{r, echo = TRUE}
 #| classes: my_class_code_small
@@ -2959,8 +3233,79 @@ mean(c(1:3))
 ```
 
 
-:::
+-   Souvenez-vous...
+
+![](images/puppy_click.jpg)
 
 :::
 
 :::
+
+:::
+
+
+<!-- Thank CHAT GPT -->
+
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  // Obtenir toutes les sections avec un H1, en excluant le premier H1 (le titre de la présentation)
+  const h1Elements = Array.from(document.querySelectorAll('h1')).slice(1); // On exclut le premier H1
+  const sectionTitles = h1Elements.map(h1 => h1.textContent);
+
+  // Créer des éléments de titre pour chaque section (H1 uniquement, sauf le premier)
+  const titleContainer = document.createElement('div');
+  titleContainer.classList.add('title-container');
+  sectionTitles.forEach((title, index) => {
+    const titleElement = document.createElement('span');
+    titleElement.classList.add('section-title');
+    titleElement.textContent = title;
+    titleElement.setAttribute('data-section-index', index);
+
+    // Rendre chaque titre cliquable pour naviguer vers la section correspondante
+    titleElement.style.cursor = 'pointer'; // Ajouter le style du curseur pour indiquer que c'est cliquable
+    titleElement.addEventListener('click', () => {
+      // Récupérer la diapositive correspondant au H1 sélectionné
+      const targetSlide = h1Elements[index].closest('section');
+      const indices = Reveal.getIndices(targetSlide); // Obtenir les indices de la section (index horizontal et vertical)
+      Reveal.slide(indices.h, indices.v); // Naviguer vers la section correspondante
+    });
+
+    titleContainer.appendChild(titleElement);
+  });
+
+  document.body.insertBefore(titleContainer, document.body.firstChild); // Affiche les titres en haut de la page
+
+  function updateSectionTitles() {
+    const currentSlide = Reveal.getCurrentSlide();
+
+    // Vérifier si la diapositive actuelle contient un H1, en excluant le premier
+    let currentSectionIndex = -1;
+    h1Elements.forEach((h1, index) => {
+      if (currentSlide.contains(h1)) {
+        currentSectionIndex = index;
+      }
+    });
+
+    if (currentSectionIndex === -1) {
+      return; // Ne rien faire si aucun H1 n'est trouvé dans la diapositive courante
+    }
+
+    // Mise à jour du style des titres selon la section courante
+    const titleElements = document.querySelectorAll('.section-title');
+    titleElements.forEach((titleElement, index) => {
+      if (index === currentSectionIndex) {
+        titleElement.style.color = 'black'; // Section active
+        titleElement.style.opacity = 1;
+      } else {
+        titleElement.style.color = 'grey'; // Autres sections
+        titleElement.style.opacity = 0.5;
+      }
+    });
+  }
+
+  Reveal.on('slidechanged', updateSectionTitles);
+  updateSectionTitles(); // Initialisation au chargement
+});
+
+</script>

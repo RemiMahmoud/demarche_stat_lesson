@@ -24,3 +24,4 @@ if (length(start_times) == length(stop_times)) {
   
   print("Mismatch between start and stop entries in the log file.")
 }
+
