@@ -1512,7 +1512,7 @@ Contraintes classiques:
 
 -   Un niveau particulier comme référence: $\alpha_1 = 0 \ \Rightarrow \hat\mu=Y_{1\bullet}$ et $\forall i, \hat{\alpha}_i=Y_{i\bullet}-Y_{1\bullet}$
 
--   la moyenne des moyennes par groupe comme référence: $\sum_{i=1}^I\alpha_i=0 \ \Rightarrow \hat\mu=\frac{1}{I}\sum_{i=1}^I Y_{i\bullet},  ~~ \forall \,i,\,\hat\alpha_i=Y_{i\bullet}-Y_{1\bullet}$
+-   la moyenne des moyennes par groupe comme référence: $\sum_{i=1}^I\alpha_i=0 \ \Rightarrow \hat\mu=\frac{1}{I}\sum_{i=1}^I Y_{i\bullet},  ~~ \forall \,i,\,\hat\alpha_i=Y_{i\bullet}-\hat\mu$
 
 ## Exemple pour clarifier
 
@@ -1525,9 +1525,11 @@ groupe 1&groupe 2&groupe3& \\
 \hline
 $y_{11}=6$ & $y_{21}=2$ & $y_{31}=3$ &\\
 $y_{12}=9$ & $y_{22}=4$ & $y_{32}=1$ &\\
+$y_{13}=6$ & $y_{22}=3$ &   &\\
+\hline \\
 \hline
 $y_{1\bullet}=7$ & $y_{2\bullet}=3$ & $y_{3\bullet}=2$ & $y_{\bullet\bullet}=4.25$\\
-  \hline
+\hline
 \end{tabular}
 \end{center}
 ```
