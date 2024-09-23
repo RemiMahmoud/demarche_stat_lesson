@@ -1559,9 +1559,139 @@ $$\hat \sigma^2=\frac{\sum_{ij}(Y_{ij}-Y_{i\bullet})^2}{n-I}=\frac{\sum_{ij}\hat
 
 $n-I$ degrés de liberté sont associés à la somme des carrés des résidus du modèle.
 
-## Décomposition de la variabilité
 
-![](images/decomp_anova.png){width="50%" fig-align="center" height="250"}
+## Décomposition de la variabilité
+<!-- ![](images/decomp_anova_hospital.png){width="50%" fig-align="center" height="250"} -->
+```{r, cache=  TRUE, eval=FALSE}
+
+library(tidyverse)
+
+
+data_hospital <- tibble(Hospital = rep(c("A", "B", "C"), each = 20),
+                        position_Hospital = rep(c(1:3), each = 20),
+                        Time = c(rnorm(20, mean = 1.2, sd = 0.3),
+                                 rnorm(20, mean = 1.9, sd = 0.3),
+                                 rnorm(20, mean = 1.5, sd = 0.3))) %>% 
+  mutate(mean_by_group  = mean(Time), .by = Hospital)  %>% 
+  mutate(pos_point_jitter = position_Hospital + rnorm(60, mean = 0, sd= .05)) 
+
+data_hospital_mean = data_hospital %>% summarise(Time = mean(Time))
+data_hospital_mean_by_group = data_hospital %>% summarise(Time = mean(Time),  .by = c(Hospital, position_Hospital)) %>% 
+  mutate(pos_segment = 1:3)
+
+plot_waiting_time_hospital <- data_hospital %>%
+  ggplot(aes(x = pos_point_jitter, y = Time)) +
+  geom_point(color = "grey50", alpha = .4) +
+  # geom_segment(data = data_hospital_mean_by_group, linewidth =  3, color = "red", alpha = .7, aes(x = pos_segment - 0.15, xend = pos_segment + 0.15)) +
+  theme_bw() +
+  labs(y = "Waiting time (hours)", title = "Waiting time by hospital", x =  "Hospital")+
+  scale_x_continuous(breaks = c(1,2,3), labels = c("A", "B", "C")) 
+
+plot_bss <- data_hospital %>% 
+  ggplot(aes(x = pos_point_jitter, y = Time)) +
+  # geom_point(color = "grey50", position = position_jitter(width = .05, height = 0), size=  2, alpha = .4) + 
+  geom_point(color = "grey50", alpha = .4) + 
+  theme_bw() + 
+  geom_segment(data = data_hospital_mean_by_group, linewidth =  3, color = "grey20", alpha = .7, aes(x = pos_segment - 0.15, xend = pos_segment + 0.15)) + 
+  geom_hline(yintercept = mean(data_hospital$Time), linetype = "dashed", linewidth = 2, color = "red", alpha = .4) + 
+  geom_segment(data = data_hospital_mean_by_group,
+               aes(x = position_Hospital, yend = Time), y=  mean(data_hospital$Time), linewidth = 2, color = "red", alpha = .5) + 
+  labs(y = "Waiting time (hours)", title = latex2exp::TeX("Variabilité inter-groupe  ($SC_F$)"), x =  "Hospital")+
+  scale_x_continuous(breaks = c(1,2,3), labels = c("A", "B", "C")) 
+
+
+
+plot_wss <- data_hospital %>% 
+  ggplot(aes(x = pos_point_jitter, y = Time)) +
+  geom_point(color = "grey50", size=  2, alpha = .4) + 
+  theme_bw() + 
+  geom_segment(data = data_hospital_mean_by_group, linewidth =  3, color = "red", alpha = .7, aes(x = pos_segment - 0.15, xend = pos_segment + 0.15)) + 
+  geom_segment(data = data_hospital_mean_by_group,
+               aes(x = position_Hospital, yend = Time), y=  mean(data_hospital$Time), linewidth = 2, color = "red", alpha = .5) +
+  geom_segment(data = data_hospital,
+               aes(x = pos_point_jitter, yend = Time, y=  mean_by_group), linewidth = 1, color = "red", alpha = .5) + 
+  labs(y = "Waiting time (hours)", title = latex2exp::TeX("Variabilité intra-groupe ($SC_R$)"), x =  "Hospital") +
+  scale_x_continuous(breaks = c(1,2,3), labels = c("A", "B", "C")) 
+
+
+plot_ss <- data_hospital %>% 
+  ggplot(aes(x = pos_point_jitter, y = Time)) +
+  geom_point(color = "grey50", size=  2, alpha = .4) + 
+  theme_bw() + 
+  # geom_segment(data = data_hospital_mean_by_group,
+  #              aes(x = position_Hospital, yend = Time), y=  mean(data_hospital$Time), linewidth = 2, color = "red", alpha = .5) +
+  geom_segment(data = data_hospital,
+               aes(x = pos_point_jitter, yend = Time), y=  mean(data_hospital$Time), linewidth = 1, color = "red", alpha = .3) + 
+  geom_hline(yintercept = mean(data_hospital$Time), linetype = "dashed", linewidth = 2, color = "red", alpha = .4) + 
+  labs(y = "Waiting time (hours)", title = latex2exp::TeX("Variabilité totale ($SC_T$)"), x =  "Hospital") +
+  scale_x_continuous(breaks = c(1,2,3), labels = c("A", "B", "C")) 
+
+
+
+ggsave(plot =plot_waiting_time_hospital, filename = "images/plot_waiting_time_hospital.png", dpi = "retina", width = 9, height = 8, unit = 'cm')
+ggsave(plot =plot_ss, filename = "images/plot_ss_anova.png", dpi = "retina", width = 9, height = 8, unit = 'cm')
+ggsave(plot =plot_wss, filename = "images/plot_wss_anova.png", dpi = "retina", width = 9, height = 8, unit = 'cm')
+ggsave(plot =plot_bss, filename = "images/plot_bss_anova.png", dpi = "retina", width = 9, height = 8, unit = 'cm')
+
+```
+
+
+
+:::: {layout="[ 32, 2, 32, 2, 32 ]"}
+
+::: {#first-column}
+
+
+::: {.r-stack}
+
+![](images/plot_waiting_time_hospital.png){.fragment}
+
+![](images/plot_ss_anova.png){.fragment}
+
+
+:::
+
+:::
+
+::: {#second-column}
+
+::: {.fragment}
+
+::: {style="font-size: 300%;"}
+{{< fa equals size=4xl >}}
+
+:::
+
+:::
+
+
+
+:::
+
+
+![](images/plot_bss_anova.png){.fragment}
+
+::: {#second-column}
+
+::: {.fragment}
+
+::: {style="font-size: 300%;"}
+
+{{< fa plus size=4xl >}}
+
+:::
+
+:::
+
+
+
+:::
+
+
+
+![](images/plot_wss_anova.png){.fragment}
+::::
+
 
 . . .
 
