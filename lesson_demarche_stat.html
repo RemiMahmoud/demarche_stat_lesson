@@ -1837,7 +1837,7 @@ NOTE: n is number in *each* group</code></pre>
 <tr class="odd">
 <td style="text-align: center;"></td>
 <td style="text-align: center;"><span class="math inline">\(\displaystyle{\underbrace{\sum_{i,j}(Y_{ij}-Y_{\bullet \bullet})^2}_{SC_T}}\)</span></td>
-<td style="text-align: center;"><span class="math inline">\(= \displaystyle{\underbrace{\sum_{i,j}(Y_{i\bullet}-Y_{\bullet \bullet})^2}_{SC_F}}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(= \displaystyle{\underbrace{\sum_{i}(Y_{i\bullet}-Y_{\bullet \bullet})^2}_{SC_F}}\)</span></td>
 <td style="text-align: center;"><span class="math inline">\(+ \displaystyle{\underbrace{\sum_{i,j}(Y_{ij}-Y_{i\bullet})^2}_{SC_R}}\)</span></td>
 </tr>
 <tr class="even">
@@ -2397,14 +2397,48 @@ T9            6.312999  0.6151378 10.262740 9.729952e-18</code></pre>
 </section>
 <section id="décomposition-de-la-variabilité-1" class="slide level2">
 <h2>Décomposition de la variabilité</h2>
+<div class="quarto-layout-panel" data-layout="[ 32, 2, 32, 2, 32 ]">
+<div class="quarto-layout-row">
+<div id="first-column" class="quarto-layout-cell" style="flex-basis: 32.0%;justify-content: flex-start;">
+<div class="r-stack">
+<p><img data-src="images/plot_ozone.png" class="fragment"></p>
+<p><img data-src="images/plot_SCT_ozone.png" class="fragment"></p>
+</div>
+</div>
+<div id="second-column" class="quarto-layout-cell" style="flex-basis: 2.0%;justify-content: flex-start;">
+<div class="fragment">
+<div style="font-size: 300%;">
+<p><i class="fa-solid fa-equals fa-4xl" aria-label="equals"></i></p>
+</div>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 32.0%;justify-content: center;">
+<p><img data-src="images/plot_SCM_ozone.png" class="fragment"></p>
+</div>
+<div id="second-column" class="quarto-layout-cell" style="flex-basis: 2.0%;justify-content: flex-start;">
+<div class="fragment">
+<div style="font-size: 300%;">
+<p><i class="fa-solid fa-plus fa-4xl" aria-label="plus"></i></p>
+</div>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 32.0%;justify-content: center;">
+<p><img data-src="images/plot_SCR_ozone.png" class="fragment"></p>
+</div>
+</div>
+</div>
+<div class="fragment">
 <p><span class="math display">\[\begin{array}{ccccc}
    \sum_{i=1}^{n} ( Y_{i} - \bar{Y} )^{2} &amp; = &amp; \sum_{i=1}^{n} ( \hat{Y}_{i} - \bar{Y} )^{2}
    &amp; + &amp; \sum_{i=1}^{n} ( Y_{i} - \hat{Y}_{i} )^{2}  \\
    SCT &amp; = &amp; SCM &amp; + &amp; SCR   \\
    n - 1 &amp; = &amp; 1 &amp; + &amp; n - 2
    \end{array}\]</span></p>
-<div class="fragment">
-<p><strong>Table d’analyse de la variance</strong></p>
+</div>
+</section>
+<section id="table-danalyse-de-la-variance" class="slide level2">
+<h2>Table d’analyse de la variance</h2>
+<!-- **Table d'analyse de la variance** -->
 <div class="columns">
 <div class="column" style="width:50%;">
 <div class="center">
@@ -2462,7 +2496,6 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 </div>
 </div>
 </div>
-</div>
 <div class="fragment">
 <p>Comparaison de <span class="math inline">\(SCM\)</span> et <span class="math inline">\(SCT\)</span> par le critère <span class="math inline">\(\displaystyle{R^{2} = \frac{ SCM }{ SCT } }\)</span></p>
 </div>
@@ -2513,7 +2546,7 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="lesson_demarche_stat_files/figure-revealjs/unnamed-chunk-54-1.png" width="960"></p>
+<p><img data-src="lesson_demarche_stat_files/figure-revealjs/unnamed-chunk-55-1.png" width="960"></p>
 </figure>
 </div>
 </div>
@@ -2540,7 +2573,7 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="lesson_demarche_stat_files/figure-revealjs/unnamed-chunk-55-1.png" width="960"></p>
+<p><img data-src="lesson_demarche_stat_files/figure-revealjs/unnamed-chunk-56-1.png" width="960"></p>
 </figure>
 </div>
 </div>
@@ -2646,7 +2679,7 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="lesson_demarche_stat_files/figure-revealjs/unnamed-chunk-56-1.png" width="960"></p>
+<p><img data-src="lesson_demarche_stat_files/figure-revealjs/unnamed-chunk-57-1.png" width="960"></p>
 </figure>
 </div>
 </div>
@@ -2704,7 +2737,7 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="lesson_demarche_stat_files/figure-revealjs/unnamed-chunk-57-1.png" width="960"></p>
+<p><img data-src="lesson_demarche_stat_files/figure-revealjs/unnamed-chunk-58-1.png" width="960"></p>
 </figure>
 </div>
 </div>
@@ -2770,7 +2803,7 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="lesson_demarche_stat_files/figure-revealjs/unnamed-chunk-58-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
+<p><img data-src="lesson_demarche_stat_files/figure-revealjs/unnamed-chunk-59-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
 </figure>
 </div>
 </div>
@@ -2781,7 +2814,7 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="lesson_demarche_stat_files/figure-revealjs/unnamed-chunk-59-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
+<p><img data-src="lesson_demarche_stat_files/figure-revealjs/unnamed-chunk-60-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
 </figure>
 </div>
 </div>
@@ -2816,7 +2849,7 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="lesson_demarche_stat_files/figure-revealjs/unnamed-chunk-60-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
+<p><img data-src="lesson_demarche_stat_files/figure-revealjs/unnamed-chunk-61-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
 </figure>
 </div>
 </div>
@@ -2827,7 +2860,7 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="lesson_demarche_stat_files/figure-revealjs/unnamed-chunk-61-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
+<p><img data-src="lesson_demarche_stat_files/figure-revealjs/unnamed-chunk-62-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
 </figure>
 </div>
 </div>
@@ -3384,7 +3417,7 @@ pluie - Sec    13.72262   2.419555  5.671545 1.156980e-07</code></pre>
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="lesson_demarche_stat_files/figure-revealjs/unnamed-chunk-67-1.png" width="960"></p>
+<p><img data-src="lesson_demarche_stat_files/figure-revealjs/unnamed-chunk-68-1.png" width="960"></p>
 </figure>
 </div>
 </div>
@@ -3457,7 +3490,7 @@ attr(,"class")
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="lesson_demarche_stat_files/figure-revealjs/unnamed-chunk-69-1.png" width="960"></p>
+<p><img data-src="lesson_demarche_stat_files/figure-revealjs/unnamed-chunk-70-1.png" width="960"></p>
 </figure>
 </div>
 </div>
@@ -3477,7 +3510,7 @@ group   3  1.5589 0.2036
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="lesson_demarche_stat_files/figure-revealjs/unnamed-chunk-70-1.png" width="960"></p>
+<p><img data-src="lesson_demarche_stat_files/figure-revealjs/unnamed-chunk-71-1.png" width="960"></p>
 </figure>
 </div>
 </div>

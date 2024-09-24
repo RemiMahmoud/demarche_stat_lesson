@@ -1748,7 +1748,7 @@ ggsave(plot =plot_bss, filename = "images/plot_bss_anova.png", dpi = "retina", w
 ```{=latex}
 
 \begin{tabular}{cccc}
- &$\displaystyle{\underbrace{\sum_{i,j}(Y_{ij}-Y_{\bullet \bullet})^2}_{SC_T}}$&$= \displaystyle{\underbrace{\sum_{i,j}(Y_{i\bullet}-Y_{\bullet \bullet})^2}_{SC_F}}$&$+ \displaystyle{\underbrace{\sum_{i,j}(Y_{ij}-Y_{i\bullet})^2}_{SC_R}}$\\
+ &$\displaystyle{\underbrace{\sum_{i,j}(Y_{ij}-Y_{\bullet \bullet})^2}_{SC_T}}$&$= \displaystyle{\underbrace{\sum_{i}(Y_{i\bullet}-Y_{\bullet \bullet})^2}_{SC_F}}$&$+ \displaystyle{\underbrace{\sum_{i,j}(Y_{ij}-Y_{i\bullet})^2}_{SC_R}}$\\
 Variabilité &totale&modèle&résiduelle\\
 ddl&$n-1$&$I-1$&$n-I$\\
 \end{tabular}
@@ -2285,6 +2285,126 @@ Rq 2. : on peut aussi tester $\beta_0$ mais cela a moins d'importance en pratiqu
 
 ## Décomposition de la variabilité
 
+
+
+```{r, cache=  TRUE, eval=FALSE}
+
+library(tidyverse)
+
+data_ozone <- ozone %>% 
+  mutate(fitted = fitted(lm(maxO3 ~T9, data = ozone)))
+ 
+data_ozone_mean = data_ozone %>% summarise(maxO3 = mean(maxO3))
+# data_ozone_mean_by_group = data_ozone %>% summarise(maxO3 = mean(maxO3),  .by = c(ozone, position_ozone)) %>% 
+#   mutate(pos_segment = 1:3)
+
+plot_maxO3_ozone <- data_ozone %>%
+  ggplot(aes(x = T9, y = maxO3)) +
+  geom_point(color = "grey30", alpha = .4) +
+  theme_bw() +
+  labs(y = "MaxO3", title = "MaxO3 against temperature at 9 AM", x =  "Temperature (°C)")
+
+plot_SCR <- data_ozone %>% 
+  ggplot(aes(x = T9, y = maxO3)) +
+  # geom_point(color = "grey50", position = position_jitter(width = .05, height = 0), size=  2, alpha = .4) + 
+  geom_point(color = "grey30", alpha = .4) + 
+  geom_line(aes(y = fitted), linetype= "solid", color = "black", linewidth = 2) + 
+  theme_bw() +
+  # geom_hline(yintercept = mean(data_ozone$maxO3), linetype = "dashed", linewidth = 2, color = "red", alpha = .4) + 
+  geom_segment(data = data_ozone,
+               aes(x = T9, yend = fitted, y=  maxO3), linewidth = 1, color = "red", alpha = .3) + 
+  labs(y = "MaxO3", title = latex2exp::TeX("Variabilité résiduelle  ($SC_R$)"), x =  "Temperature at 9 PM (°C)") 
+
+
+
+plot_SCM <- data_ozone %>% 
+  ggplot(aes(x = T9, y = maxO3)) +
+  geom_point(color = "grey80", size=  2, alpha = .4) + 
+  geom_point(color = "grey20",  alpha = .4, aes(y= fitted), size =3) + 
+  theme_bw() + 
+  geom_segment(data = data_ozone,
+               aes(x = T9, yend = fitted), y=  mean(data_ozone$maxO3), linewidth = 1, color = "red", alpha = .3) +
+  geom_hline(yintercept = mean(data_ozone$maxO3), linetype = "dashed", linewidth = 2, color = "red", alpha = .4) + 
+  labs(y = "MaxO3",  title = latex2exp::TeX("Variabilité expliquée par le modèle ($SC_M$)"), x =  "Temperature at 9 PM (°C)", subtitle = "Points noirs: valeurs ajustées par le modèle") +
+  theme(title = element_text(size = 9))
+
+
+plot_SCT <- data_ozone %>% 
+  ggplot(aes(x = T9, y = maxO3)) +
+  geom_point(color = "grey30", size=  2, alpha = .4) + 
+  theme_bw() + 
+  geom_segment(data = data_ozone,
+               aes(x = T9, yend = maxO3), y=  mean(data_ozone$maxO3), linewidth = 1, color = "red", alpha = .2) + 
+  geom_hline(yintercept = mean(data_ozone$maxO3), linetype = "dashed", linewidth = 2, color = "red", alpha = .4) + 
+  labs(y = "MaxO3", title = latex2exp::TeX("Variabilité totale ($SC_T$)"), x =  "Temperature (°C)")  
+
+
+
+ggsave(plot =plot_SCM, filename = "images/plot_SCM_ozone.png", dpi = "retina", width = 9, height = 8, unit = 'cm')
+ggsave(plot =plot_SCR, filename = "images/plot_SCR_ozone.png", dpi = "retina", width = 9, height = 8, unit = 'cm')
+ggsave(plot =plot_SCT, filename = "images/plot_SCT_ozone.png", dpi = "retina", width = 9, height = 8, unit = 'cm')
+ggsave(plot =plot_maxO3_ozone, filename = "images/plot_ozone.png", dpi = "retina", width = 9, height = 8, unit = 'cm')
+
+```
+
+:::: {layout="[ 32, 2, 32, 2, 32 ]"}
+
+::: {#first-column}
+
+
+::: {.r-stack}
+
+![](images/plot_ozone.png){.fragment}
+
+![](images/plot_SCT_ozone.png){.fragment}
+
+
+:::
+
+:::
+
+::: {#second-column}
+
+::: {.fragment}
+
+::: {style="font-size: 300%;"}
+{{< fa equals size=4xl >}}
+
+:::
+
+:::
+
+
+
+:::
+
+
+![](images/plot_SCM_ozone.png){.fragment}
+
+::: {#second-column}
+
+::: {.fragment}
+
+::: {style="font-size: 300%;"}
+
+{{< fa plus size=4xl >}}
+
+:::
+
+:::
+
+
+
+:::
+
+
+
+![](images/plot_SCR_ozone.png){.fragment}
+::::
+
+
+. . .
+
 ```{=latex}
 
 
@@ -2298,9 +2418,13 @@ $$\begin{array}{ccccc}
 
    
 ```
-. . .
 
-**Table d'analyse de la variance**
+
+
+
+## Table d'analyse de la variance
+
+<!-- **Table d'analyse de la variance** -->
 
 ::: columns
 ::: {.column width="50%"}
