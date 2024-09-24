@@ -910,6 +910,12 @@ ggplot(df, aes(x=x, y=y)) +
 
 ```
 
+
+```{r}
+
+```
+
+
 ## Rappel: Théorème central limite
 
 . . .
@@ -1097,6 +1103,48 @@ echantillon_student %>%
 
 
 ```
+
+```{r, eval = FALSE}
+
+library(purrr)
+list_ddl_student <- tibble(n1 = c(2,5, 10,30,50))
+
+gen_data_student <- function(n1){
+  return(tibble(x= seq(-5,5,by = 0.025), val_student = dt(x, df = n1)))
+}
+
+plot_student <- list_ddl_student %>% 
+  mutate(data_val_student = map(n1,  gen_data_student)) %>% 
+  tidyr::unnest(data_val_student) %>% 
+  mutate(ddl = paste0("df =", n1)) %>% 
+  mutate(ddl = forcats::fct_reorder(ddl, n1)) %>% 
+  ggplot(aes(x = x, y= val_student, color = ddl)) + 
+  geom_line(linewidth = 1.5, alpha = .5)+
+  theme_bw()+ 
+  labs(x = NULL, y=  "Densité") +
+  theme(text = element_text(size =15))
+
+
+vec_colors_ddl_student <- c( "#F8766D", "#A3A500", "#00BF7D", "#00B0F6", 
+"#E76BF3", "black")
+
+plot_student_with_normal <- list_ddl_student %>% 
+  mutate(data_val_student = map(n1,  gen_data_student)) %>% 
+  tidyr::unnest(data_val_student) %>% 
+  mutate(ddl = paste0("df =", n1)) %>% 
+  bind_rows(tibble(x = seq(-5,5,by = 0.025), val_student = dnorm(x), ddl = "N(0,1)", n1 = Inf)) %>% 
+  mutate(ddl = forcats::fct_reorder(ddl, n1)) %>% 
+  ggplot(aes(x = x, y= val_student, color = ddl)) + 
+  geom_line(linewidth = 1.5, alpha = .5)+
+  theme_bw()+ 
+  theme(text = element_text(size =15)) + 
+  labs(x = NULL, y=  "Densité") +
+  scale_color_manual(values = vec_colors_ddl_student)
+
+ggsave("images/plot_student_with_normal.png", plot = plot_student_with_normal, width = 10, height = 7, dpi = "retina")
+ggsave("images/plot_student.png", plot = plot_student, width = 10, height = 7, dpi = "retina")
+```
+
 
 ::: columns
 ::: {.column width="50%"}
@@ -1875,7 +1923,7 @@ LinearModel(maxO3 ~vent, data = ozone)
 ::: {.column width="40%"}
 ```{r, cache=TRUE}
 #| code-fold: true
-#| fig-height: 7
+#| fig-height: 8
 
 
 
@@ -1890,9 +1938,10 @@ fisher_data %>%
   geom_area(data = subset(fisher_data, x >= 3.3881), aes(x = x, y = val_fisher), fill = "red", alpha = 0.5) +
   geom_area(data = subset(fisher_data, x <= 3.3881), aes(x = x, y = val_fisher), fill = "lightblue", alpha = 0.5) +
   geom_segment(x = 3.3881, y =-Inf , yend = 0.2, linetype = "dashed") +
-  geom_label(x = 4, y = 0.025, label = "2.07%", color = "red", size=7) +
-  geom_label(x = 0.7, y = 0.25, label = "Zone de non-rejet", color = "blue", size=7) +
-  labs(x = NULL, y = NULL)
+  geom_label(x = 4, y = 0.025, label = "2.07%", color = "red", size=8) +
+  geom_label(x = 0.7, y = 0.25, label = "Zone de non-rejet", color = "blue", size=8) +
+  labs(x = NULL, y = NULL) + 
+  theme(axis.text = element_text(size = 21))
 
 
 ```
@@ -3397,24 +3446,25 @@ mean(c(1:3))
 
 <!-- Thank CHAT GPT -->
 
+
 ```{=html}
 <script>
-document.addEventListener('DOMContentLoaded', function() {
-  // Obtenir toutes les sections avec un H1, en excluant le premier H1 (le titre de la présentation)
-  const h1Elements = Array.from(document.querySelectorAll('h1')).slice(1); // On exclut le premier H1
-  const sectionTitles = h1Elements.map(h1 => h1.textContent);
-
-  // Créer des éléments de titre pour chaque section (H1 uniquement, sauf le premier)
-  const titleContainer = document.createElement('div');
-  titleContainer.classList.add('title-container');
-  sectionTitles.forEach((title, index) => {
-    const titleElement = document.createElement('span');
-    titleElement.classList.add('section-title');
-    titleElement.textContent = title;
-    titleElement.setAttribute('data-section-index', index);
-
-    // Rendre chaque titre cliquable pour naviguer vers la section correspondante
-    titleElement.style.cursor = 'pointer'; // Ajouter le style du curseur pour indiquer que c'est cliquable
+  document.addEventListener('DOMContentLoaded', function() {
+    // Obtenir toutes les sections avec un H1, en excluant le premier H1 (le titre de la présentation)
+    const h1Elements = Array.from(document.querySelectorAll('h1')).slice(1); // On exclut le premier H1
+    const sectionTitles = h1Elements.map(h1 => h1.textContent);
+    
+    // Créer des éléments de titre pour chaque section (H1 uniquement, sauf le premier)
+    const titleContainer = document.createElement('div');
+    titleContainer.classList.add('title-container');
+    sectionTitles.forEach((title, index) => {
+      const titleElement = document.createElement('span');
+      titleElement.classList.add('section-title');
+      titleElement.textContent = title;
+      titleElement.setAttribute('data-section-index', index);
+      
+      // Rendre chaque titre cliquable pour naviguer vers la section correspondante
+      titleElement.style.cursor = 'pointer'; // Ajouter le style du curseur pour indiquer que c'est cliquable
     titleElement.addEventListener('click', () => {
       // Récupérer la diapositive correspondant au H1 sélectionné
       const targetSlide = h1Elements[index].closest('section');
@@ -3441,7 +3491,7 @@ document.addEventListener('DOMContentLoaded', function() {
     if (currentSectionIndex === -1) {
       return; // Ne rien faire si aucun H1 n'est trouvé dans la diapositive courante
     }
-
+    
     // Mise à jour du style des titres selon la section courante
     const titleElements = document.querySelectorAll('.section-title');
     titleElements.forEach((titleElement, index) => {
@@ -3454,10 +3504,16 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     });
   }
-
+  
   Reveal.on('slidechanged', updateSectionTitles);
   updateSectionTitles(); // Initialisation au chargement
-});
-
+  });
+    
 </script>
+
+
+
+
+
 ```
+
