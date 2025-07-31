@@ -1,13 +1,2 @@
-[build]
-  publish = "_site"
-  command = "quarto render"
-
-[build.environment]
-  LANG = "en_US.UTF-8"
-  NODE_VERSION = "18"
-
-[functions]
-  node_bundler = "esbuild"
-
-[build]
-  image = "quarto-dev/quarto-cli:1.4"
+[[plugins]]
+package = "@quarto/netlify-plugin-quarto"
