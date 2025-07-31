@@ -1227,7 +1227,7 @@ On considère que les données de la sous-population 1 sont telles que $(X_{i1})
 
 . . .
 
--   $H_0$ hypothèse nulle, $H_0: \mu_1 = \mu_2$ vs **H1 hypothèse alternative**, $H_1: \mu_1 \neq\mu_2$
+-   **$H_0$ hypothèse nulle**, $H_0: \mu_1 = \mu_2$ vs **$H_1$ hypothèse alternative**, $H_1: \mu_1 \neq\mu_2$
 
 . . .
 
@@ -1296,7 +1296,7 @@ list_ddl_fisher %>%
 #| class-source: my_class_code_big
 #| classes: my_class_code_big
 
-var.test(maxO3 ~pluie, data = ozone, alternative = "two.sided")
+var.test(maxO3 ~ pluie, data = ozone, alternative = "two.sided")
 
 ```
 
@@ -1578,7 +1578,7 @@ $$\mbox{SCER minimal quand }\forall~i,~\hat\mu +\hat\alpha_i=\frac{1}{n_i}\sum_{
 
 . . .
 
-Contraintes classiques:
+*Contraintes classiques*:
 
 -   Un niveau particulier comme référence: $\alpha_1 = 0 \ \Rightarrow \hat\mu=Y_{1\bullet}$ et $\forall i, \hat{\alpha}_i=Y_{i\bullet}-Y_{1\bullet}$
 
@@ -2052,12 +2052,13 @@ On peut ensuite vérifier les hypothèses du modèle
 #| fig-height: 2
 
 
+
 residus <- data.frame(residus=res$lmResult$residuals, vent = ozone$vent)
 residus %>% 
   ggplot(aes(x=residus))+
   geom_histogram(fill="lightblue", aes(y = after_stat(density)))+
   theme_bw() +
-  labs(x  ="Résidu", y = "Densité", title = "histogramme des résidus")
+  labs(x  ="Résidu", y = "Densité", title = "Histogramme des résidus")
 
 
 ```
@@ -2227,7 +2228,7 @@ Ok, mais cette affirmation ne doit pas servir à réfuter toute association cons
 
 ![](images/illu_corr.jpg){width="80%" fig-align="center" height="550"}
 
-```{r}
+```{r, eval = FALSE}
 x = rnorm(100)
 # tibble(val_x = rep(x, 6), y = val_x*rep(seq(-1,1,length.out = 3), each = 100) +  rnorm(600), beta =  rep(seq(-1,1,length.out = 6), each = 100)) %>% 
 #   mutate(cor= cor(val_x,y), .by = beta)
@@ -2434,20 +2435,28 @@ $$\begin{array}{ccccc}
 
 ::::: columns
 ::: {.column width="50%"}
-\begin{center}
-\begin{tabular}{|c|c|c|c|c|}
-\hline
-Source    & Somme de & Degrés de &  Carré & F \\
-variation &  carrés &  liberté & moyen & \\
-\hline
-Modèle & SCM & 1 & $\frac{SCM}{1}$ & $\frac{CMM}{CMR}$\\
-% & & & & \\
-Erreur & SCR & n-2 &\ $\frac{SCR}{n-2}$ & \\
-% & & & & \\
-Total & SCT & n-1 &  & \\
-\hline
-\end{tabular}
-\end{center}
+<!-- \begin{center} -->
+<!-- \begin{tabular}{|c|c|c|c|c|} -->
+<!-- \hline -->
+<!-- Source    & Somme de & Degrés de &  Carré & F \\ -->
+<!-- variation &  carrés &  liberté & moyen & \\ -->
+<!-- \hline -->
+<!-- Modèle & SCM & 1 & $\frac{SCM}{1}$ & $\frac{CMM}{CMR}$\\ -->
+<!-- % & & & & \\ -->
+<!-- Erreur & SCR & n-2 &\ $\frac{SCR}{n-2}$ & \\ -->
+<!-- % & & & & \\ -->
+<!-- Total & SCT & n-1 &  & \\ -->
+<!-- \hline -->
+<!-- \end{tabular} -->
+<!-- \end{center} -->
+
+| Source de variation | Somme des carrés | Degrés de liberté | Carré moyen         | F                    |
+|---------------------|------------------|--------------------|----------------------|----------------------|
+| Modèle              | SCM              | 1                  | $\frac{SCM}{1}$      | $\frac{CMM}{CMR}$    |
+| Erreur              | SCR              | $n-2$              | $\frac{SCR}{n-2}$    |                      |
+| Total               | SCT              | $n-1$              |                      |                      |
+
+
 :::
 
 ::: {.column width="50%"}
@@ -2458,6 +2467,9 @@ res$Ftest
 ```
 :::
 :::::
+
+
+
 
 . . .
 

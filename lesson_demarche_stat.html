@@ -1132,7 +1132,7 @@ mean of x
 <p>On considère que les données de la sous-population 1 sont telles que <span class="math inline">\((X_{i1})_{1\leq i\leq n_1} \sim {\cal N}(\mu_1,\sigma^2)\)</span> et que les données de la sous-population 2 sont telles que <span class="math inline">\((X_{i2})_{1\leq i\leq n_2} \sim {\cal N}(\mu_2,\sigma^2)\)</span> <span class="math inline">\(\Rightarrow\)</span> (pour l’instant) seules les moyennes peuvent être différentes</p>
 <div class="fragment">
 <ul>
-<li><span class="math inline">\(H_0\)</span> hypothèse nulle, <span class="math inline">\(H_0: \mu_1 = \mu_2\)</span> vs <strong>H1 hypothèse alternative</strong>, <span class="math inline">\(H_1: \mu_1 \neq\mu_2\)</span></li>
+<li><strong><span class="math inline">\(H_0\)</span> hypothèse nulle</strong>, <span class="math inline">\(H_0: \mu_1 = \mu_2\)</span> vs <strong><span class="math inline">\(H_1\)</span> hypothèse alternative</strong>, <span class="math inline">\(H_1: \mu_1 \neq\mu_2\)</span></li>
 </ul>
 </div>
 <div class="fragment">
@@ -1186,7 +1186,7 @@ mean of x
 <div class="columns">
 <div class="column" style="width:70%;">
 <div class="cell my_class_code_big">
-<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource r my_class_code_big number-lines code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href=""></a><span class="fu">var.test</span>(maxO3 <span class="sc">~</span>pluie, <span class="at">data =</span> ozone, <span class="at">alternative =</span> <span class="st">"two.sided"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource r my_class_code_big number-lines code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href=""></a><span class="fu">var.test</span>(maxO3 <span class="sc">~</span> pluie, <span class="at">data =</span> ozone, <span class="at">alternative =</span> <span class="st">"two.sided"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
     F test to compare two variances
@@ -1515,7 +1515,7 @@ NOTE: n is number in *each* group</code></pre>
 <p><span class="math display">\[\mbox{SCER minimal quand }\forall~i,~\hat\mu +\hat\alpha_i=\frac{1}{n_i}\sum_{j=1}^{n_i}Y_{ij}=Y_{i\bullet}\]</span></p>
 </div>
 <div class="fragment">
-<p>Contraintes classiques:</p>
+<p><em>Contraintes classiques</em>:</p>
 <ul>
 <li><p>Un niveau particulier comme référence: <span class="math inline">\(\alpha_1 = 0 \ \Rightarrow \hat\mu=Y_{1\bullet}\)</span> et <span class="math inline">\(\forall i, \hat{\alpha}_i=Y_{i\bullet}-Y_{1\bullet}\)</span></p></li>
 <li><p>la moyenne des moyennes par groupe comme référence: <span class="math inline">\(\sum_{i=1}^I\alpha_i=0 \ \Rightarrow \hat\mu=\frac{1}{I}\sum_{i=1}^I Y_{i\bullet},  ~~ \forall \,i,\,\hat\alpha_i=Y_{i\bullet}-\hat\mu\)</span></p></li>
@@ -1950,7 +1950,7 @@ attr(,"class")
 <span id="cb47-3"><a href=""></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>residus))<span class="sc">+</span></span>
 <span id="cb47-4"><a href=""></a>  <span class="fu">geom_histogram</span>(<span class="at">fill=</span><span class="st">"lightblue"</span>, <span class="fu">aes</span>(<span class="at">y =</span> <span class="fu">after_stat</span>(density)))<span class="sc">+</span></span>
 <span id="cb47-5"><a href=""></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
-<span id="cb47-6"><a href=""></a>  <span class="fu">labs</span>(<span class="at">x  =</span><span class="st">"Résidu"</span>, <span class="at">y =</span> <span class="st">"Densité"</span>, <span class="at">title =</span> <span class="st">"histogramme des résidus"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb47-6"><a href=""></a>  <span class="fu">labs</span>(<span class="at">x  =</span><span class="st">"Résidu"</span>, <span class="at">y =</span> <span class="st">"Densité"</span>, <span class="at">title =</span> <span class="st">"Histogramme des résidus"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column fragment">
 <div class="cell-output-display">
 <div>
@@ -2131,15 +2131,6 @@ sample estimates:
 <p><img data-src="images/illu_corr.jpg" class="quarto-figure quarto-figure-center" style="width:80.0%" height="550"></p>
 </figure>
 </div>
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<figure>
-<p><img data-src="lesson_demarche_stat_files/figure-revealjs/unnamed-chunk-51-1.png" width="960"></p>
-</figure>
-</div>
-</div>
-</div>
 </section>
 <section id="remettons-les-mains-dans-le-cambouis" class="slide level2">
 <h2>(Re)Mettons les mains dans le cambouis</h2>
@@ -2253,47 +2244,61 @@ T9            6.312999  0.6151378 10.262740 9.729952e-18</code></pre>
 <!-- **Table d'analyse de la variance** -->
 <div class="columns">
 <div class="column" style="width:50%;">
-<div class="center">
+<!-- \begin{center} -->
+<!-- \begin{tabular}{|c|c|c|c|c|} -->
+<!-- \hline -->
+<!-- Source    & Somme de & Degrés de &  Carré & F \\ -->
+<!-- variation &  carrés &  liberté & moyen & \\ -->
+<!-- \hline -->
+<!-- Modèle & SCM & 1 & $\frac{SCM}{1}$ & $\frac{CMM}{CMR}$\\ -->
+<!-- % & & & & \\ -->
+<!-- Erreur & SCR & n-2 &\ $\frac{SCR}{n-2}$ & \\ -->
+<!-- % & & & & \\ -->
+<!-- Total & SCT & n-1 &  & \\ -->
+<!-- \hline -->
+<!-- \end{tabular} -->
+<!-- \end{center} -->
 <table class="caption-top">
+<colgroup>
+<col style="width: 20%">
+<col style="width: 17%">
+<col style="width: 19%">
+<col style="width: 21%">
+<col style="width: 21%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Source de variation</th>
+<th>Somme des carrés</th>
+<th>Degrés de liberté</th>
+<th>Carré moyen</th>
+<th>F</th>
+</tr>
+</thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: center;">Source</td>
-<td style="text-align: center;">Somme de</td>
-<td style="text-align: center;">Degrés de</td>
-<td style="text-align: center;">Carré</td>
-<td style="text-align: center;">F</td>
+<td>Modèle</td>
+<td>SCM</td>
+<td>1</td>
+<td><span class="math inline">\(\frac{SCM}{1}\)</span></td>
+<td><span class="math inline">\(\frac{CMM}{CMR}\)</span></td>
 </tr>
 <tr class="even">
-<td style="text-align: center;">variation</td>
-<td style="text-align: center;">carrés</td>
-<td style="text-align: center;">liberté</td>
-<td style="text-align: center;">moyen</td>
-<td style="text-align: center;"></td>
+<td>Erreur</td>
+<td>SCR</td>
+<td><span class="math inline">\(n-2\)</span></td>
+<td><span class="math inline">\(\frac{SCR}{n-2}\)</span></td>
+<td></td>
 </tr>
 <tr class="odd">
-<td style="text-align: center;">Modèle</td>
-<td style="text-align: center;">SCM</td>
-<td style="text-align: center;">1</td>
-<td style="text-align: center;"><span class="math inline">\(\frac{SCM}{1}\)</span></td>
-<td style="text-align: center;"><span class="math inline">\(\frac{CMM}{CMR}\)</span></td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">Erreur</td>
-<td style="text-align: center;">SCR</td>
-<td style="text-align: center;">n-2</td>
-<td style="text-align: center;">&nbsp;<span class="math inline">\(\frac{SCR}{n-2}\)</span></td>
-<td style="text-align: center;"></td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">Total</td>
-<td style="text-align: center;">SCT</td>
-<td style="text-align: center;">n-1</td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
+<td>Total</td>
+<td>SCT</td>
+<td><span class="math inline">\(n-1\)</span></td>
+<td></td>
+<td></td>
 </tr>
 </tbody>
 </table>
-</div>
 </div><div class="column" style="width:50%;">
 <div class="cell">
 <div class="sourceCode cell-code" id="cb54"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a href=""></a>res <span class="ot">&lt;-</span> <span class="fu">LinearModel</span>(maxO3 <span class="sc">~</span>T9, <span class="at">data=</span>  ozone)</span>
