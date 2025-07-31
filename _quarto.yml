@@ -12,7 +12,7 @@ format:
   html:
     theme: 
       - cosmo  # ou autre thème de base
-      - styles.scss
+      - styles.css
     toc: true
     number-sections: true
     embed-resources: true

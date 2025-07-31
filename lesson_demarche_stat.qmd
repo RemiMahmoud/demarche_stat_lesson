@@ -14,7 +14,7 @@ format:
     page-layout: full
     embed-resources: false
     # css: styles.css
-    css: styles.scss
+    css: styles.css
 editor: source
 filters:
   - parse-latex
