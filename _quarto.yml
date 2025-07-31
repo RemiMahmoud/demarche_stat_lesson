@@ -1,8 +1,5 @@
 project:
   type: website
-  output-dir: _site
-  render:
-    - lesson_demarche_stat.qmd
 
 website:
   title: "Cours Démarche statistique"
