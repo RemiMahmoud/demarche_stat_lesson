@@ -1,5 +1,5 @@
 ---
-title: "Démarche statistique - test netlify"
+title: "Démarche statistique"
 author: "Rémi Mahmoud"
 date: today
 date-format: "[remi.mahmoud@institut-agro.fr] <br> [https://demarche-stat-lesson.netlify.app]"
