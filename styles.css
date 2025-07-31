@@ -1,3 +1,5 @@
+
+
 /* Conteneur des titres */
 .title-container {
   display: flex;
@@ -27,8 +29,13 @@ width: 200px;
 
 /* size of code font, specify in the beginning of the chunks if needed */
 
+.my_class_code_big {
+  font-size: 3em !important;
+  
+}
+
 .my_class_code {
-  font-size: 0.85em !important;
+  font-size: 0.15em !important;
   
 }
 

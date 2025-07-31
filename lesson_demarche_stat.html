@@ -6,12 +6,11 @@
 <script src="lesson_demarche_stat_files/libs/quarto-html/tippy.umd.min.js"></script>
 <link href="lesson_demarche_stat_files/libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="lesson_demarche_stat_files/libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="lesson_demarche_stat_files/libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
-<link href="lesson_demarche_stat_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="lesson_demarche_stat_files/libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <link href="lesson_demarche_stat_files/libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
 <link href="lesson_demarche_stat_files/libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet">
 <link href="lesson_demarche_stat_files/libs/quarto-contrib/bootstrap-icons-1.11.1/all.css" rel="stylesheet"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.4.555">
+  <meta name="generator" content="quarto-1.6.42">
 
   <meta name="author" content="Rémi Mahmoud">
   <title>Démarche statistique</title>
@@ -45,7 +44,7 @@
     }
     @media print {
     pre > code.sourceCode { white-space: pre-wrap; }
-    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
     }
     pre.numberSource code
       { counter-reset: source-line 0; }
@@ -73,7 +72,7 @@
     code span.at { color: #657422; } /* Attribute */
     code span.bn { color: #ad0000; } /* BaseN */
     code span.bu { } /* BuiltIn */
-    code span.cf { color: #003b4f; } /* ControlFlow */
+    code span.cf { color: #003b4f; font-weight: bold; } /* ControlFlow */
     code span.ch { color: #20794d; } /* Char */
     code span.cn { color: #8f5902; } /* Constant */
     code span.co { color: #5e5e5e; } /* Comment */
@@ -87,7 +86,7 @@
     code span.fu { color: #4758ab; } /* Function */
     code span.im { color: #00769e; } /* Import */
     code span.in { color: #5e5e5e; } /* Information */
-    code span.kw { color: #003b4f; } /* Keyword */
+    code span.kw { color: #003b4f; font-weight: bold; } /* Keyword */
     code span.op { color: #5e5e5e; } /* Operator */
     code span.ot { color: #003b4f; } /* Other */
     code span.pp { color: #ad0000; } /* Preprocessor */
@@ -98,210 +97,12 @@
     code span.vs { color: #20794d; } /* VerbatimString */
     code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
-  <link rel="stylesheet" href="lesson_demarche_stat_files/libs/revealjs/dist/theme/quarto.css">
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="lesson_demarche_stat_files/libs/revealjs/dist/theme/quarto-314021b1046603d2843ef3817a00a817.css">
+  <link rel="stylesheet" href="styles.scss">
   <link href="lesson_demarche_stat_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="lesson_demarche_stat_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="lesson_demarche_stat_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
   <link href="lesson_demarche_stat_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
-  <style type="text/css">
-
-  .callout {
-    margin-top: 1em;
-    margin-bottom: 1em;  
-    border-radius: .25rem;
-  }
-
-  .callout.callout-style-simple { 
-    padding: 0em 0.5em;
-    border-left: solid #acacac .3rem;
-    border-right: solid 1px silver;
-    border-top: solid 1px silver;
-    border-bottom: solid 1px silver;
-    display: flex;
-  }
-
-  .callout.callout-style-default {
-    border-left: solid #acacac .3rem;
-    border-right: solid 1px silver;
-    border-top: solid 1px silver;
-    border-bottom: solid 1px silver;
-  }
-
-  .callout .callout-body-container {
-    flex-grow: 1;
-  }
-
-  .callout.callout-style-simple .callout-body {
-    font-size: 1rem;
-    font-weight: 400;
-  }
-
-  .callout.callout-style-default .callout-body {
-    font-size: 0.9rem;
-    font-weight: 400;
-  }
-
-  .callout.callout-titled.callout-style-simple .callout-body {
-    margin-top: 0.2em;
-  }
-
-  .callout:not(.callout-titled) .callout-body {
-      display: flex;
-  }
-
-  .callout:not(.no-icon).callout-titled.callout-style-simple .callout-content {
-    padding-left: 1.6em;
-  }
-
-  .callout.callout-titled .callout-header {
-    padding-top: 0.2em;
-    margin-bottom: -0.2em;
-  }
-
-  .callout.callout-titled .callout-title  p {
-    margin-top: 0.5em;
-    margin-bottom: 0.5em;
-  }
-    
-  .callout.callout-titled.callout-style-simple .callout-content  p {
-    margin-top: 0;
-  }
-
-  .callout.callout-titled.callout-style-default .callout-content  p {
-    margin-top: 0.7em;
-  }
-
-  .callout.callout-style-simple div.callout-title {
-    border-bottom: none;
-    font-size: .9rem;
-    font-weight: 600;
-    opacity: 75%;
-  }
-
-  .callout.callout-style-default  div.callout-title {
-    border-bottom: none;
-    font-weight: 600;
-    opacity: 85%;
-    font-size: 0.9rem;
-    padding-left: 0.5em;
-    padding-right: 0.5em;
-  }
-
-  .callout.callout-style-default div.callout-content {
-    padding-left: 0.5em;
-    padding-right: 0.5em;
-  }
-
-  .callout.callout-style-simple .callout-icon::before {
-    height: 1rem;
-    width: 1rem;
-    display: inline-block;
-    content: "";
-    background-repeat: no-repeat;
-    background-size: 1rem 1rem;
-  }
-
-  .callout.callout-style-default .callout-icon::before {
-    height: 0.9rem;
-    width: 0.9rem;
-    display: inline-block;
-    content: "";
-    background-repeat: no-repeat;
-    background-size: 0.9rem 0.9rem;
-  }
-
-  .callout-title {
-    display: flex
-  }
-    
-  .callout-icon::before {
-    margin-top: 1rem;
-    padding-right: .5rem;
-  }
-
-  .callout.no-icon::before {
-    display: none !important;
-  }
-
-  .callout.callout-titled .callout-body > .callout-content > :last-child {
-    padding-bottom: 0.5rem;
-    margin-bottom: 0;
-  }
-
-  .callout.callout-titled .callout-icon::before {
-    margin-top: .5rem;
-    padding-right: .5rem;
-  }
-
-  .callout:not(.callout-titled) .callout-icon::before {
-    margin-top: 1rem;
-    padding-right: .5rem;
-  }
-
-  /* Callout Types */
-
-  div.callout-note {
-    border-left-color: #4582ec !important;
-  }
-
-  div.callout-note .callout-icon::before {
-    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAAEU0lEQVRYCcVXTWhcVRQ+586kSUMMxkyaElstCto2SIhitS5Ek8xUKV2poatCcVHtUlFQk8mbaaziwpWgglJwVaquitBOfhQXFlqlzSJpFSpIYyXNjBNiTCck7x2/8/LeNDOZxDuEkgOXe++553zfefee+/OYLOXFk3+1LLrRdiO81yNqZ6K9cG0P3MeFaMIQjXssE8Z1JzLO9ls20MBZX7oG8w9GxB0goaPrW5aNMp1yOZIa7Wv6o2ykpLtmAPs/vrG14Z+6d4jpbSKuhdcSyq9wGMPXjonwmESXrriLzFGOdDBLB8Y6MNYBu0dRokSygMA/mrun8MGFN3behm6VVAwg4WR3i6FvYK1T7MHo9BK7ydH+1uurECoouk5MPRyVSBrBHMYwVobG2aOXM07sWrn5qgB60rc6mcwIDJtQrnrEr44kmy+UO9r0u9O5/YbkS9juQckLed3DyW2XV/qWBBB3ptvI8EUY3I9p/67OW+g967TNr3Sotn3IuVlfMLVnsBwH4fsnebJvyGm5GeIUA3jljERmrv49SizPYuq+z7c2H/jlGC+Ghhupn/hcapqmcudB9jwJ/3jvnvu6vu5lVzF1fXyZuZZ7U8nRmVzytvT+H3kilYvH09mLWrQdwFSsFEsxFVs5fK7A0g8gMZjbif4ACpKbjv7gNGaD8bUrlk8x+KRflttr22JEMRUbTUwwDQScyzPgedQHZT0xnx7ujw2jfVfExwYHwOsDTjLdJ2ebmeQIlJ7neo41s/DrsL3kl+W2lWvAga0tR3zueGr6GL78M3ifH0rGXrBC2aAR8uYcIA5gwV8zIE8onoh8u0Fca/ciF7j1uOzEnqcIm59sEXoGc0+z6+H45V1CvAvHcD7THztu669cnp+L0okAeIc6zjbM/24LgGM1gZk7jnRu1aQWoU9sfUOuhrmtaPIO3YY1KLLWZaEO5TKUbMY5zx8W9UJ6elpLwKXbsaZ4EFl7B4bMtDv0iRipKoDQT2sNQI9b1utXFdYisi+wzZ/ri/1m7QfDgEuvgUUEIJPq3DhX/5DWNqIXDOweC2wvIR90Oq3lDpdMIgD2r0dXvGdsEW5H6x6HLRJYU7C69VefO1x8Gde1ZFSJLfWS1jbCnhtOPxmpfv2LXOA2Xk2tvnwKKPFuZ/oRmwBwqRQDcKNeVQkYcOjtWVBuM/JuYw5b6isojIkYxyYAFn5K7ZBF10fea52y8QltAg6jnMqNHFBmGkQ1j+U43HMi2xMar1Nv0zGsf1s8nUsmUtPOOrbFIR8bHFDMB5zL13Gmr/kGlCkUzedTzzmzsaJXhYawnA3UmARpiYj5ooJZiUoxFRtK3X6pgNPv+IZVPcnwbOl6f+aBaO1CNvPW9n9LmCp01nuSaTRF2YxHqZ8DYQT6WsXT+RD6eUztwYLZ8rM+rcPxamv1VQzFUkzFXvkiVrySGQgJNvXHJAxiU3/NwiC03rSf05VBaPtu/Z7/B8Yn/w7eguloAAAAAElFTkSuQmCC');
-  }
-
-  div.callout-note.callout-style-default .callout-title {
-    background-color: #dae6fb
-  }
-
-  div.callout-important {
-    border-left-color: #d9534f !important;
-  }
-
-  div.callout-important .callout-icon::before {
-    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAAEKklEQVRYCcVXTWhcVRS+575MJym48A+hSRFr00ySRQhURRfd2HYjk2SSTokuBCkU2o0LoSKKraKIBTcuFCoidGFD08nkBzdREbpQ1EDNIv8qSGMFUboImMSZd4/f9zJv8ibJMC8xJQfO3HPPPef7zrvvvnvviIkpC9nsw0UttFunbUhpFzFtarSd6WJkStVMw5xyVqYTvkwfzuf/5FgtkVoB0729j1rjXwThS7Vio+Mo6DNnvLfahoZ+i/o32lULuJ3NNiz7q6+pyAUkJaFF6JwaM2lUJlV0MlnQn5aTRbEu0SEqHUa0A4AdiGuB1kFXRfVyg5d87+Dg4DL6m2TLAub60ilj7A1Ec4odSAc8X95sHh7+ZRPCFo6Fnp7HfU/fBng/hi10CjCnWnJjsxvDNxWw0NfV6Rv5GgP3I3jGWXumdTD/3cbEOP2ZbOZp69yniG3FQ9z1jD7bnBu9Fc2tKGC2q+uAJOQHBDRiZX1x36o7fWBs7J9ownbtO+n0/qWkvW7UPIfc37WgT6ZGR++EOJyeQDSb9UB+DZ1G6DdLDzyS+b/kBCYGsYgJbSQHuThGKRcw5xdeQf8YdNHsc6ePXrlSYMBuSIAFTGAtQo+VuALo4BX83N190NWZWbynBjhOHsmNfFWLeL6v+ynsA58zDvvAC8j5PkbOcXCMg2PZFk3q8MjI7WAG/Dp9AwP7jdGBOOQkAvlFUB+irtm16I1Zw9YBcpGTGXYmk3kQIC/Cds55l+iMI3jqhjAuaoe+am2Jw5GT3Nbz3CkE12NavmzN5+erJW7046n/CH1RO/RVa8lBLozXk9uqykkGAyRXLWlLv5jyp4RFsG5vGVzpDLnIjTWgnRy2Rr+tDKvRc7Y8AyZq10jj8DqXdnIRNtFZb+t/ZRtXcDiVnzpqx8mPcDWxgARUqx0W1QB9MeUZiNrV4qP+Ehc+BpNgATsTX8ozYKL2NtFYAHc84fG7ndxUPr+AR/iQSns7uSUufAymwDOb2+NjK27lEFocm/EE2WpyIy/Hi66MWuMKJn8RvxIcj87IM5Vh9663ziW36kR0HNenXuxmfaD8JC7tfKbrhFr7LiZCrMjrzTeGx+PmkosrkNzW94ObzwocJ7A1HokLolY+AvkTiD/q1H0cN48c5EL8Crkttsa/AXQVDmutfyku0E7jShx49XqV3MFK8IryDhYVbj7Sj2P2eBxwcXoe8T8idsKKPRcnZw1b+slFTubwUwhktrfnAt7J++jwQtLZcm3sr9LQrjRzz6cfMv9aLvgmnAGvpoaGLxM4mAEaLV7iAzQ3oU0IvD5x9ix3yF2RAAuYAOO2f7PEFWCXZ4C9Pb2UsgDeVnFSpbFK7/IWu7TPTvBqzbGdCHOJQSxiEjt6IyZmxQyEJHv6xyQsYk//moVFsN2zP6fRImjfq7/n/wFDguUQFNEwugAAAABJRU5ErkJggg==');
-  }
-
-  div.callout-important.callout-style-default .callout-title {
-    background-color: #f7dddc
-  }
-
-  div.callout-warning {
-    border-left-color: #f0ad4e !important;
-  }
-
-  div.callout-warning .callout-icon::before {
-    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAAETklEQVRYCeVWW2gcVRg+58yaTUnizqbipZeX4uWhBEniBaoUX1Ioze52t7sRq6APio9V9MEaoWlVsFasRq0gltaAPuxms8lu0gcviE/FFOstVbSIxgcv6SU7EZqmdc7v9+9mJtNks51NTUH84ed889/PP+cmxP+d5FIbMJmNbpREu4WUkiTtCicKny0l1pIKmBzovF2S+hIJHX8iEu3hZJ5lNZGqyRrGSIQpq15AzF28jgpeY6yk6GVdrfFqdrD6Iw+QlB8g0YS2g7dyQmXM/IDhBhT0UCiRf59lfqmmDvzRt6kByV/m4JjtzuaujMUM2c5Z2d6JdKrRb3K2q6mA+oYVz8JnDdKPmmNthzkAk/lN63sYPgevrguc72aZX/L9C6x09GYyxBgCX4NlvyGUHOKELlm5rXeR1kchuChJt4SSwyddZRXgvwMGvYo4QSlk3/zkHD8UHxwVJA6zjZZqP8v8kK8OWLnIZtLyCAJagYC4rTGW/9Pqj92N/c+LUaAj27movwbi19tk/whRCIE7Q9vyI6yvRpftAKVTdUjOW40X3h5OXsKCdmFcx0xlLJoSuQngnrJe7Kcjm4OMq9FlC7CMmScQANuNvjfP3PjGXDBaUQmbp296S5L4DrpbrHN1T87ZVEZVCzg1FF0Ft+dKrlLukI+/c9ENo+TvlTDbYFvuKPtQ9+l052rXrgKoWkDAFnvh0wTOmYn8R5f4k/jN/fZiCM1tQx9jQQ4ANhqG4hiL0qIFTGViG9DKB7GYzgubnpofgYRwO+DFjh0Zin2m4b/97EDkXkc+f6xYAPX0KK2I/7fUQuwzuwo/L3AkcjugPNixC8cHf0FyPjWlItmLxWw4Ou9YsQCr5fijMGoD/zpdRy95HRysyXA74MWOnscpO4j2y3HAVisw85hX5+AFBRSHt4ShfLFkIMXTqyKFc46xdzQM6XbAi702a7sy04J0+feReMFKp5q9esYLCqAZYw/k14E/xcLLsFElaornTuJB0svMuJINy8xkIYuL+xPAlWRceH6+HX7THJ0djLUom46zREu7tTkxwmf/FdOZ/sh6Q8qvEAiHpm4PJ4a/doJe0gH1t+aHRgCzOvBvJedEK5OFE5jpm4AGP2a8Dxe3gGJ/pAutug9Gp6he92CsSsWBaEcxGx0FHytmIpuqGkOpldqNYQK8cSoXvd+xLxXADw0kf6UkJNFtdo5MOgaLjiQOQHcn+A6h5NuL2s0qsC2LOM75PcF3yr5STuBSAcGG+meA14K/CI21HcS4LBT6tv0QAh8Dr5l93AhZzG5ZJ4VxAqdZUEl9z7WJ4aN+svMvwHHL21UKTd1mqvChH7/Za5xzXBBKrUcB0TQ+Ulgkfbi/H/YT5EptrGzsEK7tR1B7ln9BBwckYfMiuSqklSznIuoIIOM42MQO+QnduCoFCI0bpkzjCjddHPN/F+2Yu+sd9bKNpVwHhbS3LluK/0zgfwD0xYI5dXuzlQAAAABJRU5ErkJggg==');
-  }
-
-  div.callout-warning.callout-style-default .callout-title {
-    background-color: #fcefdc
-  }
-
-  div.callout-tip {
-    border-left-color: #02b875 !important;
-  }
-
-  div.callout-tip .callout-icon::before {
-    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAADr0lEQVRYCe1XTWgTQRj9ZjZV8a9SPIkKgj8I1bMHsUWrqYLVg4Ue6v9BwZOxSYsIerFao7UiUryIqJcqgtpimhbBXoSCVxUFe9CTiogUrUp2Pt+3aUI2u5vdNh4dmMzOzHvvezuz8xNFM0mjnbXaNu1MvFWRXkXEyE6aYOYJpdW4IXuA4r0fo8qqSMDBU0v1HJUgVieAXxzCsdE/YJTdFcVIZQNMyhruOMJKXYFoLfIfIvVIMWdsrd+Rpd86ZmyzzjJmLStqRn0v8lzkb4rVIXvnpScOJuAn2ACC65FkPzEdEy4TPWRLJ2h7z4cArXzzaOdKlbOvKKX25Wl00jSnrwVxAg3o4dRxhO13RBSdNvH0xSARv3adTXbBdTf64IWO2vH0LT+cv4GR1DJt+DUItaQogeBX/chhbTBxEiZ6gftlDNXTrvT7co4ub5A6gp9HIcHvzTa46OS5fBeP87Qm0fQkr4FsYgVQ7Qg+ZayaDg9jhg1GkWj8RG6lkeSacrrHgDaxdoBiZPg+NXV/KifMuB6//JmYH4CntVEHy/keA6x4h4CU5oFy8GzrBS18cLJMXcljAKB6INjWsRcuZBWVaS3GDrqB7rdapVIeA+isQ57Eev9eCqzqOa81CY05VLd6SamW2wA2H3SiTbnbSxmzfp7WtKZkqy4mdyAlGx7ennghYf8voqp9cLSgKdqNfa6RdRsAAkPwRuJZNbpByn+RrJi1RXTwdi8RQF6ymDwGMAtZ6TVE+4uoKh+MYkcLsT0Hk8eAienbiGdjJHZTpmNjlbFJNKDVAp2fJlYju6IreQxQ08UJDNYdoLSl6AadO+fFuCQqVMB1NJwPm69T04Wv5WhfcWyfXQB+wXRs1pt+nCknRa0LVzSA/2B+a9+zQJadb7IyyV24YAxKp2Jqs3emZTuNnKxsah+uabKbMk7CbTgJx/zIgQYErIeTKRQ9yD9wxVof5YolPHqaWo7TD6tJlh7jQnK5z2n3+fGdggIOx2kaa2YI9QWarc5Ce1ipNWMKeSG4DysFF52KBmTNMmn5HqCFkwy34rDg05gDwgH3bBi+sgFhN/e8QvRn8kbamCOhgrZ9GJhFDgfcMHzFb6BAtjKpFhzTjwv1KCVuxHvCbsSiEz4CANnj84cwHdFXAbAOJ4LTSAawGWFn5tDhLMYz6nWeU2wJfIhmIJBefcd/A5FWQWGgrWzyORZ3Q6HuV+Jf0Bj+BTX69fm1zWgK7By1YTXchFDORywnfQ7GpzOo6S+qECrsx2ifVQAAAABJRU5ErkJggg==');
-  }
-
-  div.callout-tip.callout-style-default .callout-title {
-    background-color: #ccf1e3
-  }
-
-  div.callout-caution {
-    border-left-color: #fd7e14 !important;
-  }
-
-  div.callout-caution .callout-icon::before {
-    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAACV0lEQVRYCdVWzWoUQRCuqp2ICBLJXgITZL1EfQDBW/bkzUMUD7klD+ATSHBEfAIfQO+iXsWDxJsHL96EHAwhgzlkg8nBg25XWb0zIb0zs9muYYWkoKeru+vn664fBqElyZNuyh167NXJ8Ut8McjbmEraKHkd7uAnAFku+VWdb3reSmRV8PKSLfZ0Gjn3a6Xlcq9YGb6tADjn+lUfTXtVmaZ1KwBIvFI11rRXlWlatwIAAv2asaa9mlB9wwygiDX26qaw1yYPzFXg2N1GgG0FMF8Oj+VIx7E/03lHx8UhvYyNZLN7BwSPgekXXLribw7w5/c8EF+DBK5idvDVYtEEwMeYefjjLAdEyQ3M9nfOkgnPTEkYU+sxMq0BxNR6jExrAI31H1rzvLEfRIdgcv1XEdj6QTQAS2wtstEALLG1yEZ3QhH6oDX7ExBSFEkFINXH98NTrme5IOaaA7kIfiu2L8A3qhH9zRbukdCqdsA98TdElyeMe5BI8Rs2xHRIsoTSSVFfCFCWGPn9XHb4cdobRIWABNf0add9jakDjQJpJ1bTXOJXnnRXHRf+dNL1ZV1MBRCXhMbaHqGI1JkKIL7+i8uffuP6wVQAzO7+qVEbF6NbS0LJureYcWXUUhH66nLR5rYmva+2tjRFtojkM2aD76HEGAD3tPtKM309FJg5j/K682ywcWJ3PASCcycH/22u+Bh7Aa0ehM2Fu4z0SAE81HF9RkB21c5bEn4Dzw+/qNOyXr3DCTQDMBOdhi4nAgiFDGCinIa2owCEChUwD8qzd03PG+qdW/4fDzjUMcE1ZpIAAAAASUVORK5CYII=');
-  }
-
-  div.callout-caution.callout-style-default .callout-title {
-    background-color: #ffe5d0
-  }
-
-  </style>
   <style type="text/css">
     .reveal div.sourceCode {
       margin: 0;
@@ -405,7 +206,7 @@ Rémi Mahmoud
 </div>
 </div>
 
-  <p class="date">remi.mahmoud@agrocampus-ouest.fr <br> https://demarche-stat-lesson.netlify.app</p>
+  <p class="date">remi.mahmoud@institut-agro.fr <br> https://demarche-stat-lesson.netlify.app</p>
 </section>
 <section>
 <section id="introduction" class="title-slide slide level1 center">
@@ -414,11 +215,6 @@ Rémi Mahmoud
 </section>
 <section id="objectifs" class="slide level2" style="font-size: 140%;">
 <h2>Objectifs</h2>
-<div class="cell">
-<style type="text/css">
-
-</style>
-</div>
 <ul>
 <li>Aborder les problèmes courants en analyse de données</li>
 <li>Argumenter le choix de procédures d’analyses</li>
@@ -437,8 +233,7 @@ Rémi Mahmoud
 </div><div class="column" style="width:33%;">
 <p><strong>Participation</strong></p>
 <p><i class="fa-solid fa-question fa-2xl" aria-label="question"></i></p>
-</div>
-</div>
+</div></div>
 </div>
 <div class="fragment">
 <p><strong>Evaluation:</strong></p>
@@ -461,20 +256,23 @@ Rémi Mahmoud
 <section id="les-statistiques-sont-utilisées-partout" class="slide level2">
 <h2>Les statistiques sont (utilisées) partout</h2>
 <div class="r-stack">
+<div>
+
+</div>
 <div class="quarto-layout-panel" data-layout-nrow="3">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
-<p><img data-src="images/co2_rich.PNG" class="fragment" style="width:80.0%"></p>
+<p><img data-src="images/co2_rich.PNG" class="fragment"></p>
 </div>
 </div>
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
-<p><img data-src="images/covid_groupe_sanguin.PNG" class="fragment" style="width:80.0%"></p>
+<p><img data-src="images/covid_groupe_sanguin.PNG" class="fragment"></p>
 </div>
 </div>
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
-<p><img data-src="images/figaro.PNG" class="fragment" style="width:80.0%"></p>
+<p><img data-src="images/figaro.PNG" class="fragment"></p>
 </div>
 </div>
 </div>
@@ -497,13 +295,16 @@ Rémi Mahmoud
 <div class="fragment">
 <p>Ex. où renforcer l’avion ?</p>
 <div class="r-stack">
+<div>
+
+</div>
 <div class="quarto-layout-panel" data-layout-ncol="2">
 <div class="quarto-layout-row">
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<p><img data-src="images/Survivorship-bias.svg" class="fragment" width="250" height="200"></p>
+<div class="quarto-layout-cell" style="flex-basis: 35.7%;justify-content: center;">
+<p><img data-src="images/Survivorship-bias.svg" class="fragment" width="250"></p>
 </div>
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<p><img data-src="images/bezos.PNG" class="fragment" width="450" height="200"></p>
+<div class="quarto-layout-cell" style="flex-basis: 64.3%;justify-content: center;">
+<p><img data-src="images/bezos.PNG" class="fragment" width="450"></p>
 </div>
 </div>
 </div>
@@ -529,13 +330,16 @@ Rémi Mahmoud
 <div class="fragment">
 <p>Ex. <strong>paradoxe de Simpson</strong> (<a href="https://www.youtube.com/watch?v=vs_Zzf_vL2I&amp;ab_channel=ScienceEtonnante" style="color:blue;">Vidéo complète sur le sujet</a> de Science Etonnante)</p>
 <div class="r-stack">
+<div>
+
+</div>
 <div class="quarto-layout-panel" data-layout-ncol="2">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<p><img data-src="images/death_rate_all.png" class="fragment" style="width:100.0%"></p>
+<p><img data-src="images/death_rate_all.png" class="fragment"></p>
 </div>
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<p><img data-src="images/death_rate_by_age.png" class="fragment" style="width:100.0%"></p>
+<p><img data-src="images/death_rate_by_age.png" class="fragment"></p>
 </div>
 </div>
 </div>
@@ -558,6 +362,9 @@ Rémi Mahmoud
 </ul>
 <div class="fragment">
 <p><strong>Installation:</strong></p>
+<div>
+
+</div>
 <div class="quarto-layout-panel" data-layout-ncol="2">
 <div class="quarto-layout-row">
 <div class="fragment quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
@@ -580,7 +387,7 @@ Rémi Mahmoud
 <div aria-describedby="fig-casa-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-casa" style="flex-basis: 50.0%;justify-content: flex-start;">
-<div id="fig-ridge" class="quarto-figure quarto-figure-center quarto-float">
+<div id="fig-ridge" class="quarto-float quarto-figure quarto-figure-center">
 <figure class="quarto-float quarto-subfloat-fig">
 <div aria-describedby="fig-ridge-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img data-src="images/casa_1.png" data-ref-parent="fig-casa" height="150">
@@ -592,7 +399,7 @@ Rémi Mahmoud
 </div>
 </div>
 <div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-casa" style="flex-basis: 50.0%;justify-content: flex-start;">
-<div id="fig-collatz" class="quarto-figure quarto-figure-center quarto-float">
+<div id="fig-collatz" class="quarto-float quarto-figure quarto-figure-center">
 <figure class="quarto-float quarto-subfloat-fig">
 <div aria-describedby="fig-collatz-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img data-src="images/casa_2.png" data-ref-parent="fig-casa" height="150">
@@ -669,27 +476,21 @@ Figure&nbsp;1: <a href="https://art.casadebaig.net/">Pierre Casadebaig</a>
 <img data-src="images/plot_descriptors.png" class="quarto-figure quarto-figure-center r-stretch"></section>
 <section id="un-jeu-de-données-comme-fil-conducteur" class="slide level2">
 <h2>Un jeu de données comme fil conducteur</h2>
-<p>L’association Air Breizh surveille la qualité de l’air et mesure la concentration de polluants comme l’ozone (O3) ainsi que les conditions météorologiques comme la température, la nébulosité, le vent, etc. Durant l’été 2001, 112 données ont été relevées à Rennes.</p>
-<div class="cell my_class_code">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r my_class_code number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href=""></a>ozone <span class="ot">&lt;-</span> <span class="fu">read.table</span>(<span class="st">"https://r-stat-sc-donnees.github.io/ozone.txt"</span>,<span class="at">header=</span><span class="cn">TRUE</span>, <span class="at">stringsAsFactors =</span> <span class="cn">TRUE</span>)</span>
+<p>L’association Air Breizh surveille la qualité de l’air et mesure la concentration de polluants comme l’ozone (O3, en <span class="math inline">\(\mu g.m^{-3}\)</span>) ainsi que les conditions météorologiques comme la température, la nébulosité, le vent, etc. Durant l’été 2001, 112 données ont été relevées à Rennes.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href=""></a>ozone <span class="ot">&lt;-</span> <span class="fu">read.table</span>(<span class="st">"https://r-stat-sc-donnees.github.io/ozone.txt"</span>,<span class="at">header=</span><span class="cn">TRUE</span>, <span class="at">stringsAsFactors =</span> <span class="cn">TRUE</span>)</span>
 <span id="cb1-2"><a href=""></a></span>
-<span id="cb1-3"><a href=""></a></span>
-<span id="cb1-4"><a href=""></a><span class="fu">head</span>(ozone)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-3"><a href=""></a><span class="fu">head</span>(ozone)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
 <div class="cell-output cell-output-stdout">
-<pre><code>         maxO3   T9  T12  T15 Ne9 Ne12 Ne15     Vx9    Vx12    Vx15 maxO3v
-20010601    87 15.6 18.5 18.4   4    4    8  0.6946 -1.7101 -0.6946     84
-20010602    82 17.0 18.4 17.7   5    5    7 -4.3301 -4.0000 -3.0000     87
-20010603    92 15.3 17.6 19.5   2    5    4  2.9544  1.8794  0.5209     82
-20010604   114 16.2 19.7 22.5   1    1    0  0.9848  0.3473 -0.1736     92
-20010605    94 17.4 20.5 20.4   8    8    7 -0.5000 -2.9544 -4.3301    114
-20010606    80 17.7 19.8 18.3   6    6    7 -5.6382 -5.0000 -6.0000     94
-          vent pluie
-20010601  Nord   Sec
-20010602  Nord   Sec
-20010603   Est   Sec
-20010604  Nord   Sec
-20010605 Ouest   Sec
-20010606 Ouest Pluie</code></pre>
+<pre><code> maxO3 T9   T12  T15  Ne9 Ne12 Ne15 Vx9     Vx12    Vx15    maxO3v vent  pluie
+  87   15.6 18.5 18.4 4   4    8     0.6946 -1.7101 -0.6946  84    Nord  Sec  
+  82   17.0 18.4 17.7 5   5    7    -4.3301 -4.0000 -3.0000  87    Nord  Sec  
+  92   15.3 17.6 19.5 2   5    4     2.9544  1.8794  0.5209  82    Est   Sec  
+ 114   16.2 19.7 22.5 1   1    0     0.9848  0.3473 -0.1736  92    Nord  Sec  
+  94   17.4 20.5 20.4 8   8    7    -0.5000 -2.9544 -4.3301 114    Ouest Sec  
+  80   17.7 19.8 18.3 6   6    7    -5.6382 -5.0000 -6.0000  94    Ouest Pluie</code></pre>
 </div>
 </div>
 <div class="fragment">
@@ -887,18 +688,16 @@ Figure&nbsp;1: <a href="https://art.casadebaig.net/">Pierre Casadebaig</a>
 </figure>
 </div>
 </div>
-</div>
-</div>
+</div></div>
 <!-- #| class-source: my_class2 -->
 <!-- #| classes: my_class2 -->
 <div class="cell columns column-output-location">
 <div class="column">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href=""></a><span class="co">#| </span></span>
-<span id="cb12-2"><a href=""></a><span class="fu">ggplot</span>(ozone, <span class="fu">aes</span>(<span class="at">x =</span> T9, <span class="at">y=</span> maxO3, <span class="at">color =</span> vent)) <span class="sc">+</span> <span class="co"># ajout d'une couleur</span></span>
-<span id="cb12-3"><a href=""></a>  <span class="co">#par direction du vent</span></span>
-<span id="cb12-4"><a href=""></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> <span class="co"># ajout points</span></span>
-<span id="cb12-5"><a href=""></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">se =</span> <span class="cn">FALSE</span>) <span class="sc">+</span> <span class="co"># Ajout ajustement linéaire</span></span>
-<span id="cb12-6"><a href=""></a>  <span class="fu">theme_bw</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href=""></a><span class="fu">ggplot</span>(ozone, <span class="fu">aes</span>(<span class="at">x =</span> T9, <span class="at">y=</span> maxO3, <span class="at">color =</span> vent)) <span class="sc">+</span> <span class="co"># ajout d'une couleur</span></span>
+<span id="cb12-2"><a href=""></a>  <span class="co">#par direction du vent</span></span>
+<span id="cb12-3"><a href=""></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> <span class="co"># ajout points</span></span>
+<span id="cb12-4"><a href=""></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">se =</span> <span class="cn">FALSE</span>) <span class="sc">+</span> <span class="co"># Ajout ajustement linéaire</span></span>
+<span id="cb12-5"><a href=""></a>  <span class="fu">theme_bw</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column fragment">
 <div class="cell-output-display">
 <div>
@@ -907,8 +706,7 @@ Figure&nbsp;1: <a href="https://art.casadebaig.net/">Pierre Casadebaig</a>
 </figure>
 </div>
 </div>
-</div>
-</div>
+</div></div>
 </section>
 <section id="effet-dune-deux-variables-quali-sur-une-variable-quanti-12" class="slide level2 scrollable">
 <h2>Effet d’une / deux variable(s) quali sur une variable quanti (1/2)</h2>
@@ -934,8 +732,7 @@ Figure&nbsp;1: <a href="https://art.casadebaig.net/">Pierre Casadebaig</a>
 </figure>
 </div>
 </div>
-</div>
-</div>
+</div></div>
 </div>
 </section>
 <section id="effet-de-deux-variables-quali-sur-une-variable-quanti-22" class="slide level2">
@@ -946,13 +743,13 @@ Figure&nbsp;1: <a href="https://art.casadebaig.net/">Pierre Casadebaig</a>
 <div class="fragment">
 <div style="font-size: 100%;">
 <p><em>Point code</em> : La fonction <code>%&gt;%</code> de <code>dplyr</code> permet de passer des arguments en chaîne dans des fonctions. Par ex.:</p>
-<div class="cell my_class_code">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r my_class_code number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href=""></a>x <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span></span>
+<div class="cell my_class_code_big">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r my_class_code_big number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href=""></a>x <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span></span>
 <span id="cb14-2"><a href=""></a><span class="fu">max</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 3</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r my_class_code number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href=""></a><span class="fu">library</span>(dplyr) <span class="co"># permet d'utiliser %&gt;% </span></span>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r my_class_code_big number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href=""></a><span class="fu">library</span>(dplyr) <span class="co"># permet d'utiliser %&gt;% </span></span>
 <span id="cb16-2"><a href=""></a>x <span class="sc">%&gt;%</span> max <span class="co"># equivaut à max(x)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 3</code></pre>
@@ -961,11 +758,11 @@ Figure&nbsp;1: <a href="https://art.casadebaig.net/">Pierre Casadebaig</a>
 </div>
 </div>
 <div class="fragment">
-<div class="cell my_class_code columns column-output-location">
+<div class="cell my_class_code_big columns column-output-location">
 <div class="column">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r my_class_code number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href=""></a><span class="fu">library</span>(dplyr)</span>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r my_class_code_big number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href=""></a><span class="fu">library</span>(dplyr)</span>
 <span id="cb18-2"><a href=""></a>ozone <span class="sc">%&gt;%</span> </span>
 <span id="cb18-3"><a href=""></a>  <span class="fu">summarise</span>(<span class="at">moy_O3 =</span> <span class="fu">mean</span>(maxO3), <span class="at">.by =</span>  <span class="fu">c</span>(vent, pluie)) <span class="sc">%&gt;%</span> </span>
 <span id="cb18-4"><a href=""></a>  <span class="co"># MOYENNER LES VALEURS DE MAXO3 PAR VENT ET PLUIE </span></span>
@@ -985,8 +782,7 @@ Figure&nbsp;1: <a href="https://art.casadebaig.net/">Pierre Casadebaig</a>
 </figure>
 </div>
 </div>
-</div>
-</div>
+</div></div>
 </div>
 </section>
 <section id="des-visualisations-vers-les-tests-statistiques" class="slide level2">
@@ -1013,8 +809,7 @@ Figure&nbsp;1: <a href="https://art.casadebaig.net/">Pierre Casadebaig</a>
 </div>
 </div>
 </div>
-</div>
-</div>
+</div></div>
 <div class="fragment">
 <p>Peut-on les généraliser ? Rappel:</p>
 <div class="quarto-figure quarto-figure-center">
@@ -1037,13 +832,15 @@ Figure&nbsp;1: <a href="https://art.casadebaig.net/">Pierre Casadebaig</a>
 <ul>
 <li>On dispose de multiples variables, toutes présentant potentiellement un intérêt</li>
 </ul>
-<div class="cell my_class_code">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r my_class_code number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href=""></a><span class="fu">colnames</span>(ozone)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell my_class_code_big">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r my_class_code_big number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href=""></a><span class="fu">colnames</span>(ozone)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code> [1] "maxO3"  "T9"     "T12"    "T15"    "Ne9"    "Ne12"   "Ne15"   "Vx9"   
  [9] "Vx12"   "Vx15"   "maxO3v" "vent"   "pluie" </code></pre>
 </div>
 </div>
+<!-- #| classes: my_class_code -->
+<!-- #| class-source: my_class_code -->
 <div class="fragment">
 <ul>
 <li>Ici une variable particulière nous intéresse (c’est un <em>choix</em> ; guidé par la littérature scientifique / les politiques publiques etc. ): maxO3 (car étant clé pour la pollution de l’air). C’est la <strong>variable réponse</strong></li>
@@ -1058,9 +855,12 @@ Figure&nbsp;1: <a href="https://art.casadebaig.net/">Pierre Casadebaig</a>
 <p><strong>Objectif</strong> : <span style="color:blue;">Généraliser (inférer) au-delà des données de l’échantillon</span></p>
 <p><strong>Problème</strong> : <span style="color:red;">Comment gérer l’incertitude liée au fait qu’on a observé qu’une petite partie des données</span></p>
 </div>
+<div class="fragment">
+<p><em>Faisons d’abord un détour par la notion de distribution statistique et de loi de probabilité</em></p>
+</div>
 </section>
-<section id="rappel-sur-la-notion-de-distribution-statistique" class="slide level2">
-<h2>Rappel sur la notion de distribution statistique</h2>
+<section id="rappel-sur-la-notion-de-distribution-statistique-loi-de-probabilité" class="slide level2">
+<h2>Rappel sur la notion de distribution statistique / loi de probabilité</h2>
 <ul>
 <li><p><strong>Définition :</strong><br>
 Une distribution statistique décrit comment les valeurs d’une variable se répartissent dans un ensemble de données.</p></li>
@@ -1071,7 +871,40 @@ Une distribution statistique décrit comment les valeurs d’une variable se ré
 </ul></li>
 </ul>
 <div class="fragment">
-<p><strong>Quelques paramètres descriptifs d’une distribution</strong></p>
+<p><em>En théorie, une distribution peut s’approcher d’une loi de probabilité.</em></p>
+</div>
+<div class="fragment">
+<div class="columns">
+<div class="column" style="width:30%;">
+<p>Un exemple classique de loi de probabilité que vous connaissez probablement : la loi normale.</p>
+</div><div class="column" style="width:70%;">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="lesson_demarche_stat_files/figure-revealjs/unnamed-chunk-22-1.png" class="quarto-figure quarto-figure-center" width="576"></p>
+</figure>
+</div>
+</div>
+</div>
+</div></div>
+</div>
+<div class="fragment">
+<p><strong>Interprétation probabiliste</strong></p>
+<ul>
+<li>La probabilité qu’une variable aléatoire appartienne à un intervalle donné est proportionnelle à la surface sous la courbe de distribution pour cet intervalle.</li>
+</ul>
+<!-- . . . -->
+<!-- En termes mathématiques: -->
+<!-- $X$ variable aléatoire continue ayant pour densité $f$. -->
+<!-- On a $\mathbb{P}(a \leq X \leq b) = \int_a^b f(t)dt$. -->
+</div>
+</section>
+<section id="décrire-une-loi-de-probabilité" class="slide level2">
+<h2>Décrire une loi de probabilité</h2>
+<p>Il existe de beaucoup de lois de probabilités, qu’on peut décrire via différents paramètres.</p>
+<div class="fragment">
+<p><strong>Quelques paramètres descriptifs d’une loi</strong></p>
 <div class="columns">
 <div class="column" style="width:50%;">
 <ul>
@@ -1083,36 +916,23 @@ Une distribution statistique décrit comment les valeurs d’une variable se ré
 </ul></li>
 <li><strong>Dispersion :</strong>
 <ul>
-<li>Variance / écarte-type</li>
+<li>Variance / écart-type</li>
 <li>IQR / étendue</li>
 </ul></li>
 </ul>
 </div><div class="column" style="width:50%;">
+<div class=".fragment">
 <div class="cell">
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="lesson_demarche_stat_files/figure-revealjs/unnamed-chunk-22-1.png" width="768"></p>
+<p><img data-src="lesson_demarche_stat_files/figure-revealjs/unnamed-chunk-23-1.png" width="768"></p>
 </figure>
 </div>
 </div>
 </div>
 </div>
-</div>
-</div>
-</section>
-<section id="interprétation-probabiliste" class="slide level2">
-<h2>Interprétation probabiliste</h2>
-<ul>
-<li><strong>Probabilité et distributions :</strong>
-<ul>
-<li>La probabilité qu’une variable aléatoire appartienne à un intervalle donné est proportionnelle à la surface sous la courbe de distribution pour cet intervalle.</li>
-</ul></li>
-</ul>
-<div class="fragment">
-<p>En termes mathématiques:</p>
-<p><span class="math inline">\(X\)</span> variable aléatoire continue ayant pour densité <span class="math inline">\(f\)</span>.</p>
-<p>On a <span class="math inline">\(\mathbb{P}(a \leq X \leq b) = \int_a^b f(t)dt\)</span>.</p>
+</div></div>
 </div>
 <div class="fragment">
 <p><strong>Loi normale et règle des 68-95-99</strong></p>
@@ -1120,7 +940,7 @@ Une distribution statistique décrit comment les valeurs d’une variable se ré
 <li><strong>Loi normale</strong> : Distribution en forme de cloche centrée autour de la moyenne.</li>
 <li><strong>Règle 68-95-99</strong> :
 <ul>
-<li>68% des données se trouvent à ±1 écart-type de la moyenne.</li>
+<li>68% des données se trouvent à ±1 écart-type (<span class="math inline">\(\sigma\)</span>) de la moyenne.</li>
 <li>95% à ±2 écarts-types.</li>
 <li>99.7% à ±3 écarts-types.</li>
 </ul></li>
@@ -1131,7 +951,7 @@ Une distribution statistique décrit comment les valeurs d’une variable se ré
 
 <p><strong>Illustration de la règle 68-95-99</strong></p>
 
-<img data-src="lesson_demarche_stat_files/figure-revealjs/unnamed-chunk-23-1.png" width="960" class="r-stretch"></section>
+<img data-src="lesson_demarche_stat_files/figure-revealjs/unnamed-chunk-24-1.png" width="960" class="r-stretch"></section>
 <section id="rappel-théorème-central-limite" class="slide level2">
 <h2>Rappel: Théorème central limite</h2>
 <div class="fragment">
@@ -1156,8 +976,10 @@ Une distribution statistique décrit comment les valeurs d’une variable se ré
 <div style="font-size: 85%;">
 <p>D’où l’intervalle de confiance de <span class="math inline">\(\mu\)</span> au niveau de confiance 95%:</p>
 <p><span class="math inline">\(\left[~\bar x - \frac{s}{\sqrt{n}}t_{1-\alpha/2}(n-1)~;~ \bar x + \frac{s}{\sqrt{n}}t_{1-\alpha/2}(n-1)~\right]\)</span></p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href=""></a><span class="fu">t.test</span>(ozone<span class="sc">$</span>maxO3)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="cell my_class_code_big">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r my_class_code_big number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href=""></a><span class="fu">t.test</span>(ozone<span class="sc">$</span>maxO3)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
     One Sample t-test
@@ -1171,48 +993,21 @@ sample estimates:
 mean of x 
  90.30357 </code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href=""></a>x <span class="ot">&lt;-</span> ozone<span class="sc">$</span>maxO3</span>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="cell my_class_code_big">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r my_class_code_big number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href=""></a>x <span class="ot">&lt;-</span> ozone<span class="sc">$</span>maxO3</span>
 <span id="cb23-2"><a href=""></a></span>
 <span id="cb23-3"><a href=""></a><span class="fu">mean</span>(x) <span class="sc">-</span> <span class="fu">qt</span>(<span class="fl">0.975</span>,<span class="at">df =</span> <span class="dv">111</span>)<span class="sc">*</span><span class="fu">sd</span>(x)<span class="sc">/</span><span class="fu">sqrt</span>(<span class="fu">length</span>(x))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 85.02578</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href=""></a><span class="fu">mean</span>(x) <span class="sc">+</span> <span class="fu">qt</span>(<span class="fl">0.975</span>,<span class="at">df =</span> <span class="dv">111</span>)<span class="sc">*</span><span class="fu">sd</span>(x)<span class="sc">/</span><span class="fu">sqrt</span>(<span class="fu">length</span>(x))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r my_class_code_big number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href=""></a><span class="fu">mean</span>(x) <span class="sc">+</span> <span class="fu">qt</span>(<span class="fl">0.975</span>,<span class="at">df =</span> <span class="dv">111</span>)<span class="sc">*</span><span class="fu">sd</span>(x)<span class="sc">/</span><span class="fu">sqrt</span>(<span class="fu">length</span>(x))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 95.58136</code></pre>
 </div>
 </div>
-</div>
-</div>
-</section>
-<section id="le-tcl-cest-puissant" class="slide level2 scrollable">
-<h2>Le TCL, c’est PUISSANT</h2>
-<div style="font-size: 80%;">
-<ul>
-<li>Ce que dit le TCL, c’est que peu importe la distribution de base, les moyennes empiriques d’échantillons issues cette distribution auront une distribution normale centrée sur l’espérance de la distribution !</li>
-</ul>
-</div>
-<div class="fragment">
-<div style="font-size: 80%;">
-<p><strong>Une simulation rapide pour visualiser les choses</strong></p>
-<ul>
-<li>Ex distribution <span class="math inline">\(\chi_2(3)\)</span></li>
-<li>On connaît la vraie moyenne de cette loi: 3</li>
-</ul>
-</div>
-</div>
-<div class="fragment">
-<div style="font-size: 80%;">
-<p>Mais dans la <em>vraie vie</em>, on aurait accès qu’à un échantillon de cette loi, par ex. de taille <span class="math inline">\(n = 50\)</span>. Regardons comment évolue la distribution des moyennes empiriques en fonction de la taille de l’échantillon.</p>
-</div>
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<figure>
-<p><img data-src="lesson_demarche_stat_files/figure-revealjs/unnamed-chunk-27-1.png" width="960"></p>
-</figure>
-</div>
-</div>
+</div></div>
 </div>
 </div>
 </section>
@@ -1252,12 +1047,25 @@ mean of x
 </section>
 <section class="slide level2">
 
+<div class="columns">
+<div class="column" style="width:30%;">
 <p>Dans notre cas, n = 112, donc <span class="math inline">\(T\)</span> est censée suivre une loi de Student à 111 ddl, sous <span class="math inline">\(H_0\)</span>:</p>
-<!-- . . . -->
-
-<img data-src="lesson_demarche_stat_files/figure-revealjs/unnamed-chunk-28-1.png" width="960" class="r-stretch"><div class="columns">
+</div><!-- . . . --><div class="column" style="width:70%;">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="lesson_demarche_stat_files/figure-revealjs/unnamed-chunk-27-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</div></div>
+<div class="fragment">
+<div class="columns">
 <div class="column" style="width:50%;">
-<div class="cell">
+<div class="cell my_class_code_big">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r my_class_code_big number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href=""></a><span class="fu">t.test</span>(ozone<span class="sc">$</span>maxO3, <span class="at">mu =</span> <span class="dv">100</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
     One Sample t-test
@@ -1271,18 +1079,18 @@ sample estimates:
 mean of x 
  90.30357 </code></pre>
 </div>
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource r my_class_code_big number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href=""></a><span class="co"># MEME CHOSE</span></span>
+<span id="cb29-2"><a href=""></a>Tobs <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(<span class="dv">112</span>)<span class="sc">*</span>(<span class="fu">mean</span>(ozone<span class="sc">$</span>maxO3 )<span class="sc">-</span> <span class="dv">100</span>)<span class="sc">/</span>(<span class="fu">sd</span>(ozone<span class="sc">$</span>maxO3))</span>
+<span id="cb29-3"><a href=""></a><span class="dv">2</span><span class="sc">*</span><span class="fu">pt</span>(Tobs, <span class="dv">111</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0.0004147533</code></pre>
 </div>
 </div>
 </div><!-- . . . --><div class="column" style="width:50%;">
 <p>Pour une loi de Student à n-1 ddl, -3.64 est une valeur <em>peu probable</em> donc on rejette <span class="math inline">\(H_0\)</span>, au seuil de 5%.</p>
-</div>
-</div>
-<div class="fragment">
-<blockquote>
-<p>Ici, on a testé <span class="math inline">\(H_0\)</span> vs H1 : <span class="math inline">\(\mu \neq 100\)</span> (alternative = “two.sided”) mais on aurait pu testeer H1: <span class="math inline">\(\mu &lt; 100\)</span> (alternative = “less”) ou H1: <span class="math inline">\(\mu &gt; 100\)</span> (alternative = “greater”)</p>
-</blockquote>
+</div></div>
+<!-- . . . -->
+<!-- Ici, on a testé $H_0$ vs H1 : $\mu \neq 100$ (alternative = "two.sided") mais on aurait pu testeer H1: $\mu < 100$ (alternative = "less") ou H1: $\mu > 100$ (alternative = "greater") -->
 </div>
 </section>
 <section id="comparaison-de-2-moyennes-12" class="slide level2">
@@ -1294,22 +1102,21 @@ mean of x
 <div class="column">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href=""></a>ozone <span class="sc">%&gt;%</span> </span>
-<span id="cb29-2"><a href=""></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> pluie, <span class="at">y =</span> maxO3, <span class="at">fill =</span> pluie, <span class="at">col =</span> pluie)) <span class="sc">+</span></span>
-<span id="cb29-3"><a href=""></a>  <span class="fu">geom_point</span>(<span class="at">position =</span> <span class="fu">position_jitter</span>(<span class="at">width =</span> .<span class="dv">05</span>, <span class="at">height =</span> <span class="dv">0</span>)) <span class="sc">+</span></span>
-<span id="cb29-4"><a href=""></a>  <span class="fu">geom_boxplot</span>(<span class="at">alpha=</span>  .<span class="dv">3</span>, <span class="at">outlier.shape =</span> <span class="cn">NA</span>) <span class="sc">+</span> </span>
-<span id="cb29-5"><a href=""></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span> <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href=""></a>ozone <span class="sc">%&gt;%</span> </span>
+<span id="cb31-2"><a href=""></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> pluie, <span class="at">y =</span> maxO3, <span class="at">fill =</span> pluie, <span class="at">col =</span> pluie)) <span class="sc">+</span></span>
+<span id="cb31-3"><a href=""></a>  <span class="fu">geom_point</span>(<span class="at">position =</span> <span class="fu">position_jitter</span>(<span class="at">width =</span> .<span class="dv">05</span>, <span class="at">height =</span> <span class="dv">0</span>)) <span class="sc">+</span></span>
+<span id="cb31-4"><a href=""></a>  <span class="fu">geom_boxplot</span>(<span class="at">alpha=</span>  .<span class="dv">3</span>, <span class="at">outlier.shape =</span> <span class="cn">NA</span>) <span class="sc">+</span> </span>
+<span id="cb31-5"><a href=""></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span> <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div><div class="column fragment">
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="lesson_demarche_stat_files/figure-revealjs/unnamed-chunk-31-1.png" width="480"></p>
+<p><img data-src="lesson_demarche_stat_files/figure-revealjs/unnamed-chunk-30-1.png" width="480"></p>
 </figure>
 </div>
 </div>
-</div>
-</div>
+</div></div>
 </div>
 <div class="fragment">
 <p>Passer de l’échantillon à n’importe quel jour induit de l’incertitude. Mais, il est plus facile de conclure qu’il y a une différence entre les deux moyennes <em>dans la population</em> si:</p>
@@ -1367,18 +1174,19 @@ mean of x
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="lesson_demarche_stat_files/figure-revealjs/unnamed-chunk-32-1.png" width="960"></p>
+<p><img data-src="lesson_demarche_stat_files/figure-revealjs/unnamed-chunk-31-1.png" width="960"></p>
 </figure>
 </div>
 </div>
 </div>
-</div>
-</div>
+</div></div>
 </section>
 <section id="mise-en-pratique" class="slide level2">
 <h2>Mise en pratique</h2>
-<div class="cell my_class_code">
-<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource r my_class_code number-lines code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href=""></a><span class="fu">var.test</span>(maxO3 <span class="sc">~</span>pluie, <span class="at">data =</span> ozone, <span class="at">alternative =</span> <span class="st">"two.sided"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="columns">
+<div class="column" style="width:70%;">
+<div class="cell my_class_code_big">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource r my_class_code_big number-lines code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href=""></a><span class="fu">var.test</span>(maxO3 <span class="sc">~</span>pluie, <span class="at">data =</span> ozone, <span class="at">alternative =</span> <span class="st">"two.sided"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
     F test to compare two variances
@@ -1393,13 +1201,17 @@ ratio of variances
          0.3590605 </code></pre>
 </div>
 </div>
-<div class="fragment">
+</div><div class="column" style="width:30%;">
+<div class=".fragment">
 <blockquote>
-<p>Ici on rejet <span class="math inline">\(H_0\)</span> au seuil de 5%, les variances sont différentes</p>
+<p>Ici on rejette <span class="math inline">\(H_0\)</span> au seuil de 5%, les variances sont différentes</p>
 </blockquote>
-<div class="cell my_class_code">
-<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource r my_class_code number-lines code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href=""></a><span class="co"># NOTEZ LE VAR.EQUAL</span></span>
-<span id="cb32-2"><a href=""></a><span class="fu">t.test</span>(maxO3 <span class="sc">~</span>pluie, <span class="at">data =</span> ozone, <span class="at">alternative =</span> <span class="st">"two.sided"</span>, <span class="at">var.equal =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div></div>
+<div class="fragment">
+<div class="cell my_class_code_big">
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource r my_class_code_big number-lines code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href=""></a><span class="co"># NOTEZ LE VAR.EQUAL</span></span>
+<span id="cb34-2"><a href=""></a><span class="fu">t.test</span>(maxO3 <span class="sc">~</span>pluie, <span class="at">data =</span> ozone, <span class="at">alternative =</span> <span class="st">"two.sided"</span>, <span class="at">var.equal =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
     Welch Two Sample t-test
@@ -1409,20 +1221,6 @@ t = -6.3362, df = 109.88, p-value = 5.321e-09
 alternative hypothesis: true difference in means between group Pluie and group Sec is not equal to 0
 95 percent confidence interval:
  -36.02936 -18.86110
-sample estimates:
-mean in group Pluie   mean in group Sec 
-           73.39535           100.84058 </code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource r my_class_code number-lines code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href=""></a><span class="fu">t.test</span>(maxO3 <span class="sc">~</span>pluie, <span class="at">data =</span> ozone, <span class="at">alternative =</span> <span class="st">"two.sided"</span>, <span class="at">var.equal =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>
-    Two Sample t-test
-
-data:  maxO3 by pluie
-t = -5.6715, df = 110, p-value = 1.157e-07
-alternative hypothesis: true difference in means between group Pluie and group Sec is not equal to 0
-95 percent confidence interval:
- -37.03521 -17.85525
 sample estimates:
 mean in group Pluie   mean in group Sec 
            73.39535           100.84058 </code></pre>
@@ -1491,7 +1289,8 @@ mean in group Pluie   mean in group Sec
 <p><strong>alors c’est possible</strong> <i class="fa-solid fa-face-smile-wink fa-1xl" aria-label="face-smile-wink"></i></p>
 <div class="cell columns column-output-location">
 <div class="column">
-<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href=""></a><span class="fu">power.t.test</span>(<span class="at">delta=</span>  <span class="fl">0.2</span>, <span class="at">sd =</span> <span class="fl">0.4</span>, <span class="at">power =</span> .<span class="dv">80</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href=""></a><span class="fu">power.t.test</span>(<span class="at">delta=</span>  <span class="fl">0.2</span>, </span>
+<span id="cb36-2"><a href=""></a>             <span class="at">sd =</span> <span class="fl">0.4</span>, <span class="at">power =</span> .<span class="dv">80</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column fragment">
 <div class="cell-output cell-output-stdout">
 <pre><code>
@@ -1506,8 +1305,7 @@ mean in group Pluie   mean in group Sec
 
 NOTE: n is number in *each* group</code></pre>
 </div>
-</div>
-</div>
+</div></div>
 </section></section>
 <section>
 <section id="analyse-de-variance-à-un-facteur" class="title-slide slide level1 center">
@@ -1517,25 +1315,24 @@ NOTE: n is number in *each* group</code></pre>
 <section id="test-de-leffet-dun-facteur" class="slide level2">
 <h2>Test de l’effet d’un facteur</h2>
 <div class="columns">
-<div class="column" style="width:65%;">
+<div class="column" style="width:60%;">
 <p>Par ex. <em>la direction du vent a-t-elle un effet sur le maximum d’ozone</em> ?</p>
 <p><strong>Variable réponse quantitative</strong>, notée Y: maxO3</p>
 <p><strong>Variable explicative qualitative à I modalités (groupes)</strong>: direction du vent</p>
 <p>C’est le cadre de l’ANOVA (<strong>AN</strong>alysis <strong>O</strong>f <strong>VA</strong>riance)</p>
-</div><div class="column" style="width:35%;">
+</div><div class="column" style="width:40%;">
 <div class="cell">
 <div class="cell-output cell-output-stdout">
-<pre><code> maxO3   T9  T12  T15 Ne9 Ne12 Ne15     Vx9    Vx12    Vx15 maxO3v  vent pluie
-    87 15.6 18.5 18.4   4    4    8  0.6946 -1.7101 -0.6946     84  Nord   Sec
-    82 17.0 18.4 17.7   5    5    7 -4.3301 -4.0000 -3.0000     87  Nord   Sec
-    92 15.3 17.6 19.5   2    5    4  2.9544  1.8794  0.5209     82   Est   Sec
-   114 16.2 19.7 22.5   1    1    0  0.9848  0.3473 -0.1736     92  Nord   Sec
-    94 17.4 20.5 20.4   8    8    7 -0.5000 -2.9544 -4.3301    114 Ouest   Sec
-    80 17.7 19.8 18.3   6    6    7 -5.6382 -5.0000 -6.0000     94 Ouest Pluie</code></pre>
+<pre><code> maxO3  vent
+    87  Nord
+    82  Nord
+    92   Est
+   114  Nord
+    94 Ouest
+    80 Ouest</code></pre>
 </div>
 </div>
-</div>
-</div>
+</div></div>
 <p>Réflexe … <i class="fa-solid fa-question fa-1xl" aria-label="question"></i> <i class="fa-solid fa-question fa-1xl" aria-label="question"></i> <i class="fa-solid fa-question fa-1xl" aria-label="question"></i></p>
 <div class="fragment">
 <p>Visu!</p>
@@ -1554,12 +1351,11 @@ NOTE: n is number in *each* group</code></pre>
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="lesson_demarche_stat_files/figure-revealjs/unnamed-chunk-37-1.png" width="528"></p>
+<p><img data-src="lesson_demarche_stat_files/figure-revealjs/unnamed-chunk-36-1.png" width="528"></p>
 </figure>
 </div>
 </div>
-</div>
-</div>
+</div></div>
 </div>
 <div class="fragment">
 <p><strong>Question de base modifiée en : la moyenne du maximum d’ozone est-elle la même pour chaque direction du vent ?</strong></p>
@@ -1669,12 +1465,12 @@ NOTE: n is number in *each* group</code></pre>
 <p><span class="math inline">\(\Rightarrow\)</span> On peut résumer tout ça dans un seul modèle:</p>
 </div>
 <div class="fragment">
-<p><span class="math display">\[\left\{
+<p><span class="math display">\[ \left\{
 \begin{array}{l}
 \forall i,j~~~~Y_{ij}=\mu_i+ \varepsilon_{ij}\\
 \forall i,j~~~~{\cal L}(\varepsilon_{ij})={\cal N}(0,\sigma^2)\\
 \forall (i,j)\neq (i',j')~~cov(\varepsilon_{ij},\varepsilon_{i'j'})=0\\
-\end{array}\right.\]</span></p>
+\end{array}\right. \]</span></p>
 </div>
 </section>
 <section id="deux-définitions-du-modèle" class="slide level2">
@@ -1687,12 +1483,12 @@ NOTE: n is number in *each* group</code></pre>
 <p><img data-src="images/modele_aov_mu.png" class="quarto-figure quarto-figure-center" style="width:100.0%" height="250"></p>
 </figure>
 </div>
-<p><span class="math display">\[\left\{
+<p><span class="math display">\[ \left\{
 \begin{array}{l}
 \forall i,j~~~~Y_{ij}=\mu_i+ \varepsilon_{ij}\\
 \forall i,j~~~~{\cal L}(\varepsilon_{ij})={\cal N}(0,\sigma^2)\\
 \forall (i,j)\neq (i',j')~~cov(\varepsilon_{ij},\varepsilon_{i'j'})=0\\
-\end{array}\right.\]</span></p>
+\end{array}\right. \]</span></p>
 <p><span class="math inline">\(I\)</span> paramètres: les <span class="math inline">\(\mu_i\)</span></p>
 </div><div class="column" style="width:50%;">
 <div class="quarto-figure quarto-figure-center">
@@ -1707,8 +1503,7 @@ NOTE: n is number in *each* group</code></pre>
 \forall (i,j)\neq (i',j')~~cov(\varepsilon_{ij},\varepsilon_{i'j'})=0\\
 \end{array}\right.\]</span></p>
 <p><span class="math inline">\(I + 1\)</span> paramètres: l’effet moyen <span class="math inline">\(\mu\)</span> et les <span class="math inline">\(I\)</span> coefficients <span class="math inline">\(\alpha_i\)</span> (effet du niveau i)</p>
-</div>
-</div>
+</div></div>
 <p>On doit avoir <span class="math inline">\(\forall~i,~~\mu+\alpha_i=\mu_i\)</span> besoin de <strong>contraintes</strong></p>
 </section>
 <section id="estimer-les-paramètres-du-modèle" class="slide level2">
@@ -1716,7 +1511,7 @@ NOTE: n is number in *each* group</code></pre>
 <p>On minimise les écarts entre observations (<span class="math inline">\(Y_{ij}\)</span>) et prédictions par le modèle <span class="math inline">\(\hat{Y}_{ij}\)</span>.</p>
 <p>On minimise le <strong>critère des moindres carrés ordinaires</strong> (<i class="fa-solid fa-question fa-1xl" aria-label="question"></i>: pourquoi carré <span class="math inline">\(^2\)</span>)</p>
 <div class="fragment">
-<p><span class="math display">\[SCER  =  \sum_{i=1}^{I}\sum_{j=1}^{n_i}\left( Y_{ij} - \hat Y_{ij} \right)^{2}=\sum_{i=1}^{I}\sum_{j=1}^{n_i} \left( Y_{ij} - (\hat\mu +\hat\alpha_i) \right)^{2}\]</span></p>
+<p><span class="math display">\[   SCER  =  \sum_{i=1}^{I}\sum_{j=1}^{n_i}\left( Y_{ij} - \hat Y_{ij} \right)^{2}=\sum_{i=1}^{I}\sum_{j=1}^{n_i} \left( Y_{ij} - (\hat\mu +\hat\alpha_i) \right)^{2} \]</span></p>
 <p><span class="math display">\[\mbox{SCER minimal quand }\forall~i,~\hat\mu +\hat\alpha_i=\frac{1}{n_i}\sum_{j=1}^{n_i}Y_{ij}=Y_{i\bullet}\]</span></p>
 </div>
 <div class="fragment">
@@ -1800,6 +1595,9 @@ NOTE: n is number in *each* group</code></pre>
 <section id="décomposition-de-la-variabilité" class="slide level2">
 <h2>Décomposition de la variabilité</h2>
 <!-- ![](images/decomp_anova_hospital.png){width="50%" fig-align="center" height="250"} -->
+<div>
+
+</div>
 <div class="quarto-layout-panel" data-layout="[ 32, 2, 32, 2, 32 ]">
 <div class="quarto-layout-row">
 <div id="first-column" class="quarto-layout-cell" style="flex-basis: 32.0%;justify-content: flex-start;">
@@ -1818,7 +1616,7 @@ NOTE: n is number in *each* group</code></pre>
 <div class="quarto-layout-cell" style="flex-basis: 32.0%;justify-content: center;">
 <p><img data-src="images/plot_bss_anova.png" class="fragment"></p>
 </div>
-<div id="second-column" class="quarto-layout-cell" style="flex-basis: 2.0%;justify-content: flex-start;">
+<div class="quarto-layout-cell" style="flex-basis: 2.0%;justify-content: flex-start;">
 <div class="fragment">
 <div style="font-size: 300%;">
 <p><i class="fa-solid fa-plus fa-4xl" aria-label="plus"></i></p>
@@ -1884,7 +1682,7 @@ NOTE: n is number in *each* group</code></pre>
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="lesson_demarche_stat_files/figure-revealjs/unnamed-chunk-40-1.png" width="451"></p>
+<p><img data-src="lesson_demarche_stat_files/figure-revealjs/unnamed-chunk-39-1.png" width="451"></p>
 </figure>
 </div>
 </div>
@@ -1894,13 +1692,12 @@ NOTE: n is number in *each* group</code></pre>
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="lesson_demarche_stat_files/figure-revealjs/unnamed-chunk-41-1.png" width="451"></p>
+<p><img data-src="lesson_demarche_stat_files/figure-revealjs/unnamed-chunk-40-1.png" width="451"></p>
 </figure>
 </div>
 </div>
 </div>
-</div>
-</div>
+</div></div>
 <div style="text-align: center;">
 <p>Deux rapports de corrélation différents pour des <span class="math inline">\(Y_{i\bullet}\)</span> identiques.</p>
 </div>
@@ -1922,9 +1719,8 @@ NOTE: n is number in *each* group</code></pre>
 <p><span class="math inline">\(\Leftrightarrow\)</span></p>
 </div><div class="column" style="width:36%;">
 <p><span class="math display">\[H_0 :~\forall i,\ \alpha_i=0\]</span> <span class="math display">\[H_1 :~\exists i\ /\ \alpha_i\ne 0\]</span></p>
-</div>
-</div>
-<p><span class="math display">\[\mbox{On a : }\mathbb{E}\left(\frac{SC_{mod}}{I-1}\right)=\sigma^2+\frac{1}{I-1}\displaystyle{\sum_{i=1}^I n_i\alpha_i^2} \ \ \  \mathbb{E}\left(\frac{SC_{R}}{n-I}\right)=\sigma^2\]</span></p>
+</div></div>
+<p><span class="math display">\[\mbox{On a : }\mathbb{E}\left(\frac{SC_{mod}}{I-1}\right)=\sigma^2+\frac{1}{I-1}\displaystyle{\sum_{i=1}^I n_i\alpha_i^2} \quad ;\quad    \mathbb{E}\left(\frac{SC_{R}}{n-I}\right)=\sigma^2\]</span></p>
 </div>
 <div class="fragment">
 <div class="columns">
@@ -1939,8 +1735,7 @@ NOTE: n is number in *each* group</code></pre>
 <p><img data-src="images/fisher_anova.png" class="quarto-figure quarto-figure-center" style="width:80.0%" height="250"></p>
 </figure>
 </div>
-</div>
-</div>
+</div></div>
 </div>
 </section>
 <section id="table-danalyse-de-variance-décomposition-de-variabilité-et-test" class="slide level2">
@@ -2019,13 +1814,12 @@ vent - Sud     7.7856     5.2052  1.4957  0.13764</code></pre>
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="lesson_demarche_stat_files/figure-revealjs/unnamed-chunk-43-1.png" width="960"></p>
+<p><img data-src="lesson_demarche_stat_files/figure-revealjs/unnamed-chunk-42-1.png" width="960"></p>
 </figure>
 </div>
 </div>
 </div>
-</div>
-</div>
+</div></div>
 </div>
 </section>
 <section id="inférence-test-de-conformité-dun-coefficient-12" class="slide level2">
@@ -2121,24 +1915,23 @@ attr(,"class")
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="lesson_demarche_stat_files/figure-revealjs/unnamed-chunk-47-1.png" width="960"></p>
+<p><img data-src="lesson_demarche_stat_files/figure-revealjs/unnamed-chunk-46-1.png" width="960"></p>
 </figure>
 </div>
 </div>
 </div>
-</div>
-</div>
+</div></div>
 </section>
 <section id="analyse-des-résidus-du-modèle" class="slide level2 scrollable">
 <h2>Analyse des résidus du modèle</h2>
 <div style="font-size: 70%;">
 <p><strong>Rappel du modèle:</strong></p>
-<p><span class="math display">\[\left\{
+<p><span class="math display">\[ \left\{
 \begin{array}{l}
 \forall i,j~~~~Y_{ij}=\mu_i+ \varepsilon_{ij}\\
 \forall i,j~~~~{\cal L}(\varepsilon_{ij})={\cal N}(0,\sigma^2)\\
 \forall (i,j)\neq (i',j')~~cov(\varepsilon_{ij},\varepsilon_{i'j'})=0\\
-\end{array}\right.\]</span></p>
+\end{array}\right. \]</span></p>
 <ul>
 <li><p>On a des hypothèses sur les <em>résidus</em> du modèle</p></li>
 <li><p>Les résidus, c’est ce qui n’est pas expliqué par le modèle. Donc pour les estimer, il faut <em>ajuster</em> le modèle</p></li>
@@ -2162,12 +1955,11 @@ attr(,"class")
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="lesson_demarche_stat_files/figure-revealjs/unnamed-chunk-48-1.png" width="384"></p>
+<p><img data-src="lesson_demarche_stat_files/figure-revealjs/unnamed-chunk-47-1.png" width="384"></p>
 </figure>
 </div>
 </div>
-</div>
-</div>
+</div></div>
 <div class="cell columns column-output-location">
 <div class="column">
 <div class="sourceCode cell-code" id="cb48"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href=""></a>residus <span class="sc">%&gt;%</span> </span>
@@ -2179,12 +1971,11 @@ attr(,"class")
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="lesson_demarche_stat_files/figure-revealjs/unnamed-chunk-49-1.png" width="384"></p>
+<p><img data-src="lesson_demarche_stat_files/figure-revealjs/unnamed-chunk-48-1.png" width="384"></p>
 </figure>
 </div>
 </div>
-</div>
-</div>
+</div></div>
 </div>
 </section></section>
 <section>
@@ -2207,12 +1998,11 @@ attr(,"class")
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="lesson_demarche_stat_files/figure-revealjs/unnamed-chunk-50-1.png" width="480"></p>
+<p><img data-src="lesson_demarche_stat_files/figure-revealjs/unnamed-chunk-49-1.png" width="480"></p>
 </figure>
 </div>
 </div>
-</div>
-</div>
+</div></div>
 <div class="fragment">
 <p><strong>Questions</strong> <i class="fa-solid fa-question fa-1xl" aria-label="question"></i></p>
 <ul>
@@ -2268,9 +2058,21 @@ sample estimates:
 <ul>
 <li>Une corrélation est un indicateur utile, mais à utiliser avec précaution</li>
 </ul>
+<div class=".columns">
+<div class="column" style="width:45%;">
+<div class=".fragment">
 <blockquote>
 <p>“Corrélation n’implique pas causalité”</p>
 </blockquote>
+</div>
+</div><div class="column" style="width:55%;">
+<div class="r-stack">
+<p><img data-src="images/causality_shoes_0.png" class="fragment"></p>
+<p><img data-src="images/causality_shoes_1.png" class="fragment"></p>
+<p><img data-src="images/causality_shoes_2.png" class="fragment"></p>
+<!-- ![](images/causality_shoes_3.png){.fragment} -->
+</div>
+</div></div>
 </div>
 <div class="fragment">
 <div style="font-size: 80%;">
@@ -2312,8 +2114,7 @@ sample estimates:
 <p><img data-src="images/spurious_cor2.svg" class="quarto-figure quarto-figure-center" style="width:100.0%"></p>
 </figure>
 </div>
-</div>
-</div>
+</div></div>
 <div class="fragment">
 <div style="font-size: 90%;">
 <blockquote>
@@ -2329,6 +2130,15 @@ sample estimates:
 <figure>
 <p><img data-src="images/illu_corr.jpg" class="quarto-figure quarto-figure-center" style="width:80.0%" height="550"></p>
 </figure>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="lesson_demarche_stat_files/figure-revealjs/unnamed-chunk-51-1.png" width="960"></p>
+</figure>
+</div>
+</div>
 </div>
 </section>
 <section id="remettons-les-mains-dans-le-cambouis" class="slide level2">
@@ -2348,14 +2158,14 @@ sample estimates:
 <section id="estimation-des-paramètres" class="slide level2">
 <h2>Estimation des paramètres</h2>
 <div class="columns">
-<div class="column" style="width:50%;">
+<div class="column" style="width:45%;">
 <p><span class="math display">\[SCER = \sum_{i=1}^n (y_i - \hat{y}_i)^2 = \sum_{i=1}^n (y_i - \beta_0 - \beta_1 x_i)^2\]</span></p>
 <p><strong>Paramètres d’espérance:</strong></p>
 <ul>
 <li><span class="math inline">\(\hat{\beta_1} = \frac{\sum_{i=1}^n (x_i-\bar x)(Y_i-\bar{Y})}{\sum_{i=1}^n (x_i - \bar{x})^2}\)</span></li>
 <li><span class="math inline">\(\hat{\beta_0} = \bar{Y} - \hat{\beta_1}\bar{x}\)</span></li>
 </ul>
-</div><div class="column" style="width:50%;">
+</div><div class="column" style="width:55%;">
 <div class="r-stack">
 <p><img data-src="images/MCO1_T9maxO3_page-0001.jpg" class="fragment"></p>
 <p><img data-src="images/MCO2_T9maxO3_page-0001.jpg" class="fragment"></p>
@@ -2373,11 +2183,10 @@ T9            6.312999  0.6151378 10.262740 9.729952e-18</code></pre>
 </div>
 </div>
 </div>
-</div>
-</div>
+</div></div>
 <div class="fragment">
 <p><strong>Variance résiduelle:</strong></p>
-<p><span class="math display">\[ \hat{\sigma}^2 = \frac{1}{n-2} \sum_{i=1}^n (Y_i-\hat{Y}_i)^2 ~~~~~~ddl_{\mbox{résiduelle}}=n-2~~~~~~\mathbb{E}(\hat\sigma^2)=\sigma^2 \]</span></p>
+<p><span class="math display">\[ \hat{\sigma}^2 = \frac{1}{n-2} \sum_{i=1}^n (Y_i-\hat{Y}_i)^2 ~~~;~~~ddl_{\mbox{résiduelle}}=n-2~~~;~~~\mathbb{E}(\hat\sigma^2)=\sigma^2 \]</span></p>
 </div>
 </section>
 <section id="test-de-conformité" class="slide level2">
@@ -2397,15 +2206,18 @@ T9            6.312999  0.6151378 10.262740 9.729952e-18</code></pre>
 </section>
 <section id="décomposition-de-la-variabilité-1" class="slide level2">
 <h2>Décomposition de la variabilité</h2>
+<div>
+
+</div>
 <div class="quarto-layout-panel" data-layout="[ 32, 2, 32, 2, 32 ]">
 <div class="quarto-layout-row">
-<div id="first-column" class="quarto-layout-cell" style="flex-basis: 32.0%;justify-content: flex-start;">
+<div class="quarto-layout-cell" style="flex-basis: 32.0%;justify-content: flex-start;">
 <div class="r-stack">
 <p><img data-src="images/plot_ozone.png" class="fragment"></p>
 <p><img data-src="images/plot_SCT_ozone.png" class="fragment"></p>
 </div>
 </div>
-<div id="second-column" class="quarto-layout-cell" style="flex-basis: 2.0%;justify-content: flex-start;">
+<div class="quarto-layout-cell" style="flex-basis: 2.0%;justify-content: flex-start;">
 <div class="fragment">
 <div style="font-size: 300%;">
 <p><i class="fa-solid fa-equals fa-4xl" aria-label="equals"></i></p>
@@ -2415,7 +2227,7 @@ T9            6.312999  0.6151378 10.262740 9.729952e-18</code></pre>
 <div class="quarto-layout-cell" style="flex-basis: 32.0%;justify-content: center;">
 <p><img data-src="images/plot_SCM_ozone.png" class="fragment"></p>
 </div>
-<div id="second-column" class="quarto-layout-cell" style="flex-basis: 2.0%;justify-content: flex-start;">
+<div class="quarto-layout-cell" style="flex-basis: 2.0%;justify-content: flex-start;">
 <div class="fragment">
 <div style="font-size: 300%;">
 <p><i class="fa-solid fa-plus fa-4xl" aria-label="plus"></i></p>
@@ -2494,8 +2306,7 @@ Residuals 45053 110   410
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 </div>
 </div>
-</div>
-</div>
+</div></div>
 <div class="fragment">
 <p>Comparaison de <span class="math inline">\(SCM\)</span> et <span class="math inline">\(SCT\)</span> par le critère <span class="math inline">\(\displaystyle{R^{2} = \frac{ SCM }{ SCT } }\)</span></p>
 </div>
@@ -2553,7 +2364,7 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 </div>
 </div><div class="column" style="width:50%;">
 <div class="fragment">
-<p>Différent de:</p>
+<p><em>Différent de:</em></p>
 <p>Prédiction d’une nouvelle valeur de Y pour un <span class="math inline">\(x_0\)</span> donné (<em>notez le 1 supplémentaire dans la variance</em>).</p>
 <p><span class="math inline">\(\hat{Y}_0 \sim \mathcal{N}(Y_0, \sigma \sqrt{1+\frac{1}{n} + \frac{(x_0 - \bar{x})^2}{\sum_{i=1}^n (x_i - \bar{x})^2)}})\)</span></p>
 <div class="cell">
@@ -2565,7 +2376,7 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 <span id="cb57-4"><a href=""></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> T9, <span class="at">y =</span> maxO3)) <span class="sc">+</span></span>
 <span id="cb57-5"><a href=""></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
 <span id="cb57-6"><a href=""></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span><span class="st">"lm"</span>) <span class="sc">+</span><span class="co"># affiche intervalle de confiance par défaut</span></span>
-<span id="cb57-7"><a href=""></a>  <span class="fu">geom_ribbon</span>(<span class="at">data =</span> data_predict, <span class="fu">aes</span>(<span class="at">x =</span> T9, <span class="at">ymax =</span> upr, <span class="at">ymin =</span> lwr, <span class="at">y =</span> fit), <span class="at">alpha =</span> .<span class="dv">2</span>, <span class="at">fill =</span> <span class="st">"lightblue3"</span>) <span class="sc">+</span> </span>
+<span id="cb57-7"><a href=""></a>  <span class="fu">geom_ribbon</span>(<span class="at">data =</span> data_predict, <span class="fu">aes</span>(<span class="at">x =</span> T9, <span class="at">ymax =</span> upr, <span class="at">ymin =</span> lwr, <span class="at">y =</span> fit), <span class="at">alpha =</span> .<span class="dv">2</span>, <span class="at">fill =</span> <span class="st">"blue"</span>) <span class="sc">+</span> </span>
 <span id="cb57-8"><a href=""></a>  <span class="fu">theme_bw</span>()<span class="sc">+</span></span>
 <span id="cb57-9"><a href=""></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Intervalle de confiance du comportement moyen"</span>) <span class="sc">+</span></span>
 <span id="cb57-10"><a href=""></a>  <span class="fu">theme</span>(<span class="at">text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">15</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -2577,10 +2388,33 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 </figure>
 </div>
 </div>
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb58"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb58-1"><a href=""></a>res</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+LinearModel(formula = maxO3 ~ T9, data = ozone)
+
+Residual standard error: 20.24 on 110 degrees of freedom
+Multiple R-squared:  0.4891 
+F-statistic: 105.3 on 1 and 110 DF,  p-value: 9.73e-18 
+AIC = 675.7    BIC = 681.1
+
+Ftest
+             SS  df    MS F value    Pr(&gt;F)
+T9        43138   1 43138  105.32 &lt; 2.2e-16
+Residuals 45053 110   410                  
+
+Ttest
+             Estimate Std. Error t value Pr(&gt;|t|)
+(Intercept) -25.60761   11.45512 -2.2355  0.02741
+T9            6.31300    0.61514 10.2627  &lt; 2e-16</code></pre>
 </div>
 </div>
 </div>
-</div>
+</div></div>
 </section>
 <section id="validité-du-modèle" class="slide level2">
 <h2>Validité du modèle</h2>
@@ -2657,24 +2491,24 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 </div>
 <div class="fragment">
 <p><span class="math display">\[\mbox{Réponse} = f(var1, \color{red}{var_2, ..., var_p}) =\underbrace{var1 + \color{red}{var_2 + ...+ var_p}}_{\mbox{régression linéaire}}\]</span></p>
-<p><span class="math display">\[\left\{
+<p><span class="math display">\[ \left\{
 \begin{array}{l}
 \forall i=1,...,n~~~~\varepsilon_i ~~\mbox{i.i.d.}~~,~~\mathbb{E}(\varepsilon_i)=0,~~\mathbb{V}(\varepsilon_i)=\sigma^2\\
 \forall i\neq k~~~~cov(\varepsilon_i,\varepsilon_{k})=0\\
-\end{array}\right.\]</span></p>
+\end{array}\right. \]</span></p>
 </div>
 </section>
 <section id="une-variable-quanti-peut-avoir-un-effet-différent-selon-différentes-modalités-dune-quali" class="slide level2">
 <h2>Une variable quanti peut avoir un effet différent selon différentes modalités d’une quali</h2>
 <div class="cell columns column-output-location">
 <div class="column">
-<div class="sourceCode cell-code" id="cb58"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb58-1"><a href=""></a>ozone <span class="sc">%&gt;%</span> </span>
-<span id="cb58-2"><a href=""></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> T9, <span class="at">y =</span> maxO3, <span class="at">color =</span> vent))<span class="sc">+</span></span>
-<span id="cb58-3"><a href=""></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb58-4"><a href=""></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">se =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
-<span id="cb58-5"><a href=""></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Effet de T9 sur l'ozone selon les directions du vent"</span>) <span class="sc">+</span></span>
-<span id="cb58-6"><a href=""></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span> </span>
-<span id="cb58-7"><a href=""></a>  <span class="fu">theme</span>(<span class="at">text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">15</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb60"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb60-1"><a href=""></a>ozone <span class="sc">%&gt;%</span> </span>
+<span id="cb60-2"><a href=""></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> T9, <span class="at">y =</span> maxO3, <span class="at">color =</span> vent))<span class="sc">+</span></span>
+<span id="cb60-3"><a href=""></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb60-4"><a href=""></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">se =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
+<span id="cb60-5"><a href=""></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Effet de T9 sur l'ozone selon les directions du vent"</span>) <span class="sc">+</span></span>
+<span id="cb60-6"><a href=""></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span> </span>
+<span id="cb60-7"><a href=""></a>  <span class="fu">theme</span>(<span class="at">text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">15</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column">
 <div class="cell-output-display">
 <div>
@@ -2683,8 +2517,7 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 </figure>
 </div>
 </div>
-</div>
-</div>
+</div></div>
 <div class="fragment">
 <p>Cela s’écrit ainsi:</p>
 <div style="font-size: 75%;">
@@ -2701,13 +2534,12 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 \gamma_{3} ~\mbox{si vent d'ouest} \\
 \gamma_{4} ~\mbox{si vent du sud} \\
 \end{array}
-\right\}\right)\times T9{ij}+ alea_{ij}\]</span> <span><span class="math display">\[\left\{
+\right\}\right)\times T9{ij}+ alea_{ij}\]</span> <span class="math display">\[\left\{
 \begin{array}{l}
 \forall i,j~~~~Y_{ij}=\mu+\alpha_i+(\beta+\gamma_i)\times x_{ij} + \varepsilon_{ij}\\
 \forall i,j~~~~\varepsilon_{ij} ~~\mbox{i.i.d.}~~,~~\mathbb{E}(\varepsilon_{ij})=0,~~\mathbb{V}(\varepsilon_{ij})=\sigma^2\\
 \forall i,j~~~~cov(\varepsilon_{ij},\varepsilon_{i'j'})=0\\
-\end{array}\right.\]</span><br>
-</span></p>
+\end{array}\right. \]</span></p>
 </div>
 </div>
 </section>
@@ -2722,17 +2554,17 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 <div class="fragment">
 <div class="cell columns column-output-location">
 <div class="column">
-<div class="sourceCode cell-code" id="cb59"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb59-1"><a href=""></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb59-2"><a href=""></a></span>
-<span id="cb59-3"><a href=""></a>ozone <span class="sc">%&gt;%</span></span>
-<span id="cb59-4"><a href=""></a>  <span class="fu">group_by</span>(vent, pluie) <span class="sc">%&gt;%</span></span>
-<span id="cb59-5"><a href=""></a>  <span class="fu">summarize</span>(<span class="at">MOY =</span> <span class="fu">mean</span>(maxO3)) <span class="sc">%&gt;%</span></span>
-<span id="cb59-6"><a href=""></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>vent, <span class="at">y=</span>MOY, <span class="at">col=</span>pluie, <span class="at">group=</span>pluie)) <span class="sc">+</span></span>
-<span id="cb59-7"><a href=""></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
-<span id="cb59-8"><a href=""></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb59-9"><a href=""></a>  <span class="fu">labs</span>(<span class="st">"Interaction pluie:vent sur maxO3"</span>, <span class="at">x =</span> <span class="st">"Direction du vent"</span>, <span class="at">y =</span> <span class="st">"Maximum d'ozone"</span>) <span class="sc">+</span></span>
-<span id="cb59-10"><a href=""></a>  <span class="fu">theme_bw</span>()<span class="sc">+</span> </span>
-<span id="cb59-11"><a href=""></a>  <span class="fu">theme</span>(<span class="at">text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">15</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb61"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb61-1"><a href=""></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb61-2"><a href=""></a></span>
+<span id="cb61-3"><a href=""></a>ozone <span class="sc">%&gt;%</span></span>
+<span id="cb61-4"><a href=""></a>  <span class="fu">group_by</span>(vent, pluie) <span class="sc">%&gt;%</span></span>
+<span id="cb61-5"><a href=""></a>  <span class="fu">summarize</span>(<span class="at">MOY =</span> <span class="fu">mean</span>(maxO3)) <span class="sc">%&gt;%</span></span>
+<span id="cb61-6"><a href=""></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>vent, <span class="at">y=</span>MOY, <span class="at">col=</span>pluie, <span class="at">group=</span>pluie)) <span class="sc">+</span></span>
+<span id="cb61-7"><a href=""></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
+<span id="cb61-8"><a href=""></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb61-9"><a href=""></a>  <span class="fu">labs</span>(<span class="st">"Interaction pluie:vent sur maxO3"</span>, <span class="at">x =</span> <span class="st">"Direction du vent"</span>, <span class="at">y =</span> <span class="st">"Maximum d'ozone"</span>) <span class="sc">+</span></span>
+<span id="cb61-10"><a href=""></a>  <span class="fu">theme_bw</span>()<span class="sc">+</span> </span>
+<span id="cb61-11"><a href=""></a>  <span class="fu">theme</span>(<span class="at">text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">18</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column">
 <div class="cell-output-display">
 <div>
@@ -2741,13 +2573,12 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 </figure>
 </div>
 </div>
-</div>
-</div>
+</div></div>
 </div>
 <div class="fragment">
 <p>Cela s’écrit ainsi:</p>
 <div style="font-size: 73%;">
-<p><span><span class="math display">\[MaxO3 \sim vent + pluie + \mbox{vent:pluie}\]</span> <span class="math display">\[MaxO3_{ijk} \sim \mu+\left\{ \begin{array}{l}
+<p><span class="math display">\[MaxO3 \sim vent + pluie + \mbox{vent:pluie}\]</span> <span class="math display">\[MaxO3_{ijk} \sim \mu+\left\{ \begin{array}{l}
 \alpha_{1} ~\mbox{si vent d'est} \\
 \alpha_{2} ~\mbox{si vent du nord} \\
 \alpha_{3} ~\mbox{si vent d'ouest} \\
@@ -2765,13 +2596,13 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 \cdots
 \alpha\beta_{42} ~\mbox{si vent du sud ET sec} \\
 \end{array}
-\right\} + alea_{ijk}\]</span></span> <span><span class="math display">\[\left\{
+\right\} + alea_{ijk}\]</span></p>
+<p><span class="math display">\[\left\{
 \begin{array}{l}
 \forall i,j,k~~~~Y_{ijk}=\mu+\alpha_i+\beta_j +\alpha\beta_{ij} +\varepsilon_{ijk}\\
 \forall i,j,k~~~~\varepsilon_{ijk} ~~\mbox{i.i.d.}~~,~~\mathbb{E}(\varepsilon_{ijk})=0,~~\mathbb{V}(\varepsilon_{ijk})=\sigma^2\\
 \forall i,j,k~~~~cov(\varepsilon_{ijk},\varepsilon_{i'j'k'})=0\\
-\end{array}\right.\]</span><br>
-</span></p>
+\end{array}\right. \]</span></p>
 </div>
 </div>
 </section>
@@ -2782,23 +2613,25 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 <div data-layout-nrow="2">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb60"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb60-1"><a href=""></a><span class="fu">theme_set</span>(<span class="fu">theme_bw</span>())</span>
-<span id="cb60-2"><a href=""></a></span>
-<span id="cb60-3"><a href=""></a>ozone <span class="sc">%&gt;%</span></span>
-<span id="cb60-4"><a href=""></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> T9, <span class="at">y =</span> maxO3)) <span class="sc">+</span></span>
-<span id="cb60-5"><a href=""></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb60-6"><a href=""></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span><span class="st">"lm"</span>, <span class="at">se=</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
-<span id="cb60-7"><a href=""></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Quanti sur quanti"</span>)</span>
-<span id="cb60-8"><a href=""></a>ozone <span class="sc">%&gt;%</span></span>
-<span id="cb60-9"><a href=""></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> vent, <span class="at">y =</span> maxO3, <span class="at">color =</span> vent)) <span class="sc">+</span></span>
-<span id="cb60-10"><a href=""></a>  <span class="fu">geom_point</span>(<span class="at">position=</span> <span class="fu">position_jitter</span>(<span class="at">width =</span>.<span class="dv">05</span>, <span class="at">height=</span> <span class="dv">0</span>)) <span class="sc">+</span></span>
-<span id="cb60-11"><a href=""></a>  <span class="fu">geom_boxplot</span>(<span class="at">alpha=</span> .<span class="dv">3</span>, <span class="at">outlier.shape =</span> <span class="cn">NA</span>) <span class="sc">+</span></span>
-<span id="cb60-12"><a href=""></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Quali sur quanti"</span>) <span class="sc">+</span></span>
-<span id="cb60-13"><a href=""></a>  <span class="fu">theme_bw</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb62"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb62-1"><a href=""></a><span class="fu">theme_set</span>(<span class="fu">theme_bw</span>())</span>
+<span id="cb62-2"><a href=""></a></span>
+<span id="cb62-3"><a href=""></a>ozone <span class="sc">%&gt;%</span></span>
+<span id="cb62-4"><a href=""></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> T9, <span class="at">y =</span> maxO3)) <span class="sc">+</span></span>
+<span id="cb62-5"><a href=""></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb62-6"><a href=""></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span><span class="st">"lm"</span>, <span class="at">se=</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
+<span id="cb62-7"><a href=""></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Quanti sur quanti"</span>)<span class="sc">+</span> </span>
+<span id="cb62-8"><a href=""></a>  <span class="fu">theme</span>(<span class="at">text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">18</span>))</span>
+<span id="cb62-9"><a href=""></a>ozone <span class="sc">%&gt;%</span></span>
+<span id="cb62-10"><a href=""></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> vent, <span class="at">y =</span> maxO3, <span class="at">color =</span> vent)) <span class="sc">+</span></span>
+<span id="cb62-11"><a href=""></a>  <span class="fu">geom_point</span>(<span class="at">position=</span> <span class="fu">position_jitter</span>(<span class="at">width =</span>.<span class="dv">05</span>, <span class="at">height=</span> <span class="dv">0</span>)) <span class="sc">+</span></span>
+<span id="cb62-12"><a href=""></a>  <span class="fu">geom_boxplot</span>(<span class="at">alpha=</span> .<span class="dv">3</span>, <span class="at">outlier.shape =</span> <span class="cn">NA</span>) <span class="sc">+</span></span>
+<span id="cb62-13"><a href=""></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Quali sur quanti"</span>) <span class="sc">+</span></span>
+<span id="cb62-14"><a href=""></a>  <span class="fu">theme_bw</span>()<span class="sc">+</span> </span>
+<span id="cb62-15"><a href=""></a>  <span class="fu">theme</span>(<span class="at">text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">18</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="quarto-layout-panel" data-layout-ncol="2">
 <div class="quarto-layout-row">
-<div id="first-column" class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
 <div class="cell fragment" data-layout-align="center">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
@@ -2809,7 +2642,7 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 </div>
 </div>
 </div>
-<div id="second-column" class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
 <div class="cell fragment" data-layout-align="center">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
@@ -2824,20 +2657,22 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 </div>
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb61" data-cap-location="top"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb61-1"><a href=""></a>ozone <span class="sc">%&gt;%</span></span>
-<span id="cb61-2"><a href=""></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> T9, <span class="at">y =</span> maxO3, <span class="at">color =</span> vent))<span class="sc">+</span></span>
-<span id="cb61-3"><a href=""></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb61-4"><a href=""></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">se =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
-<span id="cb61-5"><a href=""></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Quali / quanti sur quanti"</span>) <span class="sc">+</span></span>
-<span id="cb61-6"><a href=""></a>  <span class="fu">theme_bw</span>()</span>
-<span id="cb61-7"><a href=""></a>ozone <span class="sc">%&gt;%</span></span>
-<span id="cb61-8"><a href=""></a>  <span class="fu">group_by</span>(vent, pluie) <span class="sc">%&gt;%</span></span>
-<span id="cb61-9"><a href=""></a>  <span class="fu">summarize</span>(<span class="at">MOY =</span> <span class="fu">mean</span>(maxO3)) <span class="sc">%&gt;%</span></span>
-<span id="cb61-10"><a href=""></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>vent, <span class="at">y=</span>MOY, <span class="at">col=</span>pluie, <span class="at">group=</span>pluie)) <span class="sc">+</span></span>
-<span id="cb61-11"><a href=""></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
-<span id="cb61-12"><a href=""></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb61-13"><a href=""></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Quali / quali sur quanti"</span>) <span class="sc">+</span></span>
-<span id="cb61-14"><a href=""></a>  <span class="fu">theme_bw</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb63" data-cap-location="top"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb63-1"><a href=""></a>ozone <span class="sc">%&gt;%</span></span>
+<span id="cb63-2"><a href=""></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> T9, <span class="at">y =</span> maxO3, <span class="at">color =</span> vent))<span class="sc">+</span></span>
+<span id="cb63-3"><a href=""></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb63-4"><a href=""></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">se =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
+<span id="cb63-5"><a href=""></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Quali / quanti sur quanti"</span>) <span class="sc">+</span></span>
+<span id="cb63-6"><a href=""></a>  <span class="fu">theme_bw</span>()<span class="sc">+</span> </span>
+<span id="cb63-7"><a href=""></a>  <span class="fu">theme</span>(<span class="at">text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">18</span>))</span>
+<span id="cb63-8"><a href=""></a>ozone <span class="sc">%&gt;%</span></span>
+<span id="cb63-9"><a href=""></a>  <span class="fu">group_by</span>(vent, pluie) <span class="sc">%&gt;%</span></span>
+<span id="cb63-10"><a href=""></a>  <span class="fu">summarize</span>(<span class="at">MOY =</span> <span class="fu">mean</span>(maxO3)) <span class="sc">%&gt;%</span></span>
+<span id="cb63-11"><a href=""></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>vent, <span class="at">y=</span>MOY, <span class="at">col=</span>pluie, <span class="at">group=</span>pluie)) <span class="sc">+</span></span>
+<span id="cb63-12"><a href=""></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
+<span id="cb63-13"><a href=""></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb63-14"><a href=""></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Quali / quali sur quanti"</span>, <span class="at">y =</span> <span class="st">"maxO3"</span>) <span class="sc">+</span></span>
+<span id="cb63-15"><a href=""></a>  <span class="fu">theme_bw</span>()<span class="sc">+</span> </span>
+<span id="cb63-16"><a href=""></a>  <span class="fu">theme</span>(<span class="at">text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">18</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="quarto-layout-panel" data-layout-ncol="2">
 <div class="quarto-layout-row">
@@ -2937,11 +2772,12 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 \forall i=1,...,n~~~~Y_i=\color{red}{\beta_0}+\color{red}{\beta_1}x_{i1}+\color{red}{\beta_2}x_{i2}+\color{red}{\beta_3}x_{i3}+...+\color{red}{\beta_p}x_{ip} + \varepsilon_{i}\\
 \forall i=1,...,n~~~~\varepsilon_i ~~\mbox{i.i.d.}~~,~~\mathbb{E}(\varepsilon_i)=0,~~\mathbb{V}(\varepsilon_i)=\sigma^2\\
 \forall i\neq k~~~~cov(\varepsilon_i,\varepsilon_{k})=0\\
-\end{array}\right.\]</span><br>
-<span style="color: red">(p+1) paramètres à estimer</span> + 1 paramètre de variance <span class="math inline">\(\sigma^2\)</span></p>
+\end{array}\right. \]</span></p>
+<p><span style="color: red">(p+1) paramètres à estimer</span> + 1 paramètre de variance <span class="math inline">\(\sigma^2\)</span></p>
 <div class="fragment">
 <p><strong>Matriciellement</strong> : <span class="math inline">\(\displaystyle{Y=X\beta+E~~~~\mbox{avec}~~\mathbb{E}(E)=0,~~\mathbb{V}(E)=\sigma^2 Id}\)</span></p>
-<p><span class="math display">\[\left(
+<p><span class="math display">\[
+\left(
 \begin{array}{c}
 Y_1\\
 \vdots \\
@@ -2995,8 +2831,7 @@ Y_n \\
 \forall i,j~~~~\varepsilon_{ij} ~~\mbox{i.i.d.}~~,~~\mathbb{E}(\varepsilon_{ij})=0,~~\mathbb{V}(\varepsilon_{ij})=\sigma^2\\
 \forall i,j~~~~cov(\varepsilon_{ij},\varepsilon_{i'j'})=0\\
 \end{array}\right.\]</span></p>
-</div>
-</div>
+</div></div>
 </div>
 </div>
 </section>
@@ -3062,8 +2897,8 @@ Y_n \\
 <section id="exemple-sur-ozone" class="slide level2">
 <h2>Exemple sur ozone</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb62"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb62-1"><a href=""></a><span class="fu">library</span>(FactoMineR)</span>
-<span id="cb62-2"><a href=""></a><span class="fu">LinearModel</span>(maxO3<span class="sc">~</span>T9<span class="sc">+</span>T12<span class="sc">+</span>T15<span class="sc">+</span>Ne9<span class="sc">+</span>Ne12<span class="sc">+</span>Ne15<span class="sc">+</span>Vx9<span class="sc">+</span>Vx12<span class="sc">+</span>Vx15<span class="sc">+</span>maxO3v<span class="sc">+</span>vent<span class="sc">+</span>pluie, <span class="at">data =</span>ozone)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb64"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb64-1"><a href=""></a><span class="fu">library</span>(FactoMineR)</span>
+<span id="cb64-2"><a href=""></a><span class="fu">LinearModel</span>(maxO3<span class="sc">~</span>T9<span class="sc">+</span>T12<span class="sc">+</span>T15<span class="sc">+</span>Ne9<span class="sc">+</span>Ne12<span class="sc">+</span>Ne15<span class="sc">+</span>Vx9<span class="sc">+</span>Vx12<span class="sc">+</span>Vx15<span class="sc">+</span>maxO3v<span class="sc">+</span>vent<span class="sc">+</span>pluie, <span class="at">data =</span>ozone)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Call:
@@ -3111,7 +2946,7 @@ vent - Sud     2.546243   3.061435  0.8317   0.40761
 pluie - Pluie -1.623565   1.741257 -0.9324   0.35344
 pluie - Sec    1.623565   1.741257  0.9324   0.35344</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb64"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb64-1"><a href=""></a><span class="co"># LinearModel(maxO3 ~. , data=  ozone) ## Ecriture simplifiée</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb66"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb66-1"><a href=""></a><span class="co"># LinearModel(maxO3 ~. , data=  ozone) ## Ecriture simplifiée</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="test-de-leffet-dune-ou-plusieurs-variables" class="slide level2">
@@ -3150,6 +2985,9 @@ pluie - Sec    1.623565   1.741257  0.9324   0.35344</code></pre>
 <ul>
 <li>Souvent utilisé: sélection du modèle qui minimise l’AIC / BIC: compromis entre maximisation de la vraisemblance <span class="math inline">\(L\)</span> (à quel point le modèle s’ajuste bien aux données) et le nb de paramètres</li>
 </ul>
+<div>
+
+</div>
 <div class="quarto-layout-panel" data-layout-ncol="2">
 <div class="quarto-layout-row">
 <div class="fragment quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
@@ -3179,8 +3017,8 @@ pluie - Sec    1.623565   1.741257  0.9324   0.35344</code></pre>
 <section id="exemple-sur-ozone-sélection-de-variables" class="slide level2">
 <h2>Exemple sur ozone: sélection de variables</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb65"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb65-1"><a href=""></a><span class="fu">library</span>(FactoMineR)</span>
-<span id="cb65-2"><a href=""></a><span class="fu">LinearModel</span>(maxO3 <span class="sc">~</span>  ., <span class="at">data =</span> ozone, <span class="at">selection =</span> <span class="st">"bic"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb67"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb67-1"><a href=""></a><span class="fu">library</span>(FactoMineR)</span>
+<span id="cb67-2"><a href=""></a><span class="fu">LinearModel</span>(maxO3 <span class="sc">~</span>  ., <span class="at">data =</span> ozone, <span class="at">selection =</span> <span class="st">"bic"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Results for the complete model:
 ==============================
@@ -3277,7 +3115,7 @@ maxO3v       0.354832   0.057888  6.1296 1.499e-08</code></pre>
 <td>Commentaires</td>
 <td></td>
 <td></td>
-<td>Contrainte à poser sur les paramètres (le mieux est <span class="math inline">\(\sum_{i=1}^n \alpha_i = 0\)</span>)</td>
+<td>Contrainte à poser sur les paramètres (le mieux est <span class="math inline">\(\sum_{i=1}^I \alpha_i = 0\)</span>)</td>
 <td>Contrainte à poser sur les paramètres (le mieux est <span class="math inline">\(\forall i, \sum_j \alpha \beta_{ij} =0\)</span> et <span class="math inline">\(\forall j, \sum_i \alpha \beta_{ij} =0\)</span>)</td>
 </tr>
 </tbody>
@@ -3318,31 +3156,31 @@ maxO3v       0.354832   0.057888  6.1296 1.499e-08</code></pre>
 </div>
 <div class="columns">
 <div class="column" style="width:20%;">
-<div class="cell my_class_code_small">
-<div class="sourceCode cell-code" id="cb67"><pre class="sourceCode numberSource r my_class_code_small number-lines code-with-copy"><code class="sourceCode r"><span id="cb67-1"><a href=""></a><span class="co">#lm par défaut</span></span>
-<span id="cb67-2"><a href=""></a><span class="fu">coef</span>( <span class="fu">lm</span>(maxO3 <span class="sc">~</span> pluie,</span>
-<span id="cb67-3"><a href=""></a>         <span class="at">data=</span> ozone) )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell my_class_code">
+<div class="sourceCode cell-code" id="cb69"><pre class="sourceCode numberSource r my_class_code number-lines code-with-copy"><code class="sourceCode r"><span id="cb69-1"><a href=""></a><span class="co">#lm par défaut</span></span>
+<span id="cb69-2"><a href=""></a><span class="fu">coef</span>( <span class="fu">lm</span>(maxO3 <span class="sc">~</span> pluie,</span>
+<span id="cb69-3"><a href=""></a>         <span class="at">data=</span> ozone) )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>(Intercept)    pluieSec 
    73.39535    27.44523 </code></pre>
 </div>
 </div>
 </div><div class="column" style="width:40%;">
-<div class="cell my_class_code_small">
-<div class="sourceCode cell-code" id="cb69"><pre class="sourceCode numberSource r my_class_code_small number-lines code-with-copy"><code class="sourceCode r"><span id="cb69-1"><a href=""></a><span class="co">#lm en spécifiant le contraste</span></span>
-<span id="cb69-2"><a href=""></a><span class="fu">coef</span>(<span class="fu">lm</span>(maxO3 <span class="sc">~</span> pluie,</span>
-<span id="cb69-3"><a href=""></a>        <span class="at">data =</span> ozone,</span>
-<span id="cb69-4"><a href=""></a>        <span class="at">contrasts =</span> <span class="fu">list</span>(<span class="at">pluie=</span> <span class="st">"contr.sum"</span>)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell my_class_code">
+<div class="sourceCode cell-code" id="cb71"><pre class="sourceCode numberSource r my_class_code number-lines code-with-copy"><code class="sourceCode r"><span id="cb71-1"><a href=""></a><span class="co">#lm en spécifiant le contraste</span></span>
+<span id="cb71-2"><a href=""></a><span class="fu">coef</span>(<span class="fu">lm</span>(maxO3 <span class="sc">~</span> pluie,</span>
+<span id="cb71-3"><a href=""></a>        <span class="at">data =</span> ozone,</span>
+<span id="cb71-4"><a href=""></a>        <span class="at">contrasts =</span> <span class="fu">list</span>(<span class="at">pluie=</span> <span class="st">"contr.sum"</span>)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>(Intercept)      pluie1 
    87.11796   -13.72262 </code></pre>
 </div>
 </div>
 </div><div class="column" style="width:40%;">
-<div class="cell my_class_code_small">
-<div class="sourceCode cell-code" id="cb71"><pre class="sourceCode numberSource r my_class_code_small number-lines code-with-copy"><code class="sourceCode r"><span id="cb71-1"><a href=""></a><span class="co"># LinearModel prémâche le travaille</span></span>
-<span id="cb71-2"><a href=""></a><span class="fu">LinearModel</span>(maxO3 <span class="sc">~</span> pluie,</span>
-<span id="cb71-3"><a href=""></a>            <span class="at">data=</span> ozone)<span class="sc">$</span>Ttest</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell my_class_code">
+<div class="sourceCode cell-code" id="cb73"><pre class="sourceCode numberSource r my_class_code number-lines code-with-copy"><code class="sourceCode r"><span id="cb73-1"><a href=""></a><span class="co"># LinearModel prémâche le travaille</span></span>
+<span id="cb73-2"><a href=""></a><span class="fu">LinearModel</span>(maxO3 <span class="sc">~</span> pluie,</span>
+<span id="cb73-3"><a href=""></a>            <span class="at">data=</span> ozone)<span class="sc">$</span>Ttest</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>               Estimate Std. Error   t value     Pr(&gt;|t|)
 (Intercept)    87.11796   2.419555 36.005777 1.066479e-62
@@ -3350,8 +3188,7 @@ pluie - Pluie -13.72262   2.419555 -5.671545 1.156980e-07
 pluie - Sec    13.72262   2.419555  5.671545 1.156980e-07</code></pre>
 </div>
 </div>
-</div>
-</div>
+</div></div>
 </div>
 </section>
 <section id="inteprétation-des-résultats" class="slide level2">
@@ -3377,11 +3214,12 @@ pluie - Sec    13.72262   2.419555  5.671545 1.156980e-07</code></pre>
 <section id="décomposition-de-la-variabilité-variables-quali-données-équilibrées" class="slide level2">
 <h2>Décomposition de la variabilité : variables quali, données équilibrées</h2>
 <p>Quand les données sont équilibrées, la décomposition de la variabilité est parfaite:</p>
-<p><span class="math display">\[\begin{array}{ccl}
+<p><span class="math display">\[
+\begin{array}{ccl}
 \displaystyle{\sum_{i,j,k}(y_{ijk}-y_{\bullet\bullet\bullet})^2}&amp;=&amp; \displaystyle{\sum_{i,j,k}\underbrace{(y_{i\bullet\bullet}-y_{\bullet\bullet\bullet})^2}_{\hat\alpha_i^2}} + \displaystyle{\sum_{i,j,k}\underbrace{(y_{\bullet  j \bullet }-y_{\bullet \bullet \bullet})^2}_{\hat\beta_j^2}}\\
 &amp;&amp;+ \displaystyle{\sum_{i,j,k}\underbrace{(y_{ij\bullet }-y_{i\bullet \bullet}-y_{\bullet j\bullet}+y_{\bullet \bullet\bullet})^2}_{\widehat{\alpha\beta}_{ij}^2}}+ \displaystyle{\sum_{i,j,k}\underbrace{(y_{ijk}-y_{ij\bullet})^2}_{\varepsilon_{ijk}^2}}\\
-
-\end{array}\]</span></p>
+\end{array}
+\]</span></p>
 <div class="fragment">
 <p>Quand les données sont équilibrées, les coefficients s’estiment simplement:</p>
 <p><span class="math display">\[\begin{array}{c}
@@ -3395,7 +3233,17 @@ pluie - Sec    13.72262   2.419555  5.671545 1.156980e-07</code></pre>
 <p><span class="math inline">\(\Longrightarrow\)</span> On quantifie parfaitement ce qui est expliqué par chaque variable ou interaction</p>
 <!-- ## Décomposition de la variabilité : variables quali, données déséquilibrées -->
 <!-- Retour sur un exemple montré plus haut, mais légèrement modifié... -->
-<!-- . . . -->
+<!-- \begin{center} -->
+<!-- \begin{tabular}{|c|c|c|} -->
+<!-- \hline -->
+<!-- groupe 1 & groupe 2 & groupe 3 \\ -->
+<!-- \hline -->
+<!-- $y_{11}=6$ & $y_{21}=2$ & $y_{31}=3$ \\ -->
+<!-- $y_{12}=9$ & $y_{22}=4$ & $y_{32}=1$ \\ -->
+<!-- \hline -->
+<!-- % Moyennes : $y_{1\bullet}=7$ & $y_{2\bullet}=3$ & $y_{3\bullet}=2$ \\ -->
+<!-- \end{tabular} -->
+<!-- \end{center} -->
 <!-- . . . -->
 <!-- Question: comment estimer $y_{2\bullet}$ ? Deux possibilités ... -->
 <!-- . . . -->
@@ -3410,9 +3258,9 @@ pluie - Sec    13.72262   2.419555  5.671545 1.156980e-07</code></pre>
 <p>Comparaisons possibles 2 à 2, moyennant une correction de Bonferroni par ex.</p>
 <div class="cell columns column-output-location">
 <div class="column">
-<div class="sourceCode cell-code" id="cb73"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb73-1"><a href=""></a>data_choco <span class="ot">&lt;-</span><span class="fu">read.csv</span>(<span class="st">"data/chocolat_2022.csv"</span>, <span class="at">sep =</span> <span class="st">";"</span>)</span>
-<span id="cb73-2"><a href=""></a>mod <span class="ot">&lt;-</span> <span class="fu">LinearModel</span>(Sucree<span class="sc">~</span>Produit<span class="sc">+</span>Juge<span class="sc">+</span>Produit<span class="sc">:</span>Juge, <span class="at">data=</span>data_choco)</span>
-<span id="cb73-3"><a href=""></a><span class="fu">meansComp</span>(mod,<span class="sc">~</span>Produit, <span class="at">adjust=</span><span class="st">"bonferonni"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb75"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb75-1"><a href=""></a>data_choco <span class="ot">&lt;-</span><span class="fu">read.csv</span>(<span class="st">"data/chocolat_2022.csv"</span>, <span class="at">sep =</span> <span class="st">";"</span>)</span>
+<span id="cb75-2"><a href=""></a>mod <span class="ot">&lt;-</span> <span class="fu">LinearModel</span>(Sucree<span class="sc">~</span>Produit<span class="sc">+</span>Juge<span class="sc">+</span>Produit<span class="sc">:</span>Juge, <span class="at">data=</span>data_choco)</span>
+<span id="cb75-3"><a href=""></a><span class="fu">meansComp</span>(mod,<span class="sc">~</span>Produit, <span class="at">adjust=</span><span class="st">"bonferonni"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column fragment">
 <div class="cell-output-display">
 <div>
@@ -3448,8 +3296,7 @@ CoteOr_bio85 Repere_bio85      Lindt85    Villars85    Equador72 Repere_bio74
 attr(,"class")
 [1] "meansComp"</code></pre>
 </div>
-</div>
-</div>
+</div></div>
 </div>
 </section>
 <section id="prédictions" class="slide level2">
@@ -3459,16 +3306,16 @@ attr(,"class")
 <div class="fragment">
 <p>Sur PC:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb75"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb75-1"><a href=""></a>model <span class="ot">&lt;-</span> <span class="fu">LinearModel</span>(maxO3 <span class="sc">~</span>  ., <span class="at">data =</span> ozone, <span class="at">selection =</span> <span class="st">"bic"</span>)</span>
-<span id="cb75-2"><a href=""></a></span>
-<span id="cb75-3"><a href=""></a>xnew <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">T12=</span><span class="fu">c</span>(<span class="dv">19</span>,<span class="dv">23</span>), <span class="at">Ne9=</span><span class="fu">c</span>(<span class="dv">8</span>,<span class="dv">10</span>), <span class="at">Vx9=</span><span class="fu">c</span>(<span class="fl">1.2</span>,<span class="fl">0.9</span>), <span class="at">maxO3v=</span><span class="fu">c</span>(<span class="dv">70</span>,<span class="dv">95</span>))</span>
-<span id="cb75-4"><a href=""></a><span class="fu">predict</span>(model,xnew,<span class="at">interval=</span><span class="st">"pred"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb77"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb77-1"><a href=""></a>model <span class="ot">&lt;-</span> <span class="fu">LinearModel</span>(maxO3 <span class="sc">~</span>  ., <span class="at">data =</span> ozone, <span class="at">selection =</span> <span class="st">"bic"</span>)</span>
+<span id="cb77-2"><a href=""></a></span>
+<span id="cb77-3"><a href=""></a>xnew <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">T12=</span><span class="fu">c</span>(<span class="dv">19</span>,<span class="dv">23</span>), <span class="at">Ne9=</span><span class="fu">c</span>(<span class="dv">8</span>,<span class="dv">10</span>), <span class="at">Vx9=</span><span class="fu">c</span>(<span class="fl">1.2</span>,<span class="fl">0.9</span>), <span class="at">maxO3v=</span><span class="fu">c</span>(<span class="dv">70</span>,<span class="dv">95</span>))</span>
+<span id="cb77-4"><a href=""></a><span class="fu">predict</span>(model,xnew,<span class="at">interval=</span><span class="st">"pred"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>       fit      lwr       upr
 1 71.41544 42.90026  99.93063
 2 85.92393 56.76803 115.07983</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb77"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb77-1"><a href=""></a><span class="fu">predict</span>(model,xnew,<span class="at">interval=</span><span class="st">"confidence"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb79"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb79-1"><a href=""></a><span class="fu">predict</span>(model,xnew,<span class="at">interval=</span><span class="st">"confidence"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>       fit      lwr      upr
 1 71.41544 64.86327 77.96761
@@ -3483,6 +3330,9 @@ attr(,"class")
 <li><p>Les résidus sont la part du phénomène non-expliquée par le modèle</p></li>
 <li><p>On peut vérifier les hypothèses initiales du modèle</p></li>
 </ul>
+<div>
+
+</div>
 <div class="quarto-layout-panel" data-layout-ncol="2">
 <div class="quarto-layout-row">
 <div class="fragment quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
@@ -3555,15 +3405,6 @@ W = 0.97117, p-value = 0.01587</code></pre>
 <div class="columns">
 <div class="column" style="width:&quot;60%;">
 <div class="cell">
-<style type="text/css">
-/* size of code output, applied to everything */
-
-.reveal pre {
-  font-size: 1.5rem !important;
-}
-</style>
-</div>
-<div class="cell">
 <div class="cell-output cell-output-stdout">
 <pre><code>               SS df     MS F value    Pr(&gt;F)    
 T9          606.2  1  606.2  3.1841 0.0774866 .  
@@ -3585,8 +3426,7 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 <li>des effets de nébulosité de vitesse de vent, du maximum d’O3 de la veille</li>
 <li>des effets de la direction du vent et des températures mais à travers les interactions : la direction du vent modifie l’effet de la T<span class="math inline">\(^o\)</span> (i.e.&nbsp;amplifie l’effet de la T<span class="math inline">\(^o\)</span> ou la diminue selon la direction du vent) sur max O3</li>
 </ul>
-</div>
-</div>
+</div></div>
 <div class="fragment">
 <p>On peut aussi dire (à partir des absences d’effets significatifs):</p>
 <ul>
@@ -3643,8 +3483,7 @@ vent - Sud : T15    0.5672899  1.11114058  0.51054741 6.108279e-01</code></pre>
 <li>Ainsi, quand le vent du nord, l’effet de la T<span class="math inline">\(^o\)</span> à 9h est particulièrement fort (donc s’il fait chaud à 9h quand le vent vient du nord, le max d’O3 risque d’être important)</li>
 <li>etc.</li>
 </ul>
-</div>
-</div>
+</div></div>
 </section>
 <section id="démarche-en-modélisation-bis" class="slide level2">
 <h2>Démarche en modélisation (bis)</h2>
@@ -3660,89 +3499,40 @@ vent - Sud : T15    0.5672899  1.11114058  0.51054741 6.108279e-01</code></pre>
 </div>
 </section></section>
 <section>
-<section id="travaux-dirigés" class="title-slide slide level1 center">
-<h1>Travaux dirigés</h1>
+<section id="annexes" class="title-slide slide level1 center">
+<h1>Annexes</h1>
 
 </section>
-<section id="liste-de-messages-derreurs-communs" class="slide level2">
-<h2>Liste de messages d’erreurs communs</h2>
+<section id="le-tcl-cest-puissant" class="slide level2 scrollable">
+<h2>Le TCL, c’est PUISSANT</h2>
+<div style="font-size: 80%;">
+<ul>
+<li>Ce que dit le TCL, c’est que peu importe la distribution de base, les moyennes empiriques d’échantillons issues cette distribution auront une distribution normale centrée sur l’espérance de la distribution !</li>
+</ul>
+</div>
+<div class="fragment">
+<div style="font-size: 80%;">
+<p><strong>Une simulation rapide pour visualiser les choses</strong></p>
+<ul>
+<li>Ex distribution <span class="math inline">\(\chi_2(3)\)</span></li>
+<li>On connaît la vraie moyenne de cette loi: 3</li>
+</ul>
+</div>
+</div>
+<div class="fragment">
+<div style="font-size: 80%;">
+<p>Mais dans la <em>vraie vie</em>, on aurait accès qu’à un échantillon de cette loi, par ex. de taille <span class="math inline">\(n = 50\)</span>. Regardons comment évolue la distribution des moyennes empiriques en fonction de la taille de l’échantillon.</p>
+</div>
 <div class="cell">
-<style type="text/css">
-/* size of code output, applied to everything */
-
-.reveal pre {
-  font-size: 0.7rem !important;
-}
-</style>
-</div>
-<div style="font-size: 70%;">
-<div class="columns">
-<div class="column" style="width:60%;">
-<ul>
-<li><em>Erreur dans file(file, “rt”) : impossible d’ouvrir la connexion</em>:
-<ul>
-<li><strong>Nom du fichier mal spécifié</strong></li>
-<li><strong>Chemin mal spécifié (vérifiez le projet dans lequel vous êtes en haut à droite)</strong></li>
-</ul></li>
-</ul>
-<div class="cell my_class_code_small">
-<div class="sourceCode cell-code" id="cb83"><pre class="sourceCode numberSource r my_class_code_small number-lines code-with-copy"><code class="sourceCode r"><span id="cb83-1"><a href=""></a><span class="fu">read.table</span>(<span class="st">"https://r-stat-sc-donnees.github.io/ozone.tx"</span>,</span>
-<span id="cb83-2"><a href=""></a>           <span class="at">header=</span><span class="cn">TRUE</span>, <span class="at">stringsAsFactors =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p><span style="color:gray;"><em>Erreur dans file(file, “rt”) : impossible d’ouvrir la connexion vers ‘https://r-stat-sc-donnees.github.io/ozone.tx’</em></span></p>
-<ul>
-<li><em>objet xxx introuvable</em> <span class="math inline">\(\Rightarrow\)</span> <strong>objet non chargé (vérifiez votre environnement)</strong></li>
-</ul>
-<div class="cell my_class_code_small">
-<div class="sourceCode cell-code" id="cb84"><pre class="sourceCode numberSource r my_class_code_small number-lines code-with-copy"><code class="sourceCode r"><span id="cb84-1"><a href=""></a><span class="fu">head</span>(ozone, <span class="at">n=</span> <span class="dv">1</span>)</span>
-<span id="cb84-2"><a href=""></a>ozone <span class="ot">&lt;-</span> <span class="fu">read.table</span>(<span class="st">"https://r-stat-sc-donnees.github.io/ozone.txt"</span>,</span>
-<span id="cb84-3"><a href=""></a>                    <span class="at">header=</span><span class="cn">TRUE</span>, <span class="at">stringsAsFactors =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb84-4"><a href=""></a><span class="fu">head</span>(ozone, <span class="at">n=</span> <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<ul>
-<li><em>impossible de trouver la fonction xxx</em> <span class="math inline">\(\Rightarrow\)</span> <strong>Package non chargé / fonction mal orthographiée (R esT SeNSiBle A La CAsSe !)</strong></li>
-</ul>
-<div class="cell my_class_code_small">
-<div class="sourceCode cell-code" id="cb85"><pre class="sourceCode numberSource r my_class_code_small number-lines code-with-copy"><code class="sourceCode r"><span id="cb85-1"><a href=""></a><span class="fu">LinearModel</span>(maxO3 <span class="sc">~</span>pluie, <span class="at">data =</span> ozone) <span class="co"># package pas chargé</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-error">
-<pre><code>Error in LinearModel(maxO3 ~ pluie, data = ozone): impossible de trouver la fonction "LinearModel"</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb87"><pre class="sourceCode numberSource r my_class_code_small number-lines code-with-copy"><code class="sourceCode r"><span id="cb87-1"><a href=""></a><span class="fu">library</span>(FactoMineR)</span>
-<span id="cb87-2"><a href=""></a><span class="fu">Linearmodel</span>(maxO3 <span class="sc">~</span>pluie, <span class="at">data =</span> ozone) <span class="co"># oubli majuscule à model</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-error">
-<pre><code>Error in Linearmodel(maxO3 ~ pluie, data = ozone): impossible de trouver la fonction "Linearmodel"</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb89"><pre class="sourceCode numberSource r my_class_code_small number-lines code-with-copy"><code class="sourceCode r"><span id="cb89-1"><a href=""></a><span class="co">#LinearModel(maxO3 ~pluie, data = ozone) # marche</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</div><div class="column" style="width:40%;">
-<ul>
-<li>Pas de message mais un <code>+</code> qui apparaît dans la console <span class="math inline">\(\Rightarrow\)</span> Vous n’avez pas fermé chaque parenthèse ouverte
-<ul>
-<li>Appuyer sur Echap après s’être mis dans la console</li>
-<li>Corriger code</li>
-</ul></li>
-</ul>
-<div class="cell my_class_code_small">
-<div class="sourceCode cell-code" id="cb90"><pre class="sourceCode numberSource r my_class_code_small number-lines code-with-copy"><code class="sourceCode r"><span id="cb90-1"><a href=""></a><span class="co"># (mean(c(1:3))</span></span>
-<span id="cb90-2"><a href=""></a></span>
-<span id="cb90-3"><a href=""></a><span class="co"># Ceci s'affiche dans la console</span></span>
-<span id="cb90-4"><a href=""></a><span class="co"># &gt; (mean(c(1:3))</span></span>
-<span id="cb90-5"><a href=""></a><span class="co">#+ </span></span>
-<span id="cb90-6"><a href=""></a></span>
-<span id="cb90-7"><a href=""></a><span class="co"># marche</span></span>
-<span id="cb90-8"><a href=""></a><span class="fu">mean</span>(<span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 2</code></pre>
-</div>
-</div>
-<ul>
-<li>Souvenez-vous…</li>
-</ul>
-<p><img data-src="images/puppy_click.jpg"></p>
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="lesson_demarche_stat_files/figure-revealjs/unnamed-chunk-78-1.png" width="960"></p>
+</figure>
 </div>
 </div>
 </div>
-<!-- Thank CHAT GPT -->
+<!-- Thanks CHAT GPT -->
 <script>
   document.addEventListener('DOMContentLoaded', function() {
     // Obtenir toutes les sections avec un H1, en excluant le premier H1 (le titre de la présentation)
@@ -3770,8 +3560,8 @@ vent - Sud : T15    0.5672899  1.11114058  0.51054741 6.108279e-01</code></pre>
     titleContainer.appendChild(titleElement);
   });
 
-  document.body.insertBefore(titleContainer, document.body.firstChild); // Affiche les titres en haut de la page
 
+  document.body.insertBefore(titleContainer, document.querySelector('.reveal'));
   function updateSectionTitles() {
     const currentSlide = Reveal.getCurrentSlide();
 
@@ -3806,18 +3596,14 @@ vent - Sud : T15    0.5672899  1.11114058  0.51054741 6.108279e-01</code></pre>
     
 </script>
 
-
-
-
-
-<div class="quarto-auto-generated-content">
-<div class="footer footer-default">
-
-</div>
 </div>
 </section></section>
     </div>
-  </div>
+  <div class="quarto-auto-generated-content" style="display: none;">
+<div class="footer footer-default">
+
+</div>
+</div></div>
 
   <script>window.backupDefine = window.define; window.define = undefined;</script>
   <script src="lesson_demarche_stat_files/libs/revealjs/dist/reveal.js"></script>
@@ -3846,7 +3632,8 @@ vent - Sud : T15    0.5672899  1.11114058  0.51054741 6.108279e-01</code></pre>
 'autoAnimateEasing': "ease",
 'autoAnimateDuration': 1,
 'autoAnimateUnmatched': true,
-'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
+'jumpToSlide': true,
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleScrollView(event)\"><kbd>r</kbd> Scroll View Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
 'smaller': false,
  
         // Display controls in the bottom right corner
@@ -4000,7 +3787,7 @@ vent - Sud : T15    0.5672899  1.11114058  0.51054741 6.108279e-01</code></pre>
         margin: 0.1,
 
         math: {
-          mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js',
+          mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js',
           config: 'TeX-AMS_HTML-full',
           tex2jax: {
             inlineMath: [['\\(','\\)']],
@@ -4134,18 +3921,7 @@ vent - Sud : T15    0.5672899  1.11114058  0.51054741 6.108279e-01</code></pre>
         }
         return false;
       }
-      const clipboard = new window.ClipboardJS('.code-copy-button', {
-        text: function(trigger) {
-          const codeEl = trigger.previousElementSibling.cloneNode(true);
-          for (const childEl of codeEl.children) {
-            if (isCodeAnnotation(childEl)) {
-              childEl.remove();
-            }
-          }
-          return codeEl.innerText;
-        }
-      });
-      clipboard.on('success', function(e) {
+      const onCopySuccess = function(e) {
         // button target
         const button = e.trigger;
         // don't keep focus
@@ -4177,7 +3953,27 @@ vent - Sud : T15    0.5672899  1.11114058  0.51054741 6.108279e-01</code></pre>
         }, 1000);
         // clear code selection
         e.clearSelection();
+      }
+      const getTextToCopy = function(trigger) {
+          const codeEl = trigger.previousElementSibling.cloneNode(true);
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
+            }
+          }
+          return codeEl.innerText;
+      }
+      const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+        text: getTextToCopy
       });
+      clipboard.on('success', onCopySuccess);
+      if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+        const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+          text: getTextToCopy,
+          container: window.document.getElementById('quarto-embedded-source-code-modal')
+        });
+        clipboardModal.on('success', onCopySuccess);
+      }
         var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
         var mailtoRegex = new RegExp(/^mailto:/);
           var filterRegex = new RegExp('/' + window.location.host + '/');
@@ -4185,7 +3981,7 @@ vent - Sud : T15    0.5672899  1.11114058  0.51054741 6.108279e-01</code></pre>
             return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
         }
         // Inspect non-navigation links and adorn them if external
-     	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+     	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
         for (var i=0; i<links.length; i++) {
           const link = links[i];
           if (!isInternal(link.href)) {

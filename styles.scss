@@ -1,0 +1,165 @@
+
+//$code-block-font-size: 1em;
+
+  //document.body.insertBefore(titleContainer, document.body.firstChild); // Affiche les titres en haut de la page
+
+.title-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999;
+  background-color: white;
+  //padding: 0.4em 1em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1em;
+  border-bottom: 1px solid #ccc;
+}
+
+.title-container {
+  //border: 1px dashed red;
+  text-align: center;
+}
+
+
+.title-container {
+  max-width: 100%;
+  margin: 0 auto; // centre horizontalement
+  //padding: 0.4em 1em;
+}
+
+
+.section-title {
+  font-weight: bold;
+  font-size: 0.75em;
+  color: grey;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin: 0 3em;
+}
+
+/*
+.title-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999;
+  background-color: white;
+  display: flex;
+  justify-content: center;        // ✅ Centre tous les titres dans la barre
+  align-items: center;
+  flex-wrap: wrap;                // ✅ Permet de passer à la ligne si besoin
+  gap: 1.5em;                     // ✅ Espace horizontal entre titres
+  padding: 0.4em 1em;
+  border-bottom: 1px solid #ccc;
+  max-width: 100%;
+  margin: 0 auto;
+  border: 1px dashed red;
+}
+
+.section-title {
+  font-weight: bold;
+  font-size: 1em;
+  color: grey;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  padding: 0.2em 0.6em;           // ✅ Ajoute de l’espace autour du texte
+  text-align: center;
+  white-space: nowrap;           // ✅ Évite le retour à la ligne dans un titre
+}
+
+
+*/
+/* Conteneur des titres 
+
+
+
+/* Titres des sections */
+
+
+.my_class1 {
+height: 200px;
+width: 100px;
+}
+
+.my_class2 {
+height: 100px;
+width: 200px;
+}
+
+
+/* Source code blocks */
+.reveal pre.sourceCode.r code {
+  font-size: 0.75em !important;
+}
+
+/* Sortie de code (stdout) */
+.reveal .cell-output pre {
+  font-size: 1.1em !important;
+  font-family: monospace !important;
+  white-space: pre !important; /* NE PAS wrap */
+  overflow-x: auto !important;
+  overflow-y: auto !important;
+  word-wrap: normal !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  display: block !important;
+  //border: 1px dashed red;
+}
+
+
+.my_class_code code,
+.my_class_code pre,
+.my_class_code .sourceCode {
+  font-size: 0.85em !important;
+}
+
+/* size of code font, specify in the beginning of the chunks if needed */
+.my_class_code_big code,
+.my_class_code_big pre,
+.my_class_code_big .sourceCode {
+  font-size: 1em !important;
+  
+}
+
+/* size of code font, specify in the beginning of the chunks if needed */
+
+
+.my_class_code_small code,
+.my_class_code_small pre,
+.my_class_code_small .sourceCode {
+  font-size: 0.45em !important;
+  
+}
+
+/* size of code output, applied to everything */
+
+//.reveal pre {
+//  font-size: 0.9rem !important;
+//}
+
+
+
+//.reveal pre {
+//  max-width: 100% !important;
+//  width: 100% !important;
+//  overflow-x: auto !important;
+//  font-size: 1.2em !important; // pour plus de lisibilité si besoin
+//  white-space: pre-wrap; // ou `pre` si tu préfères ne pas wrap
+//}
+//
+//.reveal .cell-output pre {
+//  max-width: 100% !important;
+//  width: 100% !important;
+//  white-space: pre-wrap;
+//  font-size: 1.1em;
+//}
+//
+//
+//.reveal pre code {
+//  font-size: 1.1em !important;
+//}
