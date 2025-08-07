@@ -502,6 +502,7 @@ ggplot(ozone, aes(x = maxO3)) + # création de l'objet ggplot, en spécifiant ce
 ## GGplot - Exemple: distribution d'une variable quantitative {transition="none"}
 
 ```{r, `code-line-numbers`="2", echo = TRUE, cache=TRUE}
+
 ggplot(ozone, aes(y = maxO3)) + # création de l'objet ggplot, en spécifiant ce qu'on veut en y
   geom_boxplot() + # ajout d'une couche boxplot
   labs(title = "Boxplot du maximum d'ozone", x=  "un joli titre pour l'axe x", y = "Maximum d'ozone")
@@ -1080,7 +1081,7 @@ Dans notre cas, n = 112, donc $T$ est censée suivre une loi de Student à 111 d
 ::: {.column width="70%"}
 ```{r, cache=  TRUE}
 #| code-fold: true
-#| fig-height: 4.5
+#| fig-height: 4.4
 #| fig-align: center
 
 
@@ -1568,7 +1569,7 @@ On doit avoir $\forall~i,~~\mu+\alpha_i=\mu_i$ \Rightarrow besoin de **contraint
 
 On minimise les écarts entre observations ($Y_{ij}$) et prédictions par le modèle $\hat{Y}_{ij}$.
 
-On minimise le **critère des moindres carrés ordinaires** ({{< fa question size=1xl >}}: pourquoi carré $^2$)
+On minimise le **critère des moindres carrés ordinaires** ({{< fa question size=1xl >}}: pourquoi carré $^2$ ?)
 
 . . .
 
@@ -1609,7 +1610,74 @@ $y_{1\bullet}=7$ & $y_{2\bullet}=3$ & $y_{3\bullet}=2$ & $y_{\bullet\bullet}=4.2
 
 . . .
 
-> [L'interprétation d'un coefficient $\alpha_i$ dépend de la contrainte choisie !]{style="color:red;"}
+
+
+
+<!-- > [L'interprétation d'un coefficient $\alpha_i$ dépend de la contrainte choisie !]{style="color:red;"} -->
+
+
+<!-- . . . -->
+
+::: callout-important
+## Important
+
+[Le choix de la contrainte impacte FORTEMENT l'interprétation]{style="color:red;"}
+:::
+
+. . .
+
+::: {style="font-size: 75%;"}
+1.  $\sum_i \alpha_i= 0$, la comparaison est faite par rapport à la moyenne des moyennes par modalité
+2.  $\alpha_1= 0$, la comparaison est faite par rapport à un niveau de ref (*moins intuitif, et pas pratique quand présence d'interactions*)
+:::
+
+. . .
+
+::: {style="font-size: 75%;"}
+*Certaines fonctions de R par défaut utilisent la contrainte 2. !*
+:::
+
+. . .
+
+::: {style="font-size: 75%;"}
+Comparez les sorties de ces différentes lignes de code...
+:::
+
+:::::: columns
+::: {.column .incremental width="20%"}
+```{r, cache=TRUE, echo=TRUE}
+#| classes: my_class_code
+#| class-source: my_class_code
+#| 
+#lm par défaut
+coef( lm(maxO3 ~ pluie,
+         data= ozone) )
+```
+:::
+
+::: {.column .incremental width="40%"}
+```{r, cache=TRUE, echo=TRUE}
+#| classes: my_class_code
+#| class-source: my_class_code
+#lm en spécifiant le contraste
+coef(lm(maxO3 ~ pluie,
+        data = ozone,
+        contrasts = list(pluie= "contr.sum")))
+```
+:::
+
+::: {.column .incremental width="40%"}
+```{r, cache= TRUE, echo = TRUE}
+#| classes: my_class_code
+#| class-source: my_class_code
+# LinearModel prémâche le travaille
+LinearModel(maxO3 ~ pluie,
+            data= ozone)$Ttest
+
+```
+:::
+::::::
+
 
 ## Variance résiduelle
 
@@ -2551,7 +2619,6 @@ ozone %>%
   labs(title = "Intervalle de confiance du comportement moyen") +
   theme(text = element_text(size = 15))
 
-res
 ```
 :::
 ::::
@@ -3428,7 +3495,7 @@ On peut aussi dire (à partir des absences d'effets significatifs):
 ## Interprétation des résultats (2/2)
 
 ::::: columns
-::: {.column width="\"60%"}
+::: {.column width="65%"}
 ```{css}
 /* size of code output, applied to everything */
 
@@ -3449,7 +3516,7 @@ mod$Ttest
 ```
 :::
 
-::: {.column width="\"40%"}
+::: {.column width="35%"}
 -   pour T9 et T15, $\beta \ \neq$ 0
 -   {{< fa plus size=1xl >}} nébulosité, {{< fa minus size=1xl >}} max d'O3 ({{< fa triangle-exclamation size=1xl >}} \red{signe est le même que celui de la corrélation})
 -   {{< fa plus size=1xl >}} maximum d'O3 de la veille est grand, {{< fa plus size=1xl >}} maximum d'O3 du jour
