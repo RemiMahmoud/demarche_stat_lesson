@@ -1655,7 +1655,7 @@ coef( lm(maxO3 ~ pluie,
 ```
 :::
 
-::: {.column .incremental width="40%"}
+::: {.column .incremental width="35%"}
 ```{r, cache=TRUE, echo=TRUE}
 #| classes: my_class_code
 #| class-source: my_class_code
@@ -1666,13 +1666,23 @@ coef(lm(maxO3 ~ pluie,
 ```
 :::
 
-::: {.column .incremental width="40%"}
-```{r, cache= TRUE, echo = TRUE}
+
+::: {.column .incremental width="45%"}
+```{r, cache= TRUE, echo = TRUE, eval=FALSE}
 #| classes: my_class_code
 #| class-source: my_class_code
 # LinearModel prémâche le travaille
 LinearModel(maxO3 ~ pluie,
             data= ozone)$Ttest
+
+```
+
+```{r, cache= TRUE, echo = FALSE, eval=TRUE}
+#| classes: my_class_code
+#| class-source: my_class_code
+# LinearModel prémâche le travaille
+round(LinearModel(maxO3 ~ pluie,
+            data= ozone)$Ttest, digits = 2)
 
 ```
 :::
@@ -3244,7 +3254,7 @@ coef( lm(maxO3 ~ pluie,
 ```
 :::
 
-::: {.column .incremental width="40%"}
+::: {.column .incremental width="35%"}
 ```{r, cache=TRUE, echo=TRUE}
 #| classes: my_class_code
 #| class-source: my_class_code
@@ -3255,13 +3265,22 @@ coef(lm(maxO3 ~ pluie,
 ```
 :::
 
-::: {.column .incremental width="40%"}
-```{r, cache= TRUE, echo = TRUE}
+::: {.column .incremental width="45%"}
+```{r, cache= TRUE, echo = TRUE, eval=FALSE}
 #| classes: my_class_code
 #| class-source: my_class_code
 # LinearModel prémâche le travaille
 LinearModel(maxO3 ~ pluie,
             data= ozone)$Ttest
+
+```
+
+```{r, cache= TRUE, echo = FALSE, eval=TRUE}
+#| classes: my_class_code
+#| class-source: my_class_code
+# LinearModel prémâche le travaille
+round(LinearModel(maxO3 ~ pluie,
+            data= ozone)$Ttest, digits = 2)
 
 ```
 :::
