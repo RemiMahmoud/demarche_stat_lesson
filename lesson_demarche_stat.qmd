@@ -3067,7 +3067,7 @@ $$Y\approx X\beta$$ $$X'Y\approx X'X\beta$$ \normalsize $$\color{red}{\hat\beta 
 
 . . .
 
-La variance des résidus $\sigma^2$ est estimée par: $$\hat \sigma^2=\frac{\sum_{i}(Y_{i}-\hat Y_{i})^2}{\mbox{nb données} - \mbox{nb paramétres estimés é  partir des données}}~~~~~~~~~~\mathbb{E}(\hat\sigma^2)=\sigma^2$$
+La variance des résidus $\sigma^2$ est estimée par: $$\hat \sigma^2=\frac{\sum_{i}(Y_{i}-\hat Y_{i})^2}{\mbox{nb données} - \mbox{nb paramétres estimés à partir des données}}~~~~~~~~~~\mathbb{E}(\hat\sigma^2)=\sigma^2$$
 
 ## Décomposition de la variabilité (bis)
 
@@ -3472,7 +3472,7 @@ maxO3v + pluie + vent) * (pluie + vent), data=ozone, selection="bic")
 ## Interprétation des résultats
 
 ::::: columns
-::: {.column width="\"60%"}
+::: {.column width="60%"}
 
 ```{css, eval = FALSE}
 /* size of code output, applied to everything */
@@ -3487,14 +3487,14 @@ maxO3v + pluie + vent) * (pluie + vent), data=ozone, selection="bic")
 mod <- LinearModel(maxO3 ~ (T9 + T12 + T15 + Ne9 + Ne12 + Ne15 + Vx9 + Vx12 + Vx15 +
 maxO3v + pluie + vent) * (pluie + vent), data=ozone, selection="bic")
 
-mod$Ftest
+round(mod$Ftest, digits = 4)
 
 
 
 ```
 :::
 
-::: {.column width="\"40%"}
+::: {.column width="40%"}
 On peut dire (à partir des effets significatifs) qu'il y a, sur le max d'O3:
 
 -   des effets de nébulosité de vitesse de vent, du maximum d'O3 de la veille
@@ -3528,7 +3528,7 @@ On peut aussi dire (à partir des absences d'effets significatifs):
 mod <- LinearModel(maxO3 ~ (T9 + T12 + T15 + Ne9 + Ne12 + Ne15 + Vx9 + Vx12 + Vx15 +
 maxO3v + pluie + vent) * (pluie + vent), data=ozone, selection="bic")
 
-mod$Ttest
+round(mod$Ttest, digits = 4)
 
 
 

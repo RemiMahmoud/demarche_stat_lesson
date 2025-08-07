@@ -119,4 +119,13 @@
   font-size: 0.45em !important;
 }
 
+/* rm nav bar when print mode activated*/
+
+
+@media print {
+  .title-container {
+    display: none !important;
+  }
+}
+
 /* size of code output, applied to everything */
