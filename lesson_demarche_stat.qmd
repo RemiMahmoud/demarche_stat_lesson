@@ -1819,7 +1819,7 @@ ggsave(plot =plot_bss, filename = "images/plot_bss_anova.png", dpi = "retina", w
 **Equation d'analyse de la variance**
 
 \begin{tabular}{cccc}
- &$\displaystyle{\underbrace{\sum_{i,j}(Y_{ij}-Y_{\bullet \bullet})^2}_{SC_T}}$&$= \displaystyle{\underbrace{\sum_{i}(Y_{i\bullet}-Y_{\bullet \bullet})^2}_{SC_F}}$&$+ \displaystyle{\underbrace{\sum_{i,j}(Y_{ij}-Y_{i\bullet})^2}_{SC_R}}$\\
+ &$\displaystyle{\underbrace{\sum_{i,j}(Y_{ij}-Y_{\bullet \bullet})^2}_{SC_T}}$&$= \displaystyle{\underbrace{\sum_{i}n_i(Y_{i\bullet}-Y_{\bullet \bullet})^2}_{SC_F}}$&$+ \displaystyle{\underbrace{\sum_{i,j}(Y_{ij}-Y_{i\bullet})^2}_{SC_R}}$\\
 Variabilité &totale&modèle&résiduelle\\
 ddl&$n-1$&$I-1$&$n-I$\\
 \end{tabular}
@@ -2590,7 +2590,7 @@ $$\hat{Y}_0  = \hat{\beta}_0 + \hat{\beta}_1 x_0$$
 ::: {.column width="50%"}
 Prédiction de la valeur moyenne de Y pour un $x_0$ particulier
 
-$\mathbb{E}(\hat{Y}_0|x_0) \sim \mathcal{N}(Y_0, \sigma \sqrt{\frac{1}{n} + \frac{(x_0 - \bar{x})^2}{\sum_{i=1}^n (x_i - \bar{x})^2)}})$
+$\mathbb{E}(\hat{Y}_0|x_0) \sim \mathcal{N}(Y_0, \sigma \sqrt{\frac{1}{n} + \frac{(x_0 - \bar{x})^2}{\sum_{i=1}^n (x_i - \bar{x})^2}})$
 
 ```{r, echo = TRUE}
 #| code-fold: true
@@ -2613,7 +2613,7 @@ ozone %>%
 
 Prédiction d'une nouvelle valeur de Y pour un $x_0$ donné (*notez le 1 supplémentaire dans la variance*).
 
-$\hat{Y}_0 \sim \mathcal{N}(Y_0, \sigma \sqrt{1+\frac{1}{n} + \frac{(x_0 - \bar{x})^2}{\sum_{i=1}^n (x_i - \bar{x})^2)}})$
+$\hat{Y}_0 \sim \mathcal{N}(Y_0, \sigma \sqrt{1+\frac{1}{n} + \frac{(x_0 - \bar{x})^2}{\sum_{i=1}^n (x_i - \bar{x})^2}})$
 
 ```{r, echo = TRUE, cache=TRUE}
 #| code-fold: true
