@@ -2193,7 +2193,7 @@ ozone %>%
 
 -   Prédire Y à partir de x
 
-## Un autre indice de liaison: le coefficient de corrélation linéaire
+## Un indice de liaison: le coefficient de corrélation linéaire
 
 $$r_{xy}=\frac{\sum_{i=1}^n(x_i-\bar x)(y_i-\bar y)}{\sqrt{\sum_{i=1}^n\left(x_i-\bar x\right)^2}\sqrt{\sum_{i=1}^n(y_i-\bar y)^2}}$$
 
