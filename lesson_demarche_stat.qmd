@@ -2345,7 +2345,7 @@ $$Y_{i} = \beta_0 +\beta_1 x_{i}  +\varepsilon_{i},\quad \varepsilon_{i}\overset
 
 ::::::: columns
 ::: {.column width="45%"}
-$$SCER = \sum_{i=1}^n (y_i - \hat{y}_i)^2 = \sum_{i=1}^n (y_i - \beta_0 - \beta_1 x_i)^2$$
+$$SCER = \sum_{i=1}^n (y_i - \hat{y}_i)^2 = \sum_{i=1}^n (y_i - \hat{\beta_0} - \hat{\beta_1} x_i)^2$$
 
 **Paramètres d'espérance:**
 
@@ -2787,7 +2787,7 @@ ozone %>%
   ggplot(aes(x=vent, y=MOY, col=pluie, group=pluie)) +
   geom_line() +
   geom_point() +
-  labs("Interaction pluie:vent sur maxO3", x = "Direction du vent", y = "Maximum d'ozone") +
+  labs(title = "Interaction pluie:vent sur maxO3", x = "Direction du vent", y = "Maximum d'ozone") +
   theme_bw()+ 
   theme(text = element_text(size = 18))
 
